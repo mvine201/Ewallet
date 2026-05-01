@@ -9,7 +9,7 @@ import Notification from "../models/Notification.js";
 // POST /api/transfer/pin
 export const setPin = async (req, res) => {
   try {
-    const { pin } = req.body;
+    const { currentPin, pin } = req.body;
 
     if (!pin || !/^\d{6}$/.test(pin)) {
       return res.status(400).json({
@@ -23,13 +23,47 @@ export const setPin = async (req, res) => {
       return res.status(404).json({ success: false, message: "Không tìm thấy ví" });
     }
 
+    if (wallet.status !== "active") {
+      return res.status(403).json({
+        success: false,
+        message: "Ví của bạn đã bị khoá",
+      });
+    }
+
+    const hadPin = Boolean(wallet.pin);
+
+    if (hadPin) {
+      if (!currentPin || !/^\d{6}$/.test(currentPin)) {
+        return res.status(400).json({
+          success: false,
+          message: "Vui lòng nhập PIN hiện tại gồm 6 chữ số",
+        });
+      }
+
+      const isCurrentPinValid = await bcrypt.compare(currentPin, wallet.pin);
+      if (!isCurrentPinValid) {
+        return res.status(401).json({
+          success: false,
+          message: "PIN hiện tại không đúng",
+        });
+      }
+
+      const isSamePin = await bcrypt.compare(pin, wallet.pin);
+      if (isSamePin) {
+        return res.status(400).json({
+          success: false,
+          message: "PIN mới không được trùng PIN hiện tại",
+        });
+      }
+    }
+
     const hashedPin = await bcrypt.hash(pin, 10);
     wallet.pin = hashedPin;
     await wallet.save();
 
     return res.status(200).json({
       success: true,
-      message: "Thiết lập PIN thành công",
+      message: hadPin ? "Đổi PIN thành công" : "Thiết lập PIN thành công",
     });
   } catch (error) {
     console.error("setPin error:", error);
@@ -54,6 +88,7 @@ export const lookupReceiver = async (req, res) => {
     const user = await User.findOne({
       $or: [{ phone: q }, { studentId: q }],
       isActive: true,
+      isVerified: true,
     }).select("fullName phone studentId avatar");
 
     if (!user) {

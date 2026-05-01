@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     unique: true,
     sparse: true
   },
+  studentFullName: String,
+  dateOfBirth: String,
   fullName: String,
   password: String,
   phone: {

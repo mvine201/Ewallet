@@ -8,7 +8,7 @@ const transactionSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["topup", "payment", "transfer", "refund"],
+    enum: ["topup", "payment", "transfer", "refund", "savings_deposit", "savings_withdraw"],
     required: true
   },
   status: {
@@ -26,6 +26,11 @@ const transactionSchema = new mongoose.Schema({
   vnpayTransactionId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "VnpayTransaction"
+  },
+  savingsJarId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "SavingsJar",
+    default: null
   },
   description: String
 }, { timestamps: { createdAt: true, updatedAt: false } });

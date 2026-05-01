@@ -1,9 +1,10 @@
 import UIKit
 
-final class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setupTabs()
         setupAppearance()
     }
@@ -16,14 +17,26 @@ final class MainTabBarController: UITabBarController {
             selectedImage: "house.fill",
             root: HomeViewController()
         )
+        let walletNav = createNav(
+            title: "Wallet",
+            image: "creditcard",
+            selectedImage: "creditcard.fill",
+            root: WalletViewController()
+        )
+        let historyNav = createNav(
+            title: "History",
+            image: "clock.arrow.circlepath",
+            selectedImage: "clock.arrow.circlepath",
+            root: TransactionHistoryViewController()
+        )
         let profileNav = createNav(
             title: "Me",
             image: "person",
             selectedImage: "person.fill",
-            root: HomeViewController()
+            root: ProfileViewController()
         )
 
-        viewControllers = [homeNav, profileNav]
+        viewControllers = [homeNav, walletNav, historyNav, profileNav]
         selectedIndex = 1
     }
     
@@ -63,5 +76,16 @@ final class MainTabBarController: UITabBarController {
         if #available(iOS 15.0, *) {
             tabBar.scrollEdgeAppearance = appearance
         }
+    }
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard
+            let navigationController = viewController as? UINavigationController,
+            navigationController.viewControllers.first is WalletViewController
+        else {
+            return
+        }
+
+        navigationController.popToRootViewController(animated: false)
     }
 }

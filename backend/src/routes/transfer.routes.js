@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { setPin, lookupReceiver, transfer } from "../controllers/Transfer.controller.js";
+import { setPin, lookupReceiver, transfer } from "../controllers/transfer.controller.js";
 import { protect } from "../middlewares/auth.middleware.js";
 
 const router = Router();

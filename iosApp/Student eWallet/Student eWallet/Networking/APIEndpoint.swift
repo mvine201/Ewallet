@@ -11,8 +11,16 @@ enum APIEndpoint {
     // Auth
     case register(fullName: String, phone: String, password: String, email: String?)
     case login(phone: String, password: String)
-    case verifyStudent(studentId: String)
+    case verifyStudent(studentId: String, fullName: String, dateOfBirth: String)
+    case changePassword(currentPassword: String, newPassword: String)
+    case changePin(currentPin: String?, pin: String)
     case getMe
+    case getMyWallet
+    case createTopup(amount: Double, pin: String)
+    case getTopupStatus(orderId: String)
+    case getTransactions
+    case lookupReceiver(query: String)
+    case transfer(receiverId: String, amount: Double, description: String?, pin: String)
 }
 
 // MARK: - Base URL
@@ -32,8 +40,24 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/auth/login"
         case .verifyStudent:
             return "\(Self.apiPrefix)/auth/verify-student"
+        case .changePassword:
+            return "\(Self.apiPrefix)/auth/change-password"
+        case .changePin:
+            return "\(Self.apiPrefix)/transfer/pin"
         case .getMe:
             return "\(Self.apiPrefix)/auth/me"
+        case .getMyWallet:
+            return "\(Self.apiPrefix)/wallet/me"
+        case .createTopup:
+            return "\(Self.apiPrefix)/wallet/topup"
+        case let .getTopupStatus(orderId):
+            return "\(Self.apiPrefix)/wallet/topup/status/\(orderId)"
+        case .getTransactions:
+            return "\(Self.apiPrefix)/wallet/transactions"
+        case .lookupReceiver:
+            return "\(Self.apiPrefix)/transfer/lookup"
+        case .transfer:
+            return "\(Self.apiPrefix)/transfer"
         }
     }
 }
@@ -42,9 +66,9 @@ extension APIEndpoint {
 extension APIEndpoint {
     var method: String {
         switch self {
-        case .register, .login, .verifyStudent:
+        case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer:
             return "POST"
-        case .getMe:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver:
             return "GET"
         }
     }
@@ -53,8 +77,12 @@ extension APIEndpoint {
 // MARK: - Query
 extension APIEndpoint {
     var queryItems: [URLQueryItem]? {
-        // Current endpoints do not use query parameters
-        return nil
+        switch self {
+        case let .lookupReceiver(query):
+            return [URLQueryItem(name: "q", value: query)]
+        default:
+            return nil
+        }
     }
 }
 
@@ -76,11 +104,41 @@ extension APIEndpoint {
                 "phone": phone,
                 "password": password
             ]
-        case let .verifyStudent(studentId):
+        case let .verifyStudent(studentId, fullName, dateOfBirth):
             return [
-                "studentId": studentId
+                "studentId": studentId,
+                "fullName": fullName,
+                "dateOfBirth": dateOfBirth
             ]
-        case .getMe:
+        case let .changePassword(currentPassword, newPassword):
+            return [
+                "currentPassword": currentPassword,
+                "newPassword": newPassword
+            ]
+        case let .changePin(currentPin, pin):
+            var body: [String: Any] = [
+                "pin": pin
+            ]
+            if let currentPin, !currentPin.isEmpty {
+                body["currentPin"] = currentPin
+            }
+            return body
+        case let .createTopup(amount, pin):
+            return [
+                "amount": amount,
+                "pin": pin
+            ]
+        case let .transfer(receiverId, amount, description, pin):
+            var body: [String: Any] = [
+                "receiverId": receiverId,
+                "amount": amount,
+                "pin": pin
+            ]
+            if let description, !description.isEmpty {
+                body["description"] = description
+            }
+            return body
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver:
             return nil
         }
     }
@@ -105,4 +163,3 @@ extension APIEndpoint {
         return request
     }
 }
-
