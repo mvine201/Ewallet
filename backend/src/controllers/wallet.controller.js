@@ -150,8 +150,6 @@ export const createTopup = async (req, res) => {
       vnp_OrderType: ProductCode.Other,
       vnp_Locale: VnpLocale.VN,
       vnp_ReturnUrl: process.env.VNP_RETURN_URL,
-      vnp_CreateDate: dateFormat(new Date()),                            // ← sửa
-      vnp_ExpireDate: dateFormat(new Date(Date.now() + 15 * 60 * 1000)), // ← sửa
     });
 
     return res.status(200).json({

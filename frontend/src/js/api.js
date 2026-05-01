@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5001/api";
+const BASE_URL = "https://ewallet-hn0m.onrender.com/api";
 
 function getToken() {
   return localStorage.getItem("admin_token");

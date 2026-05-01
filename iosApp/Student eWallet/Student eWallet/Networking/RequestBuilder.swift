@@ -8,7 +8,7 @@ import Foundation
 
 struct RequestBuilder {
     
-    static let baseURL = "http://localhost:5001"
+    static let baseURL = "https://ewallet-hn0m.onrender.com"
     
     static func build(
         endpoint: APIEndpoint,

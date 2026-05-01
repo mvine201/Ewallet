@@ -153,7 +153,7 @@ final class TransferConfirmViewController: UIViewController {
 
             pinSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pinSheet.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pinSheet.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pinSheet.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
 
             stack.leadingAnchor.constraint(equalTo: pinSheet.leadingAnchor, constant: 24),
             stack.trailingAnchor.constraint(equalTo: pinSheet.trailingAnchor, constant: -24),

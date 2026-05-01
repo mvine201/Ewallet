@@ -26,7 +26,7 @@ enum APIEndpoint {
 // MARK: - Base URL
 extension APIEndpoint {
     /// Configure your backend base URL here (no trailing slash)
-    static var baseURL: URL { URL(string: "http://localhost:5001")! }
+    static var baseURL: URL { URL(string: "https://ewallet-hn0m.onrender.com")! }
 }
 // MARK: - Path
 extension APIEndpoint {

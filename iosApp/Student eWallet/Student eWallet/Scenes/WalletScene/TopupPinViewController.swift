@@ -72,7 +72,7 @@ final class TopupPinViewController: UIViewController {
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40)
         ])
     }
 
