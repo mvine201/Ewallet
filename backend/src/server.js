@@ -22,6 +22,9 @@ app.use("/api/transfer", transferRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/savings-jars", savingsJarRoutes);
 app.use("/api/payments", paymentRoutes);
+app.get("/", (req, res) => {
+  res.send("API đang chạy ngon lành!");
+});
 
 
 connectDB().then(() => {
