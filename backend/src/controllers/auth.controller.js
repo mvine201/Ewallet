@@ -19,6 +19,22 @@ const normalizeText = (value) =>
     .replace(/\s+/g, " ")
     .toLowerCase();
 
+const normalizeDate = (dateString) => {
+  if (!dateString) return "";
+  const str = dateString.trim();
+  // match format: DD/MM/YYYY or DD-MM-YYYY
+  const dmMatch = str.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+  if (dmMatch) {
+    return `${dmMatch[3]}-${dmMatch[2].padStart(2, "0")}-${dmMatch[1].padStart(2, "0")}`;
+  }
+  // match format: YYYY-MM-DD or YYYY/MM/DD
+  const ymMatch = str.match(/^(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})$/);
+  if (ymMatch) {
+    return `${ymMatch[1]}-${ymMatch[2].padStart(2, "0")}-${ymMatch[3].padStart(2, "0")}`;
+  }
+  return str;
+};
+
 // ==================== ĐĂNG KÝ ====================
 export const register = async (req, res) => {
   try {
@@ -184,7 +200,7 @@ export const verifyStudent = async (req, res) => {
 
     const isStudentInfoMatched =
       normalizeText(matchedStudent.fullName) === normalizeText(normalizedFullName) &&
-      matchedStudent.dateOfBirth === normalizedDateOfBirth;
+      normalizeDate(matchedStudent.dateOfBirth) === normalizeDate(normalizedDateOfBirth);
 
     if (!isStudentInfoMatched) {
       return res.status(400).json({
