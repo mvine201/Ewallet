@@ -21,7 +21,7 @@ enum APIEndpoint {
     case getTransactions
     case lookupReceiver(query: String)
     case transfer(receiverId: String, amount: Double, description: String?, pin: String)
-    case getPaymentServices
+    case getPaymentServices(type: String?)
     case payService(serviceId: String, amount: Double?, content: String?, paymentMode: String, pin: String)
 }
 
@@ -86,6 +86,9 @@ extension APIEndpoint {
         switch self {
         case let .lookupReceiver(query):
             return [URLQueryItem(name: "q", value: query)]
+        case let .getPaymentServices(type):
+            guard let type, !type.isEmpty else { return nil }
+            return [URLQueryItem(name: "type", value: type)]
         default:
             return nil
         }

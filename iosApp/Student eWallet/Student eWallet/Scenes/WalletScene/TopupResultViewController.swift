@@ -146,7 +146,14 @@ final class TopupResultViewController: UIViewController {
     }
 
     @objc private func tapHome() {
-        navigationController?.popToRootViewController(animated: true)
+        if let tabBarController {
+            tabBarController.viewControllers?
+                .compactMap { $0 as? UINavigationController }
+                .forEach { $0.popToRootViewController(animated: false) }
+            tabBarController.selectedIndex = 0
+        } else {
+            navigationController?.setViewControllers([HomeViewController()], animated: true)
+        }
     }
 
     private static let currencyFormatter: NumberFormatter = {

@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
         let title: String
         let systemImage: String
         let action: Selector
+        let serviceType: String?
     }
 
     private let scrollView = UIScrollView()
@@ -137,14 +138,14 @@ final class HomeViewController: UIViewController {
 
     private func makeServicesSection() -> UIView {
         let items = [
-            HomeItem(title: "Học phí", systemImage: "graduationcap.fill", action: #selector(tapServicePlaceholder)),
-            HomeItem(title: "Giữ xe", systemImage: "parkingsign.circle.fill", action: #selector(tapServicePlaceholder)),
-            HomeItem(title: "Đoàn phí", systemImage: "person.3.fill", action: #selector(tapServicePlaceholder)),
-            HomeItem(title: "Quỹ tiết kiệm", systemImage: "banknote.fill", action: #selector(tapSavingsFund)),
-            HomeItem(title: "Dịch vụ", systemImage: "doc.text.fill", action: #selector(tapServicePlaceholder)),
-            HomeItem(title: "Nạp điện thoại", systemImage: "iphone.gen2.circle.fill", action: #selector(tapPhoneTopup)),
-            HomeItem(title: "Bảo hiểm", systemImage: "shield.fill", action: #selector(tapServicePlaceholder)),
-            HomeItem(title: "Ký túc xá", systemImage: "building.2.fill", action: #selector(tapServicePlaceholder))
+            HomeItem(title: "Học phí", systemImage: "graduationcap.fill", action: #selector(tapService(_:)), serviceType: "tuition"),
+            HomeItem(title: "Giữ xe", systemImage: "parkingsign.circle.fill", action: #selector(tapService(_:)), serviceType: "parking"),
+            HomeItem(title: "Đoàn phí", systemImage: "person.3.fill", action: #selector(tapService(_:)), serviceType: "union_fee"),
+            HomeItem(title: "Quỹ tiết kiệm", systemImage: "banknote.fill", action: #selector(tapSavingsFund), serviceType: nil),
+            HomeItem(title: "Dịch vụ", systemImage: "doc.text.fill", action: #selector(tapService(_:)), serviceType: nil),
+            HomeItem(title: "Nạp điện thoại", systemImage: "iphone.gen2.circle.fill", action: #selector(tapPhoneTopup), serviceType: nil),
+            HomeItem(title: "Bảo hiểm", systemImage: "shield.fill", action: #selector(tapService(_:)), serviceType: "insurance"),
+            HomeItem(title: "Ký túc xá", systemImage: "building.2.fill", action: #selector(tapService(_:)), serviceType: "dormitory")
         ]
 
         return makeGridSection(title: "Dịch vụ", items: items)
@@ -212,6 +213,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
         button.titleLabel?.numberOfLines = 2
         button.titleLabel?.textAlignment = .center
+        button.accessibilityIdentifier = item.serviceType
         button.heightAnchor.constraint(equalToConstant: 78).isActive = true
         button.addTarget(self, action: item.action, for: .touchUpInside)
         return button
@@ -334,8 +336,11 @@ final class HomeViewController: UIViewController {
         showMessage(title: "Nạp điện thoại", message: "Chức năng nạp điện thoại sẽ được phát triển sau.")
     }
 
-    @objc private func tapServicePlaceholder() {
-        navigationController?.pushViewController(ServiceListViewController(), animated: true)
+    @objc private func tapService(_ sender: UIButton) {
+        navigationController?.pushViewController(
+            ServiceListViewController(serviceType: sender.accessibilityIdentifier),
+            animated: true
+        )
     }
 
     private func showMessage(title: String, message: String) {

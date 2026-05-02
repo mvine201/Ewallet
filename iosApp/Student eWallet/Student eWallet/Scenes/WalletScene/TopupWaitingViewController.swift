@@ -39,6 +39,12 @@ final class TopupWaitingViewController: UIViewController {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(topupDeepLinkReceived),
+            name: .topupDeepLinkReceived,
+            object: nil
+        )
         startPolling()
     }
 
@@ -108,6 +114,10 @@ final class TopupWaitingViewController: UIViewController {
         checkStatus()
     }
 
+    @objc private func topupDeepLinkReceived() {
+        checkStatus()
+    }
+
     @objc private func tapCheckStatus() {
         checkStatus()
     }
@@ -144,8 +154,8 @@ final class TopupWaitingViewController: UIViewController {
                 paymentUrl: paymentUrl
             )
             if let navigationController {
-                let walletRoot = navigationController.viewControllers.first { $0 is WalletViewController } ?? WalletViewController()
-                navigationController.setViewControllers([walletRoot, resultViewController], animated: true)
+                let root = navigationController.viewControllers.first ?? HomeViewController()
+                navigationController.setViewControllers([root, resultViewController], animated: true)
             }
         case "failed":
             pollTimer?.invalidate()

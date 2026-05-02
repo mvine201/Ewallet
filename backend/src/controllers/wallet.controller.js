@@ -9,9 +9,13 @@ import Notification from "../models/Notification.js";
 import { ProductCode, VnpLocale, dateFormat } from "vnpay";
 
 const confirmVnpayTransaction = async (verify, session) => {
-  const vnpTxn = await VnpayTransaction.findOne({
+  const withSession = (query) => (session ? query.session(session) : query);
+  const saveOptions = session ? { session } : undefined;
+  const writeOptions = session ? { session } : undefined;
+
+  const vnpTxn = await withSession(VnpayTransaction.findOne({
     orderId: verify.vnp_TxnRef,
-  }).session(session);
+  }));
 
   if (!vnpTxn) {
     return { code: "01", message: "Order not found" };
@@ -40,7 +44,7 @@ const confirmVnpayTransaction = async (verify, session) => {
   vnpTxn.bankCode = verify.vnp_BankCode;
   vnpTxn.vnpTransactionNo = verify.vnp_TransactionNo;
   vnpTxn.payDate = verify.vnp_PayDate;
-  await vnpTxn.save({ session });
+  await vnpTxn.save(saveOptions);
 
   const [transaction] = await Transaction.create(
     [{
@@ -52,14 +56,14 @@ const confirmVnpayTransaction = async (verify, session) => {
       vnpayTransactionId: vnpTxn._id,
       description: `Nạp tiền qua VNPay - ${verify.vnp_TxnRef}`,
     }],
-    { session }
+    writeOptions
   );
 
   if (isSuccess) {
     await Wallet.findByIdAndUpdate(
       vnpTxn.walletId,
       { $inc: { balance: paidAmount } },
-      { session }
+      writeOptions
     );
 
     await Notification.create(
@@ -70,7 +74,7 @@ const confirmVnpayTransaction = async (verify, session) => {
         type: "transaction",
         relatedId: transaction._id,
       }],
-      { session }
+      writeOptions
     );
   }
 
@@ -166,82 +170,53 @@ export const createTopup = async (req, res) => {
 // ==================== RETURN URL ====================
 // GET /api/wallet/topup/vnpay-return
 export const vnpayReturn = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
     const verify = vnpay.verifyReturnUrl(req.query);
 
     if (!verify.isVerified) {
-      await session.abortTransaction();
-      return res.status(400).json({
-        success: false,
-        message: "Chữ ký không hợp lệ",
-      });
+      return res.redirect("studentewallet://topup-result?success=false&message=invalid-signature");
     }
 
-    const result = await confirmVnpayTransaction(verify, session);
+    const result = await confirmVnpayTransaction(verify);
 
     if (!result.vnpTxn) {
-      await session.abortTransaction();
-      return res.status(200).json({
-        success: false,
-        message: result.message,
-        data: { orderId: verify.vnp_TxnRef },
-      });
+      return res.redirect(`studentewallet://topup-result?success=false&orderId=${encodeURIComponent(verify.vnp_TxnRef)}&message=${encodeURIComponent(result.message)}`);
     }
 
-    await session.commitTransaction();
-
-    return res.status(200).json({
-      success: result.isSuccess,
-      message: result.isSuccess
-        ? "Thanh toán thành công"
-        : `Thanh toán thất bại (mã: ${verify.vnp_ResponseCode})`,
-      data: {
-        orderId: verify.vnp_TxnRef,
-        amount: verify.vnp_Amount,
-        bankCode: verify.vnp_BankCode,
-      },
+    const params = new URLSearchParams({
+      success: String(Boolean(result.isSuccess)),
+      orderId: verify.vnp_TxnRef,
+      amount: String(verify.vnp_Amount || result.vnpTxn.amount || ""),
+      bankCode: verify.vnp_BankCode || "",
+      responseCode: verify.vnp_ResponseCode || "",
     });
+    return res.redirect(`studentewallet://topup-result?${params.toString()}`);
   } catch (error) {
-    await session.abortTransaction();
     console.error("vnpayReturn error:", error);
     return res.status(500).json({ success: false, message: "Lỗi server" });
-  } finally {
-    session.endSession();
   }
 };
 
 // ==================== IPN ====================
 // GET /api/wallet/topup/vnpay-ipn
 export const vnpayIPN = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
     const verify = vnpay.verifyIpnCall(req.query);
 
     if (!verify.isVerified) {
-      await session.abortTransaction();
       return res.status(200).json({ RspCode: "97", Message: "Invalid signature" });
     }
 
-    const result = await confirmVnpayTransaction(verify, session);
+    const result = await confirmVnpayTransaction(verify);
 
     if (!result.vnpTxn) {
-      await session.abortTransaction();
       return res.status(200).json({ RspCode: result.code, Message: result.message });
     }
 
-    await session.commitTransaction();
     return res.status(200).json({ RspCode: result.code, Message: result.message });
   } catch (error) {
-    await session.abortTransaction();
     console.error("vnpayIPN error:", error);
     return res.status(200).json({ RspCode: "99", Message: "Unknown error" });
-  } finally {
-    session.endSession();
   }
 };
 

@@ -122,9 +122,9 @@ final class ServicePaymentService {
 
     private let decoder = JSONDecoder()
 
-    func getServices() async throws -> PaymentServicesData {
+    func getServices(type: String? = nil) async throws -> PaymentServicesData {
         guard let token = TokenStore.shared.token else { throw AuthError.server("Chưa đăng nhập") }
-        let request = try APIEndpoint.getPaymentServices.urlRequest(token: token)
+        let request = try APIEndpoint.getPaymentServices(type: type).urlRequest(token: token)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let http = response as? HTTPURLResponse else { throw AuthError.invalidResponse }
         let decoded = try? decoder.decode(PaymentServicesResponse.self, from: data)

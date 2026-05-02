@@ -35,6 +35,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = rootVC
         self.window = window
         window.makeKeyAndVisible()
+
+        if let urlContext = connectionOptions.urlContexts.first {
+            handleDeepLink(urlContext.url)
+        }
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        handleDeepLink(url)
+    }
+
+    private func handleDeepLink(_ url: URL) {
+        guard url.scheme == "studentewallet" else { return }
+        if url.host == "topup-result" {
+            NotificationCenter.default.post(name: .topupDeepLinkReceived, object: url)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -68,3 +84,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension Notification.Name {
+    static let topupDeepLinkReceived = Notification.Name("topupDeepLinkReceived")
+}

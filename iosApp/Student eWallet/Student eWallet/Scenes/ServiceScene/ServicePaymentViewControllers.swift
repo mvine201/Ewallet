@@ -10,8 +10,18 @@ import UIKit
 final class ServiceListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let activity = UIActivityIndicatorView(style: .medium)
+    private let serviceType: String?
     private var services: [SchoolServiceItem] = []
     private var studentInfo: ServiceStudentInfo?
+
+    init(serviceType: String? = nil) {
+        self.serviceType = serviceType
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +56,7 @@ final class ServiceListViewController: UIViewController, UITableViewDataSource, 
         Task { [weak self] in
             guard let self else { return }
             do {
-                let data = try await ServicePaymentService.shared.getServices()
+                let data = try await ServicePaymentService.shared.getServices(type: self.serviceType)
                 await MainActor.run {
                     self.activity.stopAnimating()
                     self.studentInfo = data.studentInfo
@@ -648,8 +658,8 @@ final class ServicePaymentResultViewController: UIViewController {
 
     @objc private func tapNewPayment() {
         guard let navigationController else { return }
-        let walletRoot = navigationController.viewControllers.first { $0 is WalletViewController } ?? WalletViewController()
-        navigationController.setViewControllers([walletRoot, ServiceListViewController()], animated: true)
+        let root = navigationController.viewControllers.first ?? HomeViewController()
+        navigationController.setViewControllers([root, ServiceListViewController()], animated: true)
     }
 
     @objc private func tapHome() {

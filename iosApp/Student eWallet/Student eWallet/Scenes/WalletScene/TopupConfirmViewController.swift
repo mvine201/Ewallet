@@ -226,8 +226,8 @@ final class TopupConfirmViewController: UIViewController {
         )
 
         if let navigationController {
-            let walletRoot = navigationController.viewControllers.first { $0 is WalletViewController } ?? WalletViewController()
-            navigationController.setViewControllers([walletRoot, waitingViewController], animated: true)
+            let root = navigationController.viewControllers.first ?? HomeViewController()
+            navigationController.setViewControllers([root, waitingViewController], animated: true)
         }
     }
 
