@@ -49,9 +49,18 @@ class NotificationViewController: UIViewController {
     @objc private func fetchNotifications() {
         Task {
             do {
-                let response: NotificationResponse = try await NetworkManager.shared.request(.getNotifications)
+                guard let token = TokenStore.shared.token else { return }
+                let request = try APIEndpoint.getNotifications.urlRequest(token: token)
+                let (data, response) = try await URLSession.shared.data(for: request)
+                guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
+                
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NotificationResponse.self, from: data)
+                
                 DispatchQueue.main.async {
-                    self.notifications = response.data
+                    self.notifications = result.data
                     self.tableView.reloadData()
                     self.refreshControl.endRefreshing()
                 }

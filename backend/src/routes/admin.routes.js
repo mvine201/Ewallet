@@ -16,10 +16,12 @@ import {
   deleteStudentsBulk,
   getServices,
   createService,
-  updateService,
   deleteService,
   exportServicePayments,
-  createNotification
+  getNotificationsAdmin,
+  createNotification,
+  updateNotification,
+  deleteNotification
 } from "../controllers/admin.controller.js";
 import { protect, adminOnly } from "../middlewares/auth.middleware.js";
 
@@ -85,6 +87,9 @@ router.put("/services/:id", updateService);
 router.delete("/services/:id", deleteService);
 
 // Quản lý thông báo
+router.get("/notifications", getNotificationsAdmin);
 router.post("/notifications", uploadDoc.single("file"), createNotification);
+router.put("/notifications/:id", uploadDoc.single("file"), updateNotification);
+router.delete("/notifications/:id", deleteNotification);
 
 export default router;

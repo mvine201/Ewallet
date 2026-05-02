@@ -98,6 +98,7 @@ export const api = {
   },
 
   // Notifications
+  getNotificationsAdmin: () => request("/admin/notifications"),
   createNotification: (title, message, link, file) => {
     const form = new FormData();
     form.append("title", title);
@@ -106,4 +107,13 @@ export const api = {
     if (file) form.append("file", file);
     return request("/admin/notifications", { method: "POST", body: form });
   },
+  updateNotification: (id, title, message, link, file) => {
+    const form = new FormData();
+    form.append("title", title);
+    form.append("message", message);
+    if (link !== undefined && link !== null) form.append("link", link);
+    if (file) form.append("file", file);
+    return request(`/admin/notifications/${id}`, { method: "PUT", body: form });
+  },
+  deleteNotification: (id) => request(`/admin/notifications/${id}`, { method: "DELETE" }),
 };

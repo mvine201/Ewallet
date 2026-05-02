@@ -949,6 +949,79 @@ export const createNotification = async (req, res) => {
   }
 };
 
+// GET /api/admin/notifications
+export const getNotificationsAdmin = async (req, res) => {
+  try {
+    const notifications = await Notification.find({ userId: null, type: "custom" }).sort({ createdAt: -1 });
+    return res.status(200).json({ success: true, data: notifications });
+  } catch (error) {
+    console.error("getNotificationsAdmin error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+};
+
+// ==================== CẬP NHẬT THÔNG BÁO THỦ CÔNG ====================
+// PUT /api/admin/notifications/:id
+export const updateNotification = async (req, res) => {
+  try {
+    const { title, message, link } = req.body;
+    const notification = await Notification.findById(req.params.id);
+
+    if (!notification) {
+      return res.status(404).json({ success: false, message: "Không tìm thấy thông báo" });
+    }
+
+    if (title) notification.title = title;
+    if (message) notification.message = message;
+    if (link !== undefined) notification.link = link || null;
+
+    if (req.file) {
+      const uploadDir = path.join(process.cwd(), "public", "uploads");
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+      const ext = path.extname(req.file.originalname) || ".docx";
+      const filename = `notification-${uniqueSuffix}${ext}`;
+      const filePath = path.join(uploadDir, filename);
+
+      fs.writeFileSync(filePath, req.file.buffer);
+      notification.fileUrl = `/uploads/${filename}`;
+    }
+
+    await notification.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Đã cập nhật thông báo thành công",
+      data: notification
+    });
+  } catch (error) {
+    console.error("updateNotification error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+};
+
+// ==================== XOÁ THÔNG BÁO THỦ CÔNG ====================
+// DELETE /api/admin/notifications/:id
+export const deleteNotification = async (req, res) => {
+  try {
+    const notification = await Notification.findByIdAndDelete(req.params.id);
+    if (!notification) {
+      return res.status(404).json({ success: false, message: "Không tìm thấy thông báo" });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Đã xoá thông báo thành công"
+    });
+  } catch (error) {
+    console.error("deleteNotification error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+};
+
 // ==================== XOÁ DỊCH VỤ ====================
 // DELETE /api/admin/services/:id
 export const deleteService = async (req, res) => {

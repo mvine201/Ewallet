@@ -137,7 +137,12 @@ class NotificationDetailViewController: UIViewController {
         
         Task {
             do {
-                _ = try await NetworkManager.shared.request(.markNotificationRead(id: notification._id))
+                guard let token = TokenStore.shared.token else { return }
+                let request = try APIEndpoint.markNotificationRead(id: notification._id).urlRequest(token: token)
+                let (_, response) = try await URLSession.shared.data(for: request)
+                guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
                 DispatchQueue.main.async {
                     self.onMarkRead?()
                 }
