@@ -35,12 +35,42 @@ function formatMoney(n) {
   return (Number(n) || 0).toLocaleString("vi-VN") + "₫";
 }
 
+function getVNDateParts(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+
+  const formatter = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+
+  const parts = {};
+  formatter.formatToParts(date).forEach((part) => {
+    if (part.type !== "literal") {
+      parts[part.type] = part.value;
+    }
+  });
+
+  return parts;
+}
+
 function dateInputValue(value) {
   if (!value) return "";
+  const parts = getVNDateParts(value);
+  if (!parts) return "";
+  return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+}
+
+function formatDateTimeVN(value) {
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "";
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  if (Number.isNaN(date.getTime())) return "—";
+  return date.toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
 }
 
 function serviceTypeLabel(type) {
@@ -364,7 +394,7 @@ function priceSummary(service) {
       lines.push(`Kỳ ${window.semester || "?"} - ${window.academicYear || "?"}`);
     }
     if (window.startAt && window.endAt) {
-      lines.push(`${new Date(window.startAt).toLocaleString("vi-VN")} - ${new Date(window.endAt).toLocaleString("vi-VN")}`);
+      lines.push(`${formatDateTimeVN(window.startAt)} - ${formatDateTimeVN(window.endAt)}`);
     }
     if (window.reminderDaysBeforeDue?.length) {
       lines.push(`Nhắc trước: ${window.reminderDaysBeforeDue.join(", ")} ngày`);

@@ -31,9 +31,36 @@ const normalizeList = (value) => {
   return [];
 };
 
+const VN_UTC_OFFSET_MINUTES = 7 * 60;
+
 const parseDateOrNull = (value) => {
   if (!value) return null;
-  const date = new Date(value);
+
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? null : value;
+  }
+
+  const stringValue = String(value).trim();
+  const localDateTimeMatch = stringValue.match(
+    /^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?$/
+  );
+
+  if (localDateTimeMatch) {
+    const [, year, month, day, hour, minute, second = "00"] = localDateTimeMatch;
+    const utcMillis = Date.UTC(
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      Number(hour),
+      Number(minute),
+      Number(second)
+    ) - VN_UTC_OFFSET_MINUTES * 60 * 1000;
+
+    const vnLocalDate = new Date(utcMillis);
+    return Number.isNaN(vnLocalDate.getTime()) ? null : vnLocalDate;
+  }
+
+  const date = new Date(stringValue);
   return Number.isNaN(date.getTime()) ? null : date;
 };
 
