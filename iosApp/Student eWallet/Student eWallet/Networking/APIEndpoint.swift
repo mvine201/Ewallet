@@ -21,6 +21,8 @@ enum APIEndpoint {
     case getTransactions
     case lookupReceiver(query: String)
     case transfer(receiverId: String, amount: Double, description: String?, pin: String)
+    case getPaymentServices
+    case payService(serviceId: String, amount: Double?, content: String?, paymentMode: String, pin: String)
 }
 
 // MARK: - Base URL
@@ -58,6 +60,10 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/transfer/lookup"
         case .transfer:
             return "\(Self.apiPrefix)/transfer"
+        case .getPaymentServices:
+            return "\(Self.apiPrefix)/payments/services"
+        case .payService:
+            return "\(Self.apiPrefix)/payments/pay"
         }
     }
 }
@@ -66,9 +72,9 @@ extension APIEndpoint {
 extension APIEndpoint {
     var method: String {
         switch self {
-        case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer:
+        case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer, .payService:
             return "POST"
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices:
             return "GET"
         }
     }
@@ -138,7 +144,20 @@ extension APIEndpoint {
                 body["description"] = description
             }
             return body
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver:
+        case let .payService(serviceId, amount, content, paymentMode, pin):
+            var body: [String: Any] = [
+                "serviceId": serviceId,
+                "paymentMode": paymentMode,
+                "pin": pin
+            ]
+            if let amount {
+                body["amount"] = amount
+            }
+            if let content, !content.isEmpty {
+                body["content"] = content
+            }
+            return body
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices:
             return nil
         }
     }

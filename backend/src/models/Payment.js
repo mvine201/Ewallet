@@ -15,6 +15,27 @@ const paymentSchema = new mongoose.Schema({
   default: null
   },
   amount: Number,
+  content: String,
+  studentSnapshot: {
+    studentId: String,
+    fullName: String,
+    cohort: String,
+    faculty: String,
+    phone: String,
+    email: String
+  },
+  serviceSnapshot: {
+    name: String,
+    type: String,
+    category: String,
+    semester: String,
+    academicYear: String
+  },
+  paymentMode: {
+    type: String,
+    enum: ["single", "monthly"],
+    default: "single"
+  },
   status: {
     type: String,
     enum: ["unpaid", "paid", "overdue", "cancelled"],

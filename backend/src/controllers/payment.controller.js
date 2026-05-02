@@ -25,8 +25,10 @@ const getStudentInfo = async (userId) => {
 
   return {
     studentId: student.studentId,
+    fullName: student.fullName,
     cohort: student.cohort || deriveCohort(student.studentId),
     faculty: student.faculty,
+    email: student.email,
     academicStatus: student.academicStatus || "studying",
   };
 };
@@ -34,6 +36,32 @@ const getStudentInfo = async (userId) => {
 const deriveCohort = (studentId) => {
   const match = String(studentId || "").trim().match(/^(\d{2})/);
   return match ? `K${match[1]}` : "";
+};
+
+const normalizeText = (value) =>
+  String(value || "")
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .toUpperCase();
+
+const buildDefaultPaymentContent = ({ service, student, user, paymentMode }) => {
+  const studentId = student?.studentId || user.phone;
+  if (service.type === "tuition") {
+    const fullName = normalizeText(user.studentFullName || student?.fullName || user.fullName);
+    return `${fullName}, ${studentId}, thanh toán học phí kì ${service.paymentWindow?.semester || ""}, năm học ${service.paymentWindow?.academicYear || ""}`.trim();
+  }
+
+  if (service.type === "parking" && paymentMode === "monthly") {
+    return `${studentId} thanh toán phí giữ xe tháng ${new Date().getMonth() + 1}`;
+  }
+
+  if (service.type === "parking") {
+    return `${studentId} thanh toán phí giữ xe vào lúc ${new Date().toLocaleString("vi-VN")}`;
+  }
+
+  return `${studentId} thanh toán ${service.name}`;
 };
 
 // ==================== XÂY DỰNG BỘ LỌC DỊCH VỤ THEO SINH VIÊN ====================
@@ -150,6 +178,8 @@ export const getAvailableServices = async (req, res) => {
               studentId: student.studentId,
               cohort: student.cohort,
               faculty: student.faculty,
+              fullName: student.fullName,
+              email: student.email,
               academicStatus: student.academicStatus,
             }
           : null,
@@ -236,7 +266,7 @@ export const payService = async (req, res) => {
   session.startTransaction();
 
   try {
-    const { serviceId, pin, amount: customAmount } = req.body;
+    const { serviceId, pin, amount: customAmount, content, paymentMode = "single" } = req.body;
 
     // --- Validate input ---
     if (!serviceId) {
@@ -331,7 +361,22 @@ export const payService = async (req, res) => {
     let payAmount;
     if (service.type === "parking") {
       // Gửi xe: dùng giá lượt hoặc giá tháng
-      payAmount = customAmount || service.parkingConfig?.perUsePrice || service.price;
+      if (paymentMode === "monthly") {
+        const nowDay = new Date().getDate();
+        const fromDay = service.parkingConfig?.monthlyPassOpenDayFrom || 1;
+        const toDay = service.parkingConfig?.monthlyPassOpenDayTo || 5;
+        if (!service.parkingConfig?.monthlyPassEnabled) {
+          await session.abortTransaction();
+          return res.status(400).json({ success: false, message: "Dịch vụ chưa mở gói giữ xe theo tháng" });
+        }
+        if (nowDay < fromDay || nowDay > toDay) {
+          await session.abortTransaction();
+          return res.status(400).json({ success: false, message: `Gói tháng chỉ mở từ ngày ${fromDay}-${toDay} hằng tháng` });
+        }
+        payAmount = customAmount || service.parkingConfig?.monthlyPassPrice || service.price;
+      } else {
+        payAmount = customAmount || service.parkingConfig?.perUsePrice || service.price;
+      }
     } else {
       payAmount = service.price;
     }
@@ -403,6 +448,14 @@ export const payService = async (req, res) => {
     wallet.balance -= payAmount;
     await wallet.save({ session });
 
+    const student = user.isVerified ? await getStudentInfo(req.user.id) : null;
+    const paymentContent = content?.trim() || buildDefaultPaymentContent({
+      service,
+      student,
+      user,
+      paymentMode,
+    });
+
     // Tạo transaction
     const [transaction] = await Transaction.create(
       [{
@@ -411,7 +464,7 @@ export const payService = async (req, res) => {
         status: "success",
         method: "wallet",
         amount: payAmount,
-        description: `Thanh toán ${service.name}`,
+        description: paymentContent,
       }],
       { session }
     );
@@ -429,7 +482,24 @@ export const payService = async (req, res) => {
       payment.status = "paid";
       payment.paidAt = new Date();
       payment.amount = payAmount;
+      payment.content = paymentContent;
       payment.transactionId = transaction._id;
+      payment.studentSnapshot = {
+        studentId: student?.studentId || user.studentId,
+        fullName: student?.fullName || user.studentFullName || user.fullName,
+        cohort: student?.cohort,
+        faculty: student?.faculty,
+        phone: user.phone,
+        email: student?.email || user.email,
+      };
+      payment.serviceSnapshot = {
+        name: service.name,
+        type: service.type,
+        category: service.category,
+        semester: service.paymentWindow?.semester,
+        academicYear: service.paymentWindow?.academicYear,
+      };
+      payment.paymentMode = paymentMode;
       await payment.save({ session });
     } else {
       // Tạo payment mới
@@ -439,6 +509,23 @@ export const payService = async (req, res) => {
           serviceId: service._id,
           transactionId: transaction._id,
           amount: payAmount,
+          content: paymentContent,
+          studentSnapshot: {
+            studentId: student?.studentId || user.studentId,
+            fullName: student?.fullName || user.studentFullName || user.fullName,
+            cohort: student?.cohort,
+            faculty: student?.faculty,
+            phone: user.phone,
+            email: student?.email || user.email,
+          },
+          serviceSnapshot: {
+            name: service.name,
+            type: service.type,
+            category: service.category,
+            semester: service.paymentWindow?.semester,
+            academicYear: service.paymentWindow?.academicYear,
+          },
+          paymentMode,
           status: "paid",
           paidAt: new Date(),
           dueDate: service.paymentWindow?.endAt || null,
@@ -474,6 +561,8 @@ export const payService = async (req, res) => {
             type: service.type,
           },
           amount: payAmount,
+          content: paymentContent,
+          paymentMode,
           paidAt: payment.paidAt,
           transactionId: transaction._id,
         },

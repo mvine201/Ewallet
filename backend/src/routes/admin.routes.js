@@ -18,6 +18,7 @@ import {
   createService,
   updateService,
   deleteService,
+  exportServicePayments,
 } from "../controllers/admin.controller.js";
 import { protect, adminOnly } from "../middlewares/auth.middleware.js";
 
@@ -63,6 +64,7 @@ router.delete("/students/:id", deleteStudent);
 // Quản lý dịch vụ
 router.get("/services", getServices);
 router.post("/services", createService);
+router.get("/services/:id/payments/export", exportServicePayments);
 router.put("/services/:id", updateService);
 router.delete("/services/:id", deleteService);
 

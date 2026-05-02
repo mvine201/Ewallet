@@ -5,6 +5,7 @@ import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
 import Student from "../models/Student.js";
 import Service from "../models/Service.js";
+import Payment from "../models/Payment.js";
 import Transaction from "../models/Transaction.js";
 
 const deriveCohortFromStudentId = (studentId) => {
@@ -84,6 +85,8 @@ const buildServicePayload = (body, existingService = null) => {
     paymentWindow: {
       startAt,
       endAt,
+      semester: body.paymentWindow?.semester ?? body.semester ?? existingService?.paymentWindow?.semester,
+      academicYear: body.paymentWindow?.academicYear ?? body.academicYear ?? existingService?.paymentWindow?.academicYear,
       reminderDaysBeforeDue,
     },
     parkingConfig,
@@ -111,6 +114,10 @@ const validateServicePayload = (payload) => {
   if (payload.type === "tuition") {
     if (!payload.paymentWindow.startAt || !payload.paymentWindow.endAt) {
       return "Vui lòng nhập thời hạn nộp học phí";
+    }
+
+    if (!payload.paymentWindow.semester || !payload.paymentWindow.academicYear) {
+      return "Vui lòng nhập học kỳ và năm học";
     }
 
     if (payload.paymentWindow.startAt >= payload.paymentWindow.endAt) {
@@ -892,6 +899,66 @@ export const deleteService = async (req, res) => {
     });
   } catch (error) {
     console.error("deleteService error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+};
+
+// ==================== XUẤT DANH SÁCH THANH TOÁN DỊCH VỤ ====================
+// GET /api/admin/services/:id/payments/export
+export const exportServicePayments = async (req, res) => {
+  try {
+    const service = await Service.findById(req.params.id);
+    if (!service) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Không tìm thấy dịch vụ" });
+    }
+
+    const payments = await Payment.find({
+      serviceId: service._id,
+      status: "paid",
+    })
+      .populate("transactionId", "createdAt amount description")
+      .sort({ paidAt: 1 });
+
+    const rows = payments.map((payment, index) => ({
+      STT: index + 1,
+      "Mã sinh viên": payment.studentSnapshot?.studentId || "",
+      "Họ tên": payment.studentSnapshot?.fullName || "",
+      "Số điện thoại": payment.studentSnapshot?.phone || "",
+      "Email": payment.studentSnapshot?.email || "",
+      "Khoá": payment.studentSnapshot?.cohort || "",
+      "Khoa": payment.studentSnapshot?.faculty || "",
+      "Dịch vụ": payment.serviceSnapshot?.name || service.name,
+      "Loại dịch vụ": payment.serviceSnapshot?.type || service.type,
+      "Học kỳ": payment.serviceSnapshot?.semester || service.paymentWindow?.semester || "",
+      "Năm học": payment.serviceSnapshot?.academicYear || service.paymentWindow?.academicYear || "",
+      "Nội dung thanh toán": payment.content || payment.transactionId?.description || "",
+      "Số tiền": payment.amount,
+      "Hình thức": payment.paymentMode === "monthly" ? "Theo tháng" : "Một lần",
+      "Thời gian thanh toán": payment.paidAt
+        ? new Date(payment.paidAt).toLocaleString("vi-VN")
+        : "",
+      "Mã giao dịch": payment.transactionId?._id?.toString() || "",
+    }));
+
+    const worksheet = xlsx.utils.json_to_sheet(rows);
+    const workbook = xlsx.utils.book_new();
+    xlsx.utils.book_append_sheet(workbook, worksheet, "Thanh toan");
+    const buffer = xlsx.write(workbook, { type: "buffer", bookType: "xlsx" });
+    const safeName = service.name.replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="payments-${safeName || service._id}.xlsx"`
+    );
+    return res.send(buffer);
+  } catch (error) {
+    console.error("exportServicePayments error:", error);
     return res.status(500).json({ success: false, message: "Lỗi server" });
   }
 };

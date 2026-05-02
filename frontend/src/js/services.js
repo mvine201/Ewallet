@@ -113,6 +113,14 @@ function showServiceModal(service, onSave) {
           <h3 style="font-size:1rem;margin-bottom:14px">Cấu hình học phí</h3>
           <div class="detail-grid">
             <div class="form-group">
+              <label>Học kỳ *</label>
+              <input class="form-input" id="svc-semester" value="${paymentWindow.semester || ""}" placeholder="VD: 1" />
+            </div>
+            <div class="form-group">
+              <label>Năm học *</label>
+              <input class="form-input" id="svc-academic-year" value="${paymentWindow.academicYear || ""}" placeholder="VD: 2025-2026" />
+            </div>
+            <div class="form-group">
               <label>Bắt đầu nộp</label>
               <input class="form-input" id="svc-start" type="datetime-local" value="${dateInputValue(paymentWindow.startAt)}" />
             </div>
@@ -212,6 +220,8 @@ function showServiceModal(service, onSave) {
       paymentWindow: {
         startAt: document.getElementById("svc-start").value,
         endAt: document.getElementById("svc-end").value,
+        semester: document.getElementById("svc-semester").value.trim(),
+        academicYear: document.getElementById("svc-academic-year").value.trim(),
         reminderDaysBeforeDue: document.getElementById("svc-reminders").value
           .split(",")
           .map((n) => Number(n.trim()))
@@ -265,6 +275,16 @@ export async function renderServices(container) {
         showToast(data.message, ok ? "success" : "error");
         if (ok) loadServices(container);
       });
+    } else if (action === "export") {
+      const svc = currentServices.find(s => s._id === id);
+      const { ok, blob, data } = await api.exportServicePayments(id);
+      if (!ok) return showToast(data?.message || "Xuất Excel thất bại", "error");
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `payments-${(svc?.name || id).replace(/[^\p{L}\p{N}]+/gu, "-")}.xlsx`;
+      a.click();
+      URL.revokeObjectURL(url);
     } else if (action === "delete") {
       const name = btn.dataset.name;
       if (!confirm(`Vô hiệu hoá dịch vụ "${name}"?`)) return;
@@ -306,6 +326,7 @@ async function loadServices(container) {
             <td class="col-badge">${s.isActive ? '<span class="badge badge-success">Hoạt động</span>' : '<span class="badge badge-danger">Đã tắt</span>'}</td>
             <td>
               <div class="actions">
+                <button class="btn-icon" title="Xuất Excel" data-action="export" data-id="${s._id}">📥</button>
                 <button class="btn-icon" title="Sửa" data-action="edit" data-id="${s._id}">✏️</button>
                 ${s.isActive ? `<button class="btn-icon" title="Vô hiệu hoá" data-action="delete" data-id="${s._id}" data-name="${s.name}">🗑️</button>` : ""}
               </div>
@@ -339,6 +360,9 @@ function priceSummary(service) {
   if (service.type === "tuition") {
     const window = service.paymentWindow || {};
     const lines = [formatMoney(service.price)];
+    if (window.semester || window.academicYear) {
+      lines.push(`Kỳ ${window.semester || "?"} - ${window.academicYear || "?"}`);
+    }
     if (window.startAt && window.endAt) {
       lines.push(`${new Date(window.startAt).toLocaleString("vi-VN")} - ${new Date(window.endAt).toLocaleString("vi-VN")}`);
     }

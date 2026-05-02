@@ -37,7 +37,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         )
 
         viewControllers = [homeNav, walletNav, historyNav, profileNav]
-        selectedIndex = 1
+        selectedIndex = 0
     }
     
 

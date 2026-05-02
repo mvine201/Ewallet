@@ -84,4 +84,16 @@ export const api = {
   updateService: (id, data) =>
     request(`/admin/services/${id}`, { method: "PUT", body: JSON.stringify(data) }),
   deleteService: (id) => request(`/admin/services/${id}`, { method: "DELETE" }),
+  exportServicePayments: async (id) => {
+    const token = getToken();
+    const headers = {};
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+    const res = await fetch(`${BASE_URL}/admin/services/${id}/payments/export`, { headers });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({ message: "Xuất Excel thất bại" }));
+      return { ok: false, data };
+    }
+    const blob = await res.blob();
+    return { ok: true, blob };
+  },
 };

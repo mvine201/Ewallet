@@ -187,7 +187,7 @@ final class WalletViewController: UIViewController {
     }
 
     @objc private func tapServicePayment() {
-        showMessage(title: "Thanh toán dịch vụ", message: "Chức năng thanh toán dịch vụ sẽ được phát triển sau.")
+        navigationController?.pushViewController(ServiceListViewController(), animated: true)
     }
 
     @objc private func tapPhoneTopup() {

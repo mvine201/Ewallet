@@ -41,6 +41,8 @@ const serviceSchema = new mongoose.Schema({
   paymentWindow: {
     startAt: Date,
     endAt: Date,
+    semester: String,
+    academicYear: String,
     reminderDaysBeforeDue: {
       type: [Number],
       default: [5, 3, 1]
