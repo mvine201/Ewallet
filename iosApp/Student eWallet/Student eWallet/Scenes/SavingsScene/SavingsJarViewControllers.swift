@@ -3,13 +3,9 @@ import UIKit
 final class SavingsJarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private let titleLabel = UILabel()
     private let createButton = UIButton(type: .system)
-    private let selectButton = UIButton(type: .system)
-    private let deleteSelectedButton = UIButton(type: .system)
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let activity = UIActivityIndicatorView(style: .medium)
     private var jars: [SavingsJarItem] = []
-    private var selectedJarIds = Set<String>()
-    private var isSelectingMultiple = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +32,6 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
         createButton.configuration = buttonConfig
         createButton.addTarget(self, action: #selector(tapCreateJar), for: .touchUpInside)
 
-        var selectConfig = UIButton.Configuration.plain()
-        selectConfig.title = "Chọn nhiều"
-        selectButton.configuration = selectConfig
-        selectButton.addTarget(self, action: #selector(tapToggleSelectionMode), for: .touchUpInside)
-
-        var deleteConfig = UIButton.Configuration.filled()
-        deleteConfig.title = "Xoá quỹ đã chọn"
-        deleteConfig.baseBackgroundColor = .systemRed
-        deleteConfig.baseForegroundColor = .white
-        deleteConfig.cornerStyle = .large
-        deleteSelectedButton.configuration = deleteConfig
-        deleteSelectedButton.addTarget(self, action: #selector(tapDeleteSelected), for: .touchUpInside)
-        deleteSelectedButton.isHidden = true
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -58,12 +40,7 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
         activity.hidesWhenStopped = true
         activity.translatesAutoresizingMaskIntoConstraints = false
 
-        let buttonRow = UIStackView(arrangedSubviews: [createButton, selectButton])
-        buttonRow.axis = .horizontal
-        buttonRow.spacing = 12
-        buttonRow.distribution = .fillEqually
-
-        let stack = UIStackView(arrangedSubviews: [titleLabel, buttonRow, deleteSelectedButton, tableView])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, createButton, tableView])
         stack.axis = .vertical
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +54,6 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
             stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             stack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             createButton.heightAnchor.constraint(equalToConstant: 48),
-            deleteSelectedButton.heightAnchor.constraint(equalToConstant: 48),
             activity.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activity.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
@@ -92,10 +68,8 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
                 await MainActor.run {
                     self.activity.stopAnimating()
                     self.jars = result.filter { $0.status != "cancelled" }
-                    self.selectedJarIds = self.selectedJarIds.intersection(Set(self.jars.map(\.id)))
                     self.tableView.backgroundView = self.jars.isEmpty ? self.makeEmptyView() : nil
                     self.tableView.reloadData()
-                    self.updateSelectionUI()
                 }
             } catch {
                 await MainActor.run {
@@ -118,33 +92,6 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
         navigationController?.pushViewController(CreateSavingsJarViewController(), animated: true)
     }
 
-    @objc private func tapToggleSelectionMode() {
-        isSelectingMultiple.toggle()
-        if !isSelectingMultiple {
-            selectedJarIds.removeAll()
-        }
-        tableView.setEditing(isSelectingMultiple, animated: true)
-        updateSelectionUI()
-        tableView.reloadData()
-    }
-
-    @objc private func tapDeleteSelected() {
-        guard !selectedJarIds.isEmpty else {
-            return showMessage(title: "Lỗi", message: "Vui lòng chọn ít nhất một quỹ để xoá")
-        }
-
-        let alert = UIAlertController(
-            title: "Xoá nhiều quỹ",
-            message: "Các quỹ còn số dư sẽ không thể xoá. Bạn có chắc chắn muốn tiếp tục?",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Huỷ", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Xoá", style: .destructive) { [weak self] _ in
-            self?.performBulkDelete()
-        })
-        present(alert, animated: true)
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         jars.count
     }
@@ -156,57 +103,15 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
         content.text = "\(jar.icon ?? "🐷") \(jar.name)"
         content.secondaryText = "\(Self.money(jar.currentAmount)) / \(Self.money(jar.targetAmount))"
         cell.contentConfiguration = content
-        cell.accessoryType = isSelectingMultiple ? .none : .disclosureIndicator
-        if isSelectingMultiple {
-            cell.selectionStyle = .default
-            cell.accessoryType = selectedJarIds.contains(jar.id) ? .checkmark : .none
-        }
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .default
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let jar = jars[indexPath.row]
-        if isSelectingMultiple {
-            if selectedJarIds.contains(jar.id) {
-                selectedJarIds.remove(jar.id)
-            } else {
-                selectedJarIds.insert(jar.id)
-            }
-            updateSelectionUI()
-            tableView.reloadRows(at: [indexPath], with: .none)
-            return
-        }
         navigationController?.pushViewController(SavingsJarDetailViewController(jarId: jar.id), animated: true)
-    }
-
-    private func updateSelectionUI() {
-        selectButton.configuration?.title = isSelectingMultiple ? "Huỷ chọn" : "Chọn nhiều"
-        deleteSelectedButton.isHidden = !isSelectingMultiple
-        deleteSelectedButton.configuration?.title = selectedJarIds.isEmpty
-            ? "Xoá quỹ đã chọn"
-            : "Xoá \(selectedJarIds.count) quỹ đã chọn"
-    }
-
-    private func performBulkDelete() {
-        Task { [weak self] in
-            guard let self else { return }
-            do {
-                let message = try await SavingsJarService.shared.deleteSavingsJarsBulk(ids: Array(self.selectedJarIds))
-                await MainActor.run {
-                    self.selectedJarIds.removeAll()
-                    self.isSelectingMultiple = false
-                    self.tableView.setEditing(false, animated: true)
-                    self.updateSelectionUI()
-                    self.showMessage(title: "Thành công", message: message)
-                    self.loadJars()
-                }
-            } catch {
-                await MainActor.run {
-                    self.showMessage(title: "Lỗi", message: error.localizedDescription)
-                }
-            }
-        }
     }
 
     private func showMessage(title: String, message: String) {
@@ -316,7 +221,11 @@ final class CreateSavingsJarViewController: UIViewController {
             do {
                 _ = try await SavingsJarService.shared.createSavingsJar(draft: draft)
                 await MainActor.run {
-                    self.navigationController?.popViewController(animated: true)
+                    if let listViewController = self.navigationController?.viewControllers.first(where: { $0 is SavingsJarListViewController }) {
+                        self.navigationController?.popToViewController(listViewController, animated: true)
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             } catch {
                 await MainActor.run {
@@ -529,6 +438,7 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
             content.text = "Chưa có giao dịch"
             content.secondaryText = nil
             cell.contentConfiguration = content
+            cell.accessoryView = nil
             return cell
         }
 
@@ -536,15 +446,17 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
         var content = cell.defaultContentConfiguration()
         let isDeposit = transaction.type == "savings_deposit"
         content.text = isDeposit ? "Góp quỹ" : "Rút quỹ"
-        content.secondaryText = "\(SavingsJarListViewController.money(transaction.amount)) • \(Self.dateText(transaction.createdAt))"
+        content.secondaryText = Self.dateText(transaction.createdAt)
         cell.contentConfiguration = content
         cell.accessoryView = {
             let label = UILabel()
-            label.text = isDeposit ? "+" : "-"
-            label.textColor = isDeposit ? .systemGreen : .systemOrange
-            label.font = .systemFont(ofSize: 18, weight: .bold)
+            let prefix = isDeposit ? "+" : "-"
+            label.text = "\(prefix)\(SavingsJarListViewController.money(transaction.amount))"
+            label.textColor = isDeposit ? .systemGreen : .systemGray
+            label.font = .systemFont(ofSize: 16, weight: .bold)
             return label
         }()
+        cell.selectionStyle = .none
         return cell
     }
 

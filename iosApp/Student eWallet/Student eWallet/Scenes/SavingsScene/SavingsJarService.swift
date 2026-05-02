@@ -63,16 +63,6 @@ struct SavingsJarMutationResponse: Decodable {
     let data: SavingsJarMutationData?
 }
 
-struct SavingsJarDeleteCount: Decodable {
-    let deleted: Int?
-}
-
-struct SavingsJarDeleteResponse: Decodable {
-    let success: Bool
-    let message: String?
-    let data: SavingsJarDeleteCount?
-}
-
 struct SavingsJarDraft {
     let name: String
     let targetAmount: Double
@@ -192,20 +182,6 @@ final class SavingsJarService {
 
         if !(200..<300).contains(http.statusCode) {
             throw AuthError.server(decoded?.message ?? "Xoá quỹ thất bại")
-        }
-
-        return decoded?.message ?? "Đã xoá quỹ"
-    }
-
-    func deleteSavingsJarsBulk(ids: [String]) async throws -> String {
-        guard let token = TokenStore.shared.token else { throw AuthError.server("Chưa đăng nhập") }
-        let request = try APIEndpoint.deleteSavingsJarsBulk(ids: ids).urlRequest(token: token)
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let http = response as? HTTPURLResponse else { throw AuthError.invalidResponse }
-        let decoded = try? decoder.decode(SavingsJarDeleteResponse.self, from: data)
-
-        if !(200..<300).contains(http.statusCode) {
-            throw AuthError.server(decoded?.message ?? "Xoá nhiều quỹ thất bại")
         }
 
         return decoded?.message ?? "Đã xoá quỹ"

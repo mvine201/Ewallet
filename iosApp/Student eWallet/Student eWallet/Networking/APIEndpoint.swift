@@ -31,7 +31,6 @@ enum APIEndpoint {
     case depositSavingsJar(id: String, amount: Double, pin: String)
     case withdrawSavingsJar(id: String, amount: Double?, pin: String)
     case deleteSavingsJar(id: String)
-    case deleteSavingsJarsBulk(ids: [String])
 }
 
 // MARK: - Base URL
@@ -89,8 +88,6 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/savings-jars/\(id)/withdraw"
         case let .deleteSavingsJar(id):
             return "\(Self.apiPrefix)/savings-jars/\(id)"
-        case .deleteSavingsJarsBulk:
-            return "\(Self.apiPrefix)/savings-jars/bulk"
         }
     }
 }
@@ -101,7 +98,7 @@ extension APIEndpoint {
         switch self {
         case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer, .payService, .createSavingsJar, .depositSavingsJar, .withdrawSavingsJar:
             return "POST"
-        case .deleteSavingsJar, .deleteSavingsJarsBulk:
+        case .deleteSavingsJar:
             return "DELETE"
         case .markNotificationRead:
             return "PUT"
@@ -216,8 +213,6 @@ extension APIEndpoint {
                 body["amount"] = amount
             }
             return body
-        case let .deleteSavingsJarsBulk(ids):
-            return ["ids": ids]
         case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead, .getSavingsJars, .getSavingsJarDetail, .deleteSavingsJar:
             return nil
         }
