@@ -16,6 +16,7 @@ import {
   deleteStudentsBulk,
   getServices,
   createService,
+  updateService,
   deleteService,
   exportServicePayments,
   getNotificationsAdmin,
