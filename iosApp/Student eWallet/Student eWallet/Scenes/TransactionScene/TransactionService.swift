@@ -61,6 +61,7 @@ struct ReceiverInfo: Decodable {
     let fullName: String
     let phone: String
     let studentId: String?
+    let isVerified: Bool?
 }
 
 struct ReceiverResponse: Decodable {

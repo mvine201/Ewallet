@@ -75,7 +75,7 @@ export const setPin = async (req, res) => {
 // GET /api/transfer/lookup?q=phone_hoặc_studentId
 export const lookupReceiver = async (req, res) => {
   try {
-    const { q } = req.query;
+    const q = req.query.q?.trim();
 
     if (!q) {
       return res.status(400).json({
@@ -84,12 +84,18 @@ export const lookupReceiver = async (req, res) => {
       });
     }
 
-    // Tìm theo phone hoặc studentId
-    const user = await User.findOne({
-      $or: [{ phone: q }, { studentId: q }],
+    const phoneUser = await User.findOne({
+      phone: q,
+      isActive: true,
+    }).select("fullName phone studentId avatar isVerified");
+
+    const verifiedStudentUser = await User.findOne({
+      studentId: q,
       isActive: true,
       isVerified: true,
-    }).select("fullName phone studentId avatar");
+    }).select("fullName phone studentId avatar isVerified");
+
+    const user = phoneUser || verifiedStudentUser;
 
     if (!user) {
       return res.status(404).json({
@@ -106,6 +112,14 @@ export const lookupReceiver = async (req, res) => {
       });
     }
 
+    const receiverWallet = await Wallet.findOne({ userId: user._id });
+    if (!receiverWallet || receiverWallet.status !== "active") {
+      return res.status(404).json({
+        success: false,
+        message: "Ví người nhận không tồn tại hoặc đã bị khoá",
+      });
+    }
+
     return res.status(200).json({
       success: true,
       data: {
@@ -113,6 +127,7 @@ export const lookupReceiver = async (req, res) => {
         fullName:  user.fullName,
         phone:     user.phone,
         studentId: user.studentId,
+        isVerified: user.isVerified,
         avatar:    user.avatar,
       },
     });
