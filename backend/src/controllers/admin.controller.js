@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import xlsx from "xlsx";
@@ -7,6 +9,7 @@ import Student from "../models/Student.js";
 import Service from "../models/Service.js";
 import Payment from "../models/Payment.js";
 import Transaction from "../models/Transaction.js";
+import Notification from "../models/Notification.js";
 
 const deriveCohortFromStudentId = (studentId) => {
   const match = String(studentId || "").trim().match(/^(\d{2})/);
@@ -887,6 +890,61 @@ export const updateService = async (req, res) => {
     });
   } catch (error) {
     console.error("updateService error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+};
+
+// ==================== TẠO THÔNG BÁO THỦ CÔNG ====================
+// POST /api/admin/notifications
+export const createNotification = async (req, res) => {
+  try {
+    const { title, message, link } = req.body;
+    let fileUrl = null;
+
+    if (!title || !message) {
+      return res.status(400).json({ success: false, message: "Vui lòng nhập tiêu đề và nội dung" });
+    }
+
+    if (req.file) {
+      // Create uploads directory if it doesn't exist
+      const uploadDir = path.join(process.cwd(), "public", "uploads");
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      // Generate a unique filename
+      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+      const ext = path.extname(req.file.originalname) || ".docx";
+      const filename = `notification-${uniqueSuffix}${ext}`;
+      const filePath = path.join(uploadDir, filename);
+
+      fs.writeFileSync(filePath, req.file.buffer);
+      // Construct public URL
+      // We will mount public/uploads at /uploads in server.js
+      fileUrl = `/uploads/${filename}`;
+    }
+
+    // Since we don't have a reliable way to know if this is broadcast or targeted,
+    // and requirement said admin will add notifications for all users (or general notifications).
+    // Let's create a single notification record with userId = null
+    const newNotification = new Notification({
+      userId: null,
+      title,
+      message,
+      link: link || null,
+      fileUrl,
+      type: "custom"
+    });
+
+    await newNotification.save();
+
+    return res.status(201).json({
+      success: true,
+      message: "Đã tạo thông báo thành công",
+      data: newNotification
+    });
+  } catch (error) {
+    console.error("createNotification error:", error);
     return res.status(500).json({ success: false, message: "Lỗi server" });
   }
 };

@@ -17,17 +17,17 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
             selectedImage: "house.fill",
             root: HomeViewController()
         )
-        let walletNav = createNav(
-            title: "Wallet",
-            image: "creditcard",
-            selectedImage: "creditcard.fill",
-            root: WalletViewController()
-        )
         let historyNav = createNav(
             title: "History",
             image: "clock.arrow.circlepath",
             selectedImage: "clock.arrow.circlepath",
             root: TransactionHistoryViewController()
+        )
+        let notiNav = createNav(
+            title: "Notifications",
+            image: "bell",
+            selectedImage: "bell",
+            root: NotificationViewController()
         )
         let profileNav = createNav(
             title: "Me",
@@ -36,7 +36,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
             root: ProfileViewController()
         )
 
-        viewControllers = [homeNav, walletNav, historyNav, profileNav]
+        viewControllers = [homeNav, historyNav, notiNav, profileNav]
         selectedIndex = 0
     }
     

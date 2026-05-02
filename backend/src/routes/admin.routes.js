@@ -19,6 +19,7 @@ import {
   updateService,
   deleteService,
   exportServicePayments,
+  createNotification
 } from "../controllers/admin.controller.js";
 import { protect, adminOnly } from "../middlewares/auth.middleware.js";
 
@@ -35,6 +36,21 @@ const upload = multer({
       cb(null, true);
     } else {
       cb(new Error("Chỉ chấp nhận file Excel (.xlsx, .xls)"));
+    }
+  },
+});
+
+const uploadDoc = multer({
+  storage: multer.memoryStorage(), // We will save to disk in controller
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
+      file.originalname.endsWith('.docx')
+    ) {
+      cb(null, true);
+    } else {
+      cb(new Error("Chỉ chấp nhận file .docx"));
     }
   },
 });
@@ -67,5 +83,8 @@ router.post("/services", createService);
 router.get("/services/:id/payments/export", exportServicePayments);
 router.put("/services/:id", updateService);
 router.delete("/services/:id", deleteService);
+
+// Quản lý thông báo
+router.post("/notifications", uploadDoc.single("file"), createNotification);
 
 export default router;

@@ -23,6 +23,8 @@ enum APIEndpoint {
     case transfer(receiverId: String, amount: Double, description: String?, pin: String)
     case getPaymentServices(type: String?)
     case payService(serviceId: String, amount: Double?, content: String?, paymentMode: String, pin: String)
+    case getNotifications
+    case markNotificationRead(id: String)
 }
 
 // MARK: - Base URL
@@ -64,6 +66,10 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/payments/services"
         case .payService:
             return "\(Self.apiPrefix)/payments/pay"
+        case .getNotifications:
+            return "\(Self.apiPrefix)/notifications"
+        case let .markNotificationRead(id):
+            return "\(Self.apiPrefix)/notifications/\(id)/read"
         }
     }
 }
@@ -74,7 +80,9 @@ extension APIEndpoint {
         switch self {
         case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer, .payService:
             return "POST"
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices:
+        case .markNotificationRead:
+            return "PUT"
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications:
             return "GET"
         }
     }
@@ -160,7 +168,7 @@ extension APIEndpoint {
                 body["content"] = content
             }
             return body
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead:
             return nil
         }
     }

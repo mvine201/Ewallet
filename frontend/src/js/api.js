@@ -96,4 +96,14 @@ export const api = {
     const blob = await res.blob();
     return { ok: true, blob };
   },
+
+  // Notifications
+  createNotification: (title, message, link, file) => {
+    const form = new FormData();
+    form.append("title", title);
+    form.append("message", message);
+    if (link) form.append("link", link);
+    if (file) form.append("file", file);
+    return request("/admin/notifications", { method: "POST", body: form });
+  },
 };

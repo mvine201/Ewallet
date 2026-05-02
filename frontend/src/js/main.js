@@ -4,6 +4,7 @@ import { renderDashboard } from "./dashboard.js";
 import { renderUsers } from "./users.js";
 import { renderStudents } from "./students.js";
 import { renderServices } from "./services.js";
+import { renderNotifications } from "./notifications.js";
 
 let currentPage = "dashboard";
 
@@ -12,6 +13,7 @@ const NAV_ITEMS = [
   { id: "users", icon: "👥", label: "Người dùng" },
   { id: "students", icon: "🎓", label: "Sinh viên" },
   { id: "services", icon: "⚡", label: "Dịch vụ" },
+  { id: "notifications", icon: "🔔", label: "Thông báo" },
 ];
 
 function renderLayout() {
@@ -71,6 +73,7 @@ function navigateTo(page) {
     case "users": renderUsers(content); break;
     case "students": renderStudents(content); break;
     case "services": renderServices(content); break;
+    case "notifications": renderNotifications(content); break;
   }
 }
 
