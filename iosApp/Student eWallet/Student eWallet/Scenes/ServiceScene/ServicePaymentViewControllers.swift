@@ -31,6 +31,11 @@ final class ServiceListViewController: UIViewController, UITableViewDataSource, 
         loadServices()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadServices()
+    }
+
     private func setupLayout() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -61,6 +66,7 @@ final class ServiceListViewController: UIViewController, UITableViewDataSource, 
                     self.activity.stopAnimating()
                     self.studentInfo = data.studentInfo
                     self.services = data.services
+                    self.tableView.backgroundView = self.services.isEmpty ? self.makeEmptyStateView() : nil
                     self.tableView.reloadData()
                 }
             } catch {
@@ -115,6 +121,15 @@ final class ServiceListViewController: UIViewController, UITableViewDataSource, 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+
+    private func makeEmptyStateView() -> UIView {
+        let label = UILabel()
+        label.text = "Không còn dịch vụ nào cần thanh toán"
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 0
+        return label
     }
 
     private static func serviceTypeName(_ type: String) -> String {

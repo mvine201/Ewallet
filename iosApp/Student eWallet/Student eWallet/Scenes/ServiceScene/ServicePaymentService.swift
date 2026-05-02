@@ -20,6 +20,8 @@ struct ServicePaymentStatus: Decodable {
     let hasPaid: Bool?
     let hasUnpaid: Bool?
     let canPay: Bool?
+    let shouldHide: Bool?
+    let hasMonthlyParkingPaymentThisMonth: Bool?
 }
 
 struct ServicePaymentWindow: Decodable {

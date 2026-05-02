@@ -8,9 +8,6 @@ import Payment from "../models/Payment.js";
 import Transaction from "../models/Transaction.js";
 import Notification from "../models/Notification.js";
 
-// Loại dịch vụ cho phép thanh toán nhiều lần
-const REPEATABLE_TYPES = ["parking", "canteen"];
-
 // ==================== LẤY THÔNG TIN SINH VIÊN HIỆN TẠI ====================
 const getStudentInfo = async (userId) => {
   const user = await User.findById(userId);
@@ -45,6 +42,13 @@ const normalizeText = (value) =>
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, " ")
     .toUpperCase();
+
+const getCurrentMonthRange = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0, 0);
+  const end = new Date(now.getFullYear(), now.getMonth() + 1, 1, 0, 0, 0, 0);
+  return { start, end };
+};
 
 const buildDefaultPaymentContent = ({ service, student, user, paymentMode }) => {
   const studentId = student?.studentId || user.phone;
@@ -159,7 +163,7 @@ export const getAvailableServices = async (req, res) => {
       userId: req.user.id,
       serviceId: { $in: serviceIds },
       status: { $in: ["paid", "unpaid", "overdue"] },
-    }).select("serviceId status paidAt dueDate amount");
+    }).select("serviceId status paidAt dueDate amount paymentMode");
 
     // Map payment status cho từng dịch vụ
     const paymentMap = {};
@@ -169,16 +173,33 @@ export const getAvailableServices = async (req, res) => {
       paymentMap[key].push(p);
     });
 
+    const { start: monthStart, end: monthEnd } = getCurrentMonthRange();
     const servicesWithStatus = services.map((svc) => {
       const s = svc.toObject();
       const payments = paymentMap[s._id.toString()] || [];
-      const paidPayment = payments.find((p) => p.status === "paid");
+      const paidPayments = payments.filter((p) => p.status === "paid");
+      const paidPayment = paidPayments[0] || null;
       const unpaidPayment = payments.find((p) => ["unpaid", "overdue"].includes(p.status));
+      const hasMonthlyParkingPaymentThisMonth =
+        s.type === "parking" &&
+        paidPayments.some((p) =>
+          p.paymentMode === "monthly" &&
+          p.paidAt &&
+          new Date(p.paidAt) >= monthStart &&
+          new Date(p.paidAt) < monthEnd
+        );
+
+      const shouldHide =
+        s.type === "parking"
+          ? hasMonthlyParkingPaymentThisMonth
+          : Boolean(paidPayment);
 
       s.paymentStatus = {
         hasPaid: Boolean(paidPayment),
         hasUnpaid: Boolean(unpaidPayment),
-        canPay: REPEATABLE_TYPES.includes(s.type) || !paidPayment,
+        canPay: !shouldHide,
+        shouldHide,
+        hasMonthlyParkingPaymentThisMonth,
         unpaidPayment: unpaidPayment || null,
         paidPayment: paidPayment
           ? { paidAt: paidPayment.paidAt, amount: paidPayment.amount }
@@ -188,10 +209,14 @@ export const getAvailableServices = async (req, res) => {
       return s;
     });
 
+    const visibleServices = servicesWithStatus.filter(
+      (service) => service.paymentStatus?.shouldHide !== true
+    );
+
     return res.status(200).json({
       success: true,
       data: {
-        services: servicesWithStatus,
+        services: visibleServices,
         studentInfo: student
           ? {
               studentId: student.studentId,
@@ -362,8 +387,26 @@ export const payService = async (req, res) => {
       });
     }
 
-    // --- Kiểm tra đã thanh toán chưa (cho dịch vụ không lặp lại) ---
-    if (!REPEATABLE_TYPES.includes(service.type)) {
+    // --- Kiểm tra đã thanh toán chưa ---
+    if (service.type === "parking" && paymentMode === "monthly") {
+      const { start: monthStart, end: monthEnd } = getCurrentMonthRange();
+      const existingMonthlyParkingPayment = await Payment.findOne({
+        userId: req.user.id,
+        serviceId: service._id,
+        status: "paid",
+        paymentMode: "monthly",
+        paidAt: { $gte: monthStart, $lt: monthEnd },
+      }).session(session);
+
+      if (existingMonthlyParkingPayment) {
+        await session.abortTransaction();
+        return res.status(400).json({
+          success: false,
+          message: "Bạn đã thanh toán phí giữ xe theo tháng cho tháng này rồi",
+          data: { paidAt: existingMonthlyParkingPayment.paidAt },
+        });
+      }
+    } else if (service.type !== "parking") {
       const existingPaid = await Payment.findOne({
         userId: req.user.id,
         serviceId: service._id,
