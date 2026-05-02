@@ -38,7 +38,10 @@ const normalizeDate = (dateString) => {
 // ==================== ĐĂNG KÝ ====================
 export const register = async (req, res) => {
   try {
-    const { phone, password, fullName, email } = req.body;
+    const phone = req.body.phone?.trim();
+    const password = req.body.password;
+    const fullName = req.body.fullName?.trim();
+    const email = req.body.email?.trim();
 
     // Validate input
     if (!phone || !password || !fullName) {
@@ -77,16 +80,25 @@ export const register = async (req, res) => {
 
     // Tạo user
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
+    const userPayload = {
       phone,
       password: hashedPassword,
       fullName,
-      email: email || null,
       isVerified: false, // chưa xác thực sinh viên
-    });
+    };
+
+    if (email) {
+      userPayload.email = email;
+    }
+
+    const user = await User.create(userPayload);
 
     // Tự động tạo ví
-    await Wallet.create({ userId: user._id });
+    await Wallet.findOneAndUpdate(
+      { userId: user._id },
+      { $setOnInsert: { userId: user._id } },
+      { upsert: true, new: true }
+    );
 
     const token = signToken(user);
 
@@ -107,6 +119,15 @@ export const register = async (req, res) => {
     });
   } catch (error) {
     console.error("register error:", error);
+    if (error.code === 11000) {
+      const duplicatedField = Object.keys(error.keyPattern || {})[0];
+      const message = duplicatedField === "phone"
+        ? "Số điện thoại đã được đăng ký"
+        : duplicatedField === "email"
+          ? "Email đã được đăng ký"
+          : "Thông tin đăng ký đã tồn tại";
+      return res.status(409).json({ success: false, message });
+    }
     return res.status(500).json({ success: false, message: "Lỗi server" });
   }
 };
@@ -114,7 +135,8 @@ export const register = async (req, res) => {
 // ==================== ĐĂNG NHẬP ====================
 export const login = async (req, res) => {
   try {
-    const { phone, password } = req.body;
+    const phone = req.body.phone?.trim();
+    const password = req.body.password;
 
     if (!phone || !password) {
       return res.status(400).json({

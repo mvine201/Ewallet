@@ -42,8 +42,8 @@ struct AuthUser: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decodeIfPresent(String.self, forKey: .id)
             ?? container.decode(String.self, forKey: .mongoId)
-        fullName = try container.decode(String.self, forKey: .fullName)
-        phone = try container.decode(String.self, forKey: .phone)
+        fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? "Người dùng"
+        phone = try container.decodeIfPresent(String.self, forKey: .phone) ?? ""
         email = try container.decodeIfPresent(String.self, forKey: .email)
         role = try container.decodeIfPresent(String.self, forKey: .role)
         isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
@@ -60,9 +60,9 @@ struct StudentInfo: Decodable {
     let studentId: String
     let fullName: String
     let dateOfBirth: String?
-    let email: String
+    let email: String?
     let cohort: String?
-    let faculty: String
+    let faculty: String?
     let academicStatus: String?
 }
 
