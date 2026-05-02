@@ -63,6 +63,7 @@ class NotificationViewController: UIViewController {
                     self.notifications = result.data
                     self.tableView.reloadData()
                     self.refreshControl.endRefreshing()
+                    NotificationCenter.default.post(name: .notificationsDidChange, object: nil)
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -109,6 +110,7 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
         let notification = notifications[indexPath.row]
         let detailVC = NotificationDetailViewController(notification: notification)
         detailVC.onMarkRead = { [weak self] in
+            NotificationCenter.default.post(name: .notificationsDidChange, object: nil)
             // Update local state to read without full refetch if we want, or just wait for viewWillAppear
             if let index = self?.notifications.firstIndex(where: { $0._id == notification._id }) {
                 // Since AppNotification is a struct, we can't mutate its property directly unless we recreate it.

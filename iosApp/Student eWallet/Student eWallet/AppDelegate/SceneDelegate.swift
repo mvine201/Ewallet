@@ -86,4 +86,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension Notification.Name {
     static let topupDeepLinkReceived = Notification.Name("topupDeepLinkReceived")
+    static let notificationsDidChange = Notification.Name("notificationsDidChange")
 }

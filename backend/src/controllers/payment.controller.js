@@ -599,9 +599,9 @@ export const payService = async (req, res) => {
     // Notification
     const notification = new Notification({
       userId: req.user.id,
-      title: "Thanh toán thành công",
+      title: "Thanh toán dịch vụ thành công",
       message: `Đã thanh toán ${payAmount.toLocaleString("vi-VN")}₫ cho "${service.name}"`,
-      type: "transaction",
+      type: "system",
       relatedId: transaction._id,
     });
     await notification.save({ session });

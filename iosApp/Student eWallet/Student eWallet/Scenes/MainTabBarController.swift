@@ -1,12 +1,30 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+    private let notificationTabIndex = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
         setupTabs()
         setupAppearance()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshNotificationBadge),
+            name: .notificationsDidChange,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshNotificationBadge),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+        refreshNotificationBadge()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
 
@@ -87,5 +105,37 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         }
 
         navigationController.popToRootViewController(animated: false)
+    }
+
+    @objc private func refreshNotificationBadge() {
+        Task { [weak self] in
+            guard
+                let self,
+                let token = TokenStore.shared.token
+            else { return }
+
+            do {
+                let request = try APIEndpoint.getNotifications.urlRequest(token: token)
+                let (data, response) = try await URLSession.shared.data(for: request)
+                guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
+
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NotificationResponse.self, from: data)
+                let unreadCount = result.data.filter { !$0.isRead }.count
+
+                await MainActor.run {
+                    guard self.viewControllers?.indices.contains(self.notificationTabIndex) == true else { return }
+                    self.viewControllers?[self.notificationTabIndex].tabBarItem.badgeValue = unreadCount > 0 ? String(unreadCount) : nil
+                    self.viewControllers?[self.notificationTabIndex].tabBarItem.badgeColor = .systemRed
+                }
+            } catch {
+                await MainActor.run {
+                    guard self.viewControllers?.indices.contains(self.notificationTabIndex) == true else { return }
+                    self.viewControllers?[self.notificationTabIndex].tabBarItem.badgeValue = nil
+                }
+            }
+        }
     }
 }

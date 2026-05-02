@@ -8,7 +8,8 @@ export const getNotifications = async (req, res) => {
     const userId = req.user.id;
     // Lấy thông báo riêng của user HOẶC thông báo chung (userId = null)
     const notifications = await Notification.find({
-      $or: [{ userId }, { userId: null }]
+      $or: [{ userId }, { userId: null }],
+      type: { $ne: "transaction" },
     }).sort({ createdAt: -1 });
 
     const globalNotificationIds = notifications
