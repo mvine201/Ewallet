@@ -623,6 +623,7 @@ final class ServicePaymentResultViewController: UIViewController {
         let stack = UIStackView(arrangedSubviews: [
             makeRow(title: "Dịch vụ", value: draft.service.name),
             makeRow(title: "Mã sinh viên", value: draft.student?.studentId ?? "Chưa xác thực"),
+            makeRow(title: "Người thanh toán", value: draft.student?.fullName ?? "Chưa xác thực"),
             makeRow(title: "Nội dung", value: payment.content ?? draft.content),
             makeRow(title: "Thời gian", value: Self.timeFormatter.string(from: Date()))
         ])

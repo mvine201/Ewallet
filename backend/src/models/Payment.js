@@ -26,7 +26,7 @@ const paymentSchema = new mongoose.Schema({
   },
   serviceSnapshot: {
     name: String,
-    type: String,
+    type: { type: String },
     category: String,
     semester: String,
     academicYear: String
