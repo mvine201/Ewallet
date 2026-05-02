@@ -139,6 +139,7 @@ final class CreateSavingsJarViewController: UIViewController {
     private let targetAmountField = UITextField()
     private let deadlineField = UITextField()
     private let datePicker = UIDatePicker()
+    private let activity = UIActivityIndicatorView(style: .medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,11 +181,17 @@ final class CreateSavingsJarViewController: UIViewController {
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
 
+        activity.hidesWhenStopped = true
+        activity.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(stack)
+        view.addSubview(activity)
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24)
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            activity.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activity.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
@@ -216,23 +223,59 @@ final class CreateSavingsJarViewController: UIViewController {
             icon: "🐷"
         )
 
+        setLoading(true)
         Task { [weak self] in
             guard let self else { return }
             do {
                 _ = try await SavingsJarService.shared.createSavingsJar(draft: draft)
                 await MainActor.run {
-                    if let listViewController = self.navigationController?.viewControllers.first(where: { $0 is SavingsJarListViewController }) {
-                        self.navigationController?.popToViewController(listViewController, animated: true)
-                    } else {
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                    self.setLoading(false)
+                    self.showCreateSuccess()
                 }
             } catch {
                 await MainActor.run {
+                    self.setLoading(false)
                     self.showMessage(error.localizedDescription)
                 }
             }
         }
+    }
+
+    private func setLoading(_ loading: Bool) {
+        view.isUserInteractionEnabled = !loading
+        loading ? activity.startAnimating() : activity.stopAnimating()
+    }
+
+    private func showCreateSuccess() {
+        let alert = UIAlertController(
+            title: "Thành công",
+            message: "Tạo quỹ tiết kiệm thành công.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.returnToSavingsJarList()
+        })
+        present(alert, animated: true)
+    }
+
+    private func returnToSavingsJarList() {
+        if let navigationController {
+            if let listIndex = navigationController.viewControllers.lastIndex(where: { $0 is SavingsJarListViewController }) {
+                let targetStack = Array(navigationController.viewControllers.prefix(listIndex + 1))
+                navigationController.setViewControllers(targetStack, animated: true)
+                return
+            }
+
+            if navigationController.presentingViewController != nil {
+                navigationController.dismiss(animated: true)
+                return
+            }
+
+            navigationController.popViewController(animated: true)
+            return
+        }
+
+        dismiss(animated: true)
     }
 
     private func showMessage(_ message: String) {

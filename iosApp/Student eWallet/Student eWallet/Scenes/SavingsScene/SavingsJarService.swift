@@ -63,6 +63,12 @@ struct SavingsJarMutationResponse: Decodable {
     let data: SavingsJarMutationData?
 }
 
+struct SavingsJarCreateResponse: Decodable {
+    let success: Bool
+    let message: String?
+    let data: SavingsJarItem?
+}
+
 struct SavingsJarDraft {
     let name: String
     let targetAmount: Double
@@ -135,13 +141,13 @@ final class SavingsJarService {
         ).urlRequest(token: token)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let http = response as? HTTPURLResponse else { throw AuthError.invalidResponse }
-        let decoded = try? decoder.decode(SavingsJarMutationResponse.self, from: data)
+        let decoded = try? decoder.decode(SavingsJarCreateResponse.self, from: data)
 
         if !(200..<300).contains(http.statusCode) {
             throw AuthError.server(decoded?.message ?? "Tạo quỹ tiết kiệm thất bại")
         }
 
-        if let jar = decoded?.data?.jar {
+        if let jar = decoded?.data {
             return jar
         }
         throw AuthError.server(decoded?.message ?? "Tạo quỹ tiết kiệm thất bại")
