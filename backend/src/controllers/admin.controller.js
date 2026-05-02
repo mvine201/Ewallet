@@ -807,6 +807,19 @@ export const deleteStudentsBulk = async (req, res) => {
 export const getServices = async (req, res) => {
   try {
     const services = await Service.find().sort({ createdAt: -1 });
+    
+    // Tự động vô hiệu hoá dịch vụ đã hết hạn
+    let hasChanges = false;
+    const now = new Date();
+    
+    for (const service of services) {
+      if (service.isActive && service.paymentWindow?.endAt && now > new Date(service.paymentWindow.endAt)) {
+        service.isActive = false;
+        await service.save();
+        hasChanges = true;
+      }
+    }
+
     return res.status(200).json({ success: true, data: services });
   } catch (error) {
     console.error("getServices error:", error);

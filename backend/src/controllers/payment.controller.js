@@ -135,7 +135,23 @@ export const getAvailableServices = async (req, res) => {
       filter.type = req.query.type;
     }
 
-    const services = await Service.find(filter).sort({ type: 1, name: 1 });
+    let services = await Service.find(filter).sort({ type: 1, name: 1 });
+
+    // Tự động vô hiệu hoá dịch vụ hết hạn
+    const now = new Date();
+    let hasChanges = false;
+    for (const service of services) {
+      if (service.isActive && service.paymentWindow?.endAt && now > new Date(service.paymentWindow.endAt)) {
+        service.isActive = false;
+        await service.save();
+        hasChanges = true;
+      }
+    }
+    
+    // Nếu có thay đổi, lọc lại các dịch vụ còn active
+    if (hasChanges) {
+      services = services.filter(s => s.isActive);
+    }
 
     // Lấy trạng thái thanh toán cho từng dịch vụ (nếu có)
     const serviceIds = services.map((s) => s._id);
@@ -440,16 +456,15 @@ export const payService = async (req, res) => {
     });
 
     // Tạo transaction
-    const [transaction] = await Transaction.create(
-      [{
-        walletId: wallet._id,
-        type: "payment",
-        status: "success",
-        method: "wallet",
-        amount: payAmount,
-        description: paymentContent,
-      }]
-    );
+    const transaction = new Transaction({
+      walletId: wallet._id,
+      type: "payment",
+      status: "success",
+      method: "wallet",
+      amount: payAmount,
+      description: paymentContent,
+    });
+    await transaction.save();
 
     // Tạo hoặc cập nhật Payment record
     // Kiểm tra có khoản unpaid đang chờ không
@@ -485,46 +500,44 @@ export const payService = async (req, res) => {
       await payment.save();
     } else {
       // Tạo payment mới
-      [payment] = await Payment.create(
-        [{
-          userId: req.user.id,
-          serviceId: service._id,
-          transactionId: transaction._id,
-          amount: payAmount,
-          content: paymentContent,
-          studentSnapshot: {
-            studentId: student?.studentId || user.studentId,
-            fullName: student?.fullName || user.studentFullName || user.fullName,
-            cohort: student?.cohort,
-            faculty: student?.faculty,
-            phone: user.phone,
-            email: student?.email || user.email,
-          },
-          serviceSnapshot: {
-            name: service.name,
-            type: service.type,
-            category: service.category,
-            semester: service.paymentWindow?.semester,
-            academicYear: service.paymentWindow?.academicYear,
-          },
-          paymentMode,
-          status: "paid",
-          paidAt: new Date(),
-          dueDate: service.paymentWindow?.endAt || null,
-        }]
-      );
+      payment = new Payment({
+        userId: req.user.id,
+        serviceId: service._id,
+        transactionId: transaction._id,
+        amount: payAmount,
+        content: paymentContent,
+        studentSnapshot: {
+          studentId: student?.studentId || user.studentId,
+          fullName: student?.fullName || user.studentFullName || user.fullName,
+          cohort: student?.cohort,
+          faculty: student?.faculty,
+          phone: user.phone,
+          email: student?.email || user.email,
+        },
+        serviceSnapshot: {
+          name: service.name,
+          type: service.type,
+          category: service.category,
+          semester: service.paymentWindow?.semester,
+          academicYear: service.paymentWindow?.academicYear,
+        },
+        paymentMode,
+        status: "paid",
+        paidAt: new Date(),
+        dueDate: service.paymentWindow?.endAt || null,
+      });
+      await payment.save();
     }
 
     // Notification
-    await Notification.create(
-      [{
-        userId: req.user.id,
-        title: "Thanh toán thành công",
-        message: `Đã thanh toán ${payAmount.toLocaleString("vi-VN")}₫ cho "${service.name}"`,
-        type: "transaction",
-        relatedId: transaction._id,
-      }]
-    );
+    const notification = new Notification({
+      userId: req.user.id,
+      title: "Thanh toán thành công",
+      message: `Đã thanh toán ${payAmount.toLocaleString("vi-VN")}₫ cho "${service.name}"`,
+      type: "transaction",
+      relatedId: transaction._id,
+    });
+    await notification.save();
 
     return res.status(200).json({
       success: true,
