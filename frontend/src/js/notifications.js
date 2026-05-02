@@ -1,5 +1,5 @@
 import { api } from "./api.js";
-import { showToast, confirmAction } from "./auth.js";
+import { showToast } from "./auth.js";
 
 let notifications = [];
 let editingId = null;

@@ -281,6 +281,9 @@ export const getPaymentDetail = async (req, res) => {
 // ==================== THANH TOÁN DỊCH VỤ ====================
 // POST /api/payments/pay
 export const payService = async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
   try {
     const { serviceId, pin, amount: customAmount, content, paymentMode = "single" } = req.body;
 
@@ -300,8 +303,9 @@ export const payService = async (req, res) => {
     }
 
     // --- Kiểm tra dịch vụ ---
-    const service = await Service.findById(serviceId);
+    const service = await Service.findById(serviceId).session(session);
     if (!service || !service.isActive) {
+      await session.abortTransaction();
       return res.status(404).json({
         success: false,
         message: "Dịch vụ không tồn tại hoặc đã bị vô hiệu hoá",
@@ -309,10 +313,11 @@ export const payService = async (req, res) => {
     }
 
     // --- Kiểm tra quyền truy cập dịch vụ ---
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).session(session);
 
     // Dịch vụ yêu cầu xác thực sinh viên
     if (service.requireVerification && !user.isVerified) {
+      await session.abortTransaction();
       return res.status(403).json({
         success: false,
         message: "Bạn cần xác thực sinh viên để sử dụng dịch vụ này",
@@ -324,6 +329,7 @@ export const payService = async (req, res) => {
       const student = await getStudentInfo(req.user.id);
 
       if (!student) {
+        await session.abortTransaction();
         return res.status(403).json({
           success: false,
           message: "Không tìm thấy thông tin sinh viên",
@@ -332,6 +338,7 @@ export const payService = async (req, res) => {
 
       // Kiểm tra yêu cầu đang học
       if (service.requireActiveStudent && student.academicStatus === "graduated") {
+        await session.abortTransaction();
         return res.status(403).json({
           success: false,
           message: "Dịch vụ này chỉ dành cho sinh viên đang học. Bạn đã tốt nghiệp",
@@ -341,11 +348,18 @@ export const payService = async (req, res) => {
       // Kiểm tra phạm vi
       const scopeError = checkScope(service, student);
       if (scopeError) {
+        await session.abortTransaction();
         return res.status(403).json({
           success: false,
           message: scopeError,
         });
       }
+    } else if (service.category === "internal") {
+      await session.abortTransaction();
+      return res.status(403).json({
+        success: false,
+        message: "Bạn cần xác thực sinh viên để sử dụng dịch vụ nội bộ",
+      });
     }
 
     // --- Kiểm tra đã thanh toán chưa (cho dịch vụ không lặp lại) ---
@@ -354,9 +368,10 @@ export const payService = async (req, res) => {
         userId: req.user.id,
         serviceId: service._id,
         status: "paid",
-      });
+      }).session(session);
 
       if (existingPaid) {
+        await session.abortTransaction();
         return res.status(400).json({
           success: false,
           message: `Bạn đã thanh toán "${service.name}" rồi`,
@@ -374,9 +389,11 @@ export const payService = async (req, res) => {
         const fromDay = service.parkingConfig?.monthlyPassOpenDayFrom || 1;
         const toDay = service.parkingConfig?.monthlyPassOpenDayTo || 5;
         if (!service.parkingConfig?.monthlyPassEnabled) {
+          await session.abortTransaction();
           return res.status(400).json({ success: false, message: "Dịch vụ chưa mở gói giữ xe theo tháng" });
         }
         if (nowDay < fromDay || nowDay > toDay) {
+          await session.abortTransaction();
           return res.status(400).json({ success: false, message: `Gói tháng chỉ mở từ ngày ${fromDay}-${toDay} hằng tháng` });
         }
         payAmount = customAmount || service.parkingConfig?.monthlyPassPrice || service.price;
@@ -388,6 +405,7 @@ export const payService = async (req, res) => {
     }
 
     if (!payAmount || payAmount <= 0) {
+      await session.abortTransaction();
       return res.status(400).json({
         success: false,
         message: "Số tiền thanh toán không hợp lệ",
@@ -398,12 +416,14 @@ export const payService = async (req, res) => {
     if (service.type === "tuition" && service.paymentWindow) {
       const now = new Date();
       if (service.paymentWindow.startAt && now < service.paymentWindow.startAt) {
+        await session.abortTransaction();
         return res.status(400).json({
           success: false,
           message: `Chưa đến thời hạn nộp. Bắt đầu từ: ${new Date(service.paymentWindow.startAt).toLocaleString("vi-VN")}`,
         });
       }
       if (service.paymentWindow.endAt && now > service.paymentWindow.endAt) {
+        await session.abortTransaction();
         return res.status(400).json({
           success: false,
           message: "Đã quá hạn nộp",
@@ -412,8 +432,9 @@ export const payService = async (req, res) => {
     }
 
     // --- Kiểm tra ví và PIN ---
-    const wallet = await Wallet.findOne({ userId: req.user.id });
+    const wallet = await Wallet.findOne({ userId: req.user.id }).session(session);
     if (!wallet || wallet.status !== "active") {
+      await session.abortTransaction();
       return res.status(403).json({
         success: false,
         message: "Ví không tồn tại hoặc đã bị khoá",
@@ -421,6 +442,7 @@ export const payService = async (req, res) => {
     }
 
     if (!wallet.pin) {
+      await session.abortTransaction();
       return res.status(403).json({
         success: false,
         message: "Bạn chưa thiết lập PIN. Vui lòng tạo PIN trước khi thanh toán",
@@ -429,6 +451,7 @@ export const payService = async (req, res) => {
 
     const isPinValid = await bcrypt.compare(pin, wallet.pin);
     if (!isPinValid) {
+      await session.abortTransaction();
       return res.status(401).json({
         success: false,
         message: "PIN không đúng",
@@ -436,6 +459,7 @@ export const payService = async (req, res) => {
     }
 
     if (wallet.balance < payAmount) {
+      await session.abortTransaction();
       return res.status(400).json({
         success: false,
         message: `Số dư không đủ. Hiện có: ${wallet.balance.toLocaleString("vi-VN")}₫, cần: ${payAmount.toLocaleString("vi-VN")}₫`,
@@ -445,7 +469,7 @@ export const payService = async (req, res) => {
     // --- Thực hiện thanh toán ---
     // Trừ ví
     wallet.balance -= payAmount;
-    await wallet.save();
+    await wallet.save({ session });
 
     const student = user.isVerified ? await getStudentInfo(req.user.id) : null;
     const paymentContent = content?.trim() || buildDefaultPaymentContent({
@@ -464,7 +488,7 @@ export const payService = async (req, res) => {
       amount: payAmount,
       description: paymentContent,
     });
-    await transaction.save();
+    await transaction.save({ session });
 
     // Tạo hoặc cập nhật Payment record
     // Kiểm tra có khoản unpaid đang chờ không
@@ -472,7 +496,7 @@ export const payService = async (req, res) => {
       userId: req.user.id,
       serviceId: service._id,
       status: { $in: ["unpaid", "overdue"] },
-    });
+    }).session(session);
 
     if (payment) {
       // Cập nhật payment đang chờ → paid
@@ -497,7 +521,7 @@ export const payService = async (req, res) => {
         academicYear: service.paymentWindow?.academicYear,
       };
       payment.paymentMode = paymentMode;
-      await payment.save();
+      await payment.save({ session });
     } else {
       // Tạo payment mới
       payment = new Payment({
@@ -526,7 +550,7 @@ export const payService = async (req, res) => {
         paidAt: new Date(),
         dueDate: service.paymentWindow?.endAt || null,
       });
-      await payment.save();
+      await payment.save({ session });
     }
 
     // Notification
@@ -537,7 +561,9 @@ export const payService = async (req, res) => {
       type: "transaction",
       relatedId: transaction._id,
     });
-    await notification.save();
+    await notification.save({ session });
+
+    await session.commitTransaction();
 
     return res.status(200).json({
       success: true,
@@ -561,8 +587,11 @@ export const payService = async (req, res) => {
       },
     });
   } catch (error) {
+    await session.abortTransaction();
     console.error("payService error:", error);
     return res.status(500).json({ success: false, message: "Lỗi server" });
+  } finally {
+    session.endSession();
   }
 };
 

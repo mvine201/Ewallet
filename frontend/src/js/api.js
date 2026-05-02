@@ -1,4 +1,7 @@
-const BASE_URL = "https://ewallet-hn0m.onrender.com/api";
+const BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://ewallet-hn0m.onrender.com/api"
+).replace(/\/$/, "");
 
 function getToken() {
   return localStorage.getItem("admin_token");
@@ -26,7 +29,14 @@ async function request(path, options = {}) {
   }
 
   const res = await fetch(`${BASE_URL}${path}`, { ...options, headers });
-  const data = await res.json();
+  const raw = await res.text();
+  let data;
+
+  try {
+    data = raw ? JSON.parse(raw) : {};
+  } catch {
+    data = { message: raw || `Request failed with status ${res.status}` };
+  }
 
   if (res.status === 401 && path !== "/auth/login") {
     clearToken();

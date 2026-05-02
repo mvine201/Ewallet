@@ -1,4 +1,5 @@
 import Notification from "../models/Notification.js";
+import NotificationRead from "../models/NotificationRead.js";
 
 // Lấy danh sách thông báo của user hiện tại
 // GET /api/notifications
@@ -10,9 +11,32 @@ export const getNotifications = async (req, res) => {
       $or: [{ userId }, { userId: null }]
     }).sort({ createdAt: -1 });
 
+    const globalNotificationIds = notifications
+      .filter((notification) => notification.userId == null)
+      .map((notification) => notification._id);
+
+    const globalReadStates = globalNotificationIds.length
+      ? await NotificationRead.find({
+          userId,
+          notificationId: { $in: globalNotificationIds },
+        }).select("notificationId")
+      : [];
+
+    const globalReadSet = new Set(
+      globalReadStates.map((state) => state.notificationId.toString())
+    );
+
+    const normalizedNotifications = notifications.map((notification) => {
+      const item = notification.toObject();
+      if (item.userId == null) {
+        item.isRead = globalReadSet.has(item._id.toString());
+      }
+      return item;
+    });
+
     return res.status(200).json({
       success: true,
-      data: notifications
+      data: normalizedNotifications
     });
   } catch (error) {
     console.error("getNotifications error:", error);
@@ -27,20 +51,17 @@ export const markAsRead = async (req, res) => {
     const userId = req.user.id;
     const notificationId = req.params.id;
 
-    // Tìm thông báo (nếu là thông báo chung, ta không cập nhật isRead vì nó sẽ cập nhật cho mọi người)
-    // Tạm thời để đơn giản, nếu là thông báo riêng của user thì cập nhật isRead: true
-    // Nếu là thông báo chung, do đang dùng model chung, ta có thể bỏ qua hoặc tạo 1 schema ReadStatus (phức tạp)
-    // Trong giới hạn project, Admin sẽ gửi thông báo vào thẳng các User (tạo nhiều document)
-    // -> Nên Notification luôn có userId.
-    
     const notification = await Notification.findOne({ _id: notificationId, userId });
-    
+
     if (!notification) {
-      // Có thể là thông báo chung userId = null, ta không đánh dấu isRead được trên schema này.
-      // Nhưng nếu yêu cầu bắt buộc, chúng ta có thể bỏ qua.
       const globalNotif = await Notification.findOne({ _id: notificationId, userId: null });
       if (globalNotif) {
-         return res.status(200).json({ success: true, message: "Đã đọc (thông báo chung)" });
+        await NotificationRead.findOneAndUpdate(
+          { notificationId, userId },
+          { $set: { readAt: new Date() } },
+          { upsert: true, new: true, setDefaultsOnInsert: true }
+        );
+        return res.status(200).json({ success: true, message: "Đã đánh dấu đọc" });
       }
       return res.status(404).json({ success: false, message: "Không tìm thấy thông báo" });
     }

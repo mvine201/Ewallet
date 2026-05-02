@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
-import { findStudentById } from "../data/mockStudents.js";
+import Student from "../models/Student.js";
 
 const signToken = (user) =>
   jwt.sign(
@@ -33,6 +33,16 @@ const normalizeDate = (dateString) => {
     return `${ymMatch[1]}-${ymMatch[2].padStart(2, "0")}-${ymMatch[3].padStart(2, "0")}`;
   }
   return str;
+};
+
+const findStudentRecordById = async (studentId) => {
+  const normalizedStudentId = String(studentId || "").trim();
+  if (!normalizedStudentId) return null;
+
+  return Student.findOne({
+    studentId: { $regex: new RegExp(`^${normalizedStudentId}$`, "i") },
+    isActive: true,
+  });
 };
 
 // ==================== ĐĂNG KÝ ====================
@@ -211,7 +221,7 @@ export const verifyStudent = async (req, res) => {
     const normalizedStudentId = studentId.trim();
     const normalizedFullName = fullName.trim().replace(/\s+/g, " ");
     const normalizedDateOfBirth = dateOfBirth.trim();
-    const matchedStudent = await findStudentById(normalizedStudentId);
+    const matchedStudent = await findStudentRecordById(normalizedStudentId);
 
     if (!matchedStudent) {
       return res.status(404).json({
@@ -354,7 +364,7 @@ export const getMe = async (req, res) => {
 
     const userData = user.toObject();
     const matchedStudent = user.isVerified
-      ? await findStudentById(user.studentId)
+      ? await findStudentRecordById(user.studentId)
       : null;
 
     userData.studentInfo = matchedStudent
