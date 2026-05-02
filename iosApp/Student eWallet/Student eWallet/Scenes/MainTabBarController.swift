@@ -17,6 +17,12 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(refreshNotificationBadge),
+            name: .appNotificationPreferenceChanged,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshNotificationBadge),
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
@@ -108,6 +114,11 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
     }
 
     @objc private func refreshNotificationBadge() {
+        guard AppPreferences.notificationsEnabled else {
+            viewControllers?[notificationTabIndex].tabBarItem.badgeValue = nil
+            return
+        }
+
         Task { [weak self] in
             guard
                 let self,

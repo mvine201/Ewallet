@@ -1,10 +1,43 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 import SavingsJar from "../models/SavingsJar.js";
 import Wallet from "../models/Wallet.js";
 import Transaction from "../models/Transaction.js";
 import Notification from "../models/Notification.js";
 
 const MAX_ACTIVE_JARS = 10;
+
+const validateWalletPin = async ({ wallet, pin, session, res }) => {
+  if (!pin || !/^\d{6}$/.test(pin)) {
+    await session.abortTransaction();
+    res.status(400).json({
+      success: false,
+      message: "Vui lòng nhập PIN gồm 6 chữ số",
+    });
+    return false;
+  }
+
+  if (!wallet.pin) {
+    await session.abortTransaction();
+    res.status(403).json({
+      success: false,
+      message: "Bạn chưa thiết lập PIN. Vui lòng tạo PIN trước khi thực hiện giao dịch",
+    });
+    return false;
+  }
+
+  const isPinValid = await bcrypt.compare(pin, wallet.pin);
+  if (!isPinValid) {
+    await session.abortTransaction();
+    res.status(401).json({
+      success: false,
+      message: "PIN không đúng",
+    });
+    return false;
+  }
+
+  return true;
+};
 
 // ==================== TÍNH NGÀY NẠP TIẾP THEO ====================
 const calcNextDepositAt = (autoDeposit) => {
@@ -306,7 +339,7 @@ export const depositToJar = async (req, res) => {
   session.startTransaction();
 
   try {
-    const { amount } = req.body;
+    const { amount, pin } = req.body;
 
     if (!amount || amount < 1000) {
       await session.abortTransaction();
@@ -346,6 +379,9 @@ export const depositToJar = async (req, res) => {
         message: "Ví không tồn tại hoặc đã bị khoá",
       });
     }
+
+    const isPinValidated = await validateWalletPin({ wallet, pin, session, res });
+    if (!isPinValidated) return;
 
     if (wallet.balance < amount) {
       await session.abortTransaction();
@@ -446,7 +482,7 @@ export const withdrawFromJar = async (req, res) => {
   session.startTransaction();
 
   try {
-    const { amount } = req.body;
+    const { amount, pin } = req.body;
 
     const jar = await SavingsJar.findOne({
       _id: req.params.id,
@@ -483,13 +519,16 @@ export const withdrawFromJar = async (req, res) => {
     }
 
     const wallet = await Wallet.findOne({ userId: req.user.id }).session(session);
-    if (!wallet) {
+    if (!wallet || wallet.status !== "active") {
       await session.abortTransaction();
       return res.status(400).json({
         success: false,
-        message: "Không tìm thấy ví",
+        message: "Ví không tồn tại hoặc đã bị khoá",
       });
     }
+
+    const isPinValidated = await validateWalletPin({ wallet, pin, session, res });
+    if (!isPinValidated) return;
 
     // Cộng ví, trừ hũ
     wallet.balance += withdrawAmount;
@@ -574,45 +613,14 @@ export const deleteSavingsJar = async (req, res) => {
       });
     }
 
-    // Trả tiền còn lại về ví
     if (jar.currentAmount > 0) {
-      const wallet = await Wallet.findOne({ userId: req.user.id }).session(session);
-      if (!wallet) {
-        await session.abortTransaction();
-        return res.status(400).json({
-          success: false,
-          message: "Không tìm thấy ví",
-        });
-      }
-
-      wallet.balance += jar.currentAmount;
-      await wallet.save({ session });
-
-      const [transaction] = await Transaction.create(
-        [{
-          walletId: wallet._id,
-          type: "savings_withdraw",
-          status: "success",
-          amount: jar.currentAmount,
-          savingsJarId: jar._id,
-          description: `Huỷ hũ "${jar.name}" — hoàn tiền về ví`,
-        }],
-        { session }
-      );
-
-      await Notification.create(
-        [{
-          userId: req.user.id,
-          title: "Huỷ hũ tiết kiệm",
-          message: `Đã huỷ hũ "${jar.name}" và hoàn ${jar.currentAmount.toLocaleString("vi-VN")}₫ về ví`,
-          type: "transaction",
-          relatedId: transaction._id,
-        }],
-        { session }
-      );
+      await session.abortTransaction();
+      return res.status(400).json({
+        success: false,
+        message: "Vui lòng rút hết tiền trong quỹ trước khi xoá",
+      });
     }
 
-    jar.currentAmount = 0;
     jar.status = "cancelled";
     jar.autoDeposit.enabled = false;
     jar.autoDeposit.nextDepositAt = null;
@@ -622,12 +630,72 @@ export const deleteSavingsJar = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: `Đã huỷ hũ "${jar.name}"${jar.currentAmount > 0 ? " và hoàn tiền về ví" : ""}`,
+      message: `Đã xoá quỹ "${jar.name}"`,
       data: jar,
     });
   } catch (error) {
     await session.abortTransaction();
     console.error("deleteSavingsJar error:", error);
+    return res.status(500).json({ success: false, message: "Lỗi server" });
+  } finally {
+    session.endSession();
+  }
+};
+
+// DELETE /api/savings-jars/bulk
+export const deleteSavingsJarsBulk = async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    const ids = Array.isArray(req.body.ids) ? req.body.ids : [];
+    if (!ids.length) {
+      await session.abortTransaction();
+      return res.status(400).json({
+        success: false,
+        message: "Vui lòng chọn ít nhất một quỹ để xoá",
+      });
+    }
+
+    const jars = await SavingsJar.find({
+      _id: { $in: ids },
+      userId: req.user.id,
+    }).session(session);
+
+    if (jars.length !== ids.length) {
+      await session.abortTransaction();
+      return res.status(404).json({
+        success: false,
+        message: "Có quỹ tiết kiệm không tồn tại hoặc không thuộc tài khoản của bạn",
+      });
+    }
+
+    const nonEmptyJar = jars.find((jar) => jar.currentAmount > 0);
+    if (nonEmptyJar) {
+      await session.abortTransaction();
+      return res.status(400).json({
+        success: false,
+        message: `Quỹ "${nonEmptyJar.name}" vẫn còn số dư. Vui lòng rút hết tiền trước khi xoá`,
+      });
+    }
+
+    jars.forEach((jar) => {
+      jar.status = "cancelled";
+      jar.autoDeposit.enabled = false;
+      jar.autoDeposit.nextDepositAt = null;
+    });
+
+    await Promise.all(jars.map((jar) => jar.save({ session })));
+
+    await session.commitTransaction();
+    return res.status(200).json({
+      success: true,
+      message: `Đã xoá ${jars.length} quỹ tiết kiệm`,
+      data: { deleted: jars.length },
+    });
+  } catch (error) {
+    await session.abortTransaction();
+    console.error("deleteSavingsJarsBulk error:", error);
     return res.status(500).json({ success: false, message: "Lỗi server" });
   } finally {
     session.endSession();

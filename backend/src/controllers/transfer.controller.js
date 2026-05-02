@@ -4,6 +4,7 @@ import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
 import Transaction from "../models/Transaction.js";
 import Notification from "../models/Notification.js";
+import { ensureWithinDailyTransactionLimit } from "../libs/dailyTransactionLimit.js";
 
 // ==================== THIẾT LẬP / ĐỔI PIN ====================
 // POST /api/transfer/pin
@@ -213,6 +214,23 @@ export const transfer = async (req, res) => {
         success: false,
         message: "Ví người nhận không tồn tại hoặc đã bị khoá",
       });
+    }
+
+    try {
+      await ensureWithinDailyTransactionLimit({
+        walletId: senderWallet._id,
+        amount,
+        session,
+      });
+    } catch (error) {
+      if (error.code === "DAILY_TRANSACTION_LIMIT_EXCEEDED") {
+        await session.abortTransaction();
+        return res.status(400).json({
+          success: false,
+          message: `Bạn đã vượt giới hạn giao dịch 50,000,000₫ mỗi ngày. Hạn mức còn lại hôm nay: ${error.remaining.toLocaleString("vi-VN")}₫`,
+        });
+      }
+      throw error;
     }
 
     // --- Trừ tiền người gửi ---

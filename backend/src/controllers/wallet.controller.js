@@ -7,6 +7,7 @@ import Transaction from "../models/Transaction.js";
 import VnpayTransaction from "../models/VNPayTransaction.js";
 import Notification from "../models/Notification.js";
 import { ProductCode, VnpLocale, dateFormat } from "vnpay";
+import { ensureWithinDailyTransactionLimit } from "../libs/dailyTransactionLimit.js";
 
 const confirmVnpayTransaction = async (verify, session) => {
   const withSession = (query) => (session ? query.session(session) : query);
@@ -129,6 +130,22 @@ export const createTopup = async (req, res) => {
         success: false,
         message: "PIN không đúng",
       });
+    }
+
+    try {
+      await ensureWithinDailyTransactionLimit({
+        walletId: wallet._id,
+        amount,
+        includePendingTopups: true,
+      });
+    } catch (error) {
+      if (error.code === "DAILY_TRANSACTION_LIMIT_EXCEEDED") {
+        return res.status(400).json({
+          success: false,
+          message: `Bạn đã vượt giới hạn giao dịch 50,000,000₫ mỗi ngày. Hạn mức còn lại hôm nay: ${error.remaining.toLocaleString("vi-VN")}₫`,
+        });
+      }
+      throw error;
     }
 
     const orderId = `${Date.now()}${uuidv4().slice(0, 6).toUpperCase()}`;

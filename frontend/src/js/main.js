@@ -22,7 +22,7 @@ function renderLayout() {
     <div class="layout">
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-logo">
-          <h2>💰 Student eWallet</h2>
+          <h2>💰 EWallet of University</h2>
           <span>Admin Dashboard</span>
         </div>
         <nav class="sidebar-nav" id="sidebar-nav">

@@ -7,6 +7,7 @@ import {
   depositToJar,
   withdrawFromJar,
   deleteSavingsJar,
+  deleteSavingsJarsBulk,
 } from "../controllers/savingsjar.controller.js";
 import { protect } from "../middlewares/auth.middleware.js";
 
@@ -26,6 +27,7 @@ router.post("/:id/deposit", depositToJar);
 router.post("/:id/withdraw", withdrawFromJar);
 
 // Huỷ hũ
+router.delete("/bulk", deleteSavingsJarsBulk);
 router.delete("/:id", deleteSavingsJar);
 
 export default router;

@@ -7,6 +7,7 @@ import Service from "../models/Service.js";
 import Payment from "../models/Payment.js";
 import Transaction from "../models/Transaction.js";
 import Notification from "../models/Notification.js";
+import { ensureWithinDailyTransactionLimit } from "../libs/dailyTransactionLimit.js";
 
 // ==================== LẤY THÔNG TIN SINH VIÊN HIỆN TẠI ====================
 const getStudentInfo = async (userId) => {
@@ -507,6 +508,23 @@ export const payService = async (req, res) => {
         success: false,
         message: `Số dư không đủ. Hiện có: ${wallet.balance.toLocaleString("vi-VN")}₫, cần: ${payAmount.toLocaleString("vi-VN")}₫`,
       });
+    }
+
+    try {
+      await ensureWithinDailyTransactionLimit({
+        walletId: wallet._id,
+        amount: payAmount,
+        session,
+      });
+    } catch (error) {
+      if (error.code === "DAILY_TRANSACTION_LIMIT_EXCEEDED") {
+        await session.abortTransaction();
+        return res.status(400).json({
+          success: false,
+          message: `Bạn đã vượt giới hạn giao dịch 50,000,000₫ mỗi ngày. Hạn mức còn lại hôm nay: ${error.remaining.toLocaleString("vi-VN")}₫`,
+        });
+      }
+      throw error;
     }
 
     // --- Thực hiện thanh toán ---

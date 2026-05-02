@@ -329,7 +329,7 @@ final class HomeViewController: UIViewController {
     }
 
     @objc private func tapSavingsFund() {
-        showMessage(title: "Quỹ tiết kiệm", message: "Chức năng quỹ tiết kiệm sẽ được phát triển sau.")
+        navigationController?.pushViewController(SavingsJarListViewController(), animated: true)
     }
 
     @objc private func tapPhoneTopup() {

@@ -201,7 +201,8 @@ final class ProfileViewController: UIViewController {
     }
 
     @objc private func tapAppSettings() {
-        showMessage(title: "Cài đặt về app", message: "Chức năng này sẽ được phát triển ở bước tiếp theo.")
+        let appSettingsViewController = AppSettingsViewController()
+        navigationController?.pushViewController(appSettingsViewController, animated: true)
     }
 
     private func showMessage(title: String, message: String) {

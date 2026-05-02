@@ -25,6 +25,13 @@ enum APIEndpoint {
     case payService(serviceId: String, amount: Double?, content: String?, paymentMode: String, pin: String)
     case getNotifications
     case markNotificationRead(id: String)
+    case getSavingsJars
+    case getSavingsJarDetail(id: String)
+    case createSavingsJar(name: String, targetAmount: Double, deadline: String?, icon: String?)
+    case depositSavingsJar(id: String, amount: Double, pin: String)
+    case withdrawSavingsJar(id: String, amount: Double?, pin: String)
+    case deleteSavingsJar(id: String)
+    case deleteSavingsJarsBulk(ids: [String])
 }
 
 // MARK: - Base URL
@@ -70,6 +77,20 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/notifications"
         case let .markNotificationRead(id):
             return "\(Self.apiPrefix)/notifications/\(id)/read"
+        case .getSavingsJars:
+            return "\(Self.apiPrefix)/savings-jars"
+        case let .getSavingsJarDetail(id):
+            return "\(Self.apiPrefix)/savings-jars/\(id)"
+        case .createSavingsJar:
+            return "\(Self.apiPrefix)/savings-jars"
+        case let .depositSavingsJar(id, _, _):
+            return "\(Self.apiPrefix)/savings-jars/\(id)/deposit"
+        case let .withdrawSavingsJar(id, _, _):
+            return "\(Self.apiPrefix)/savings-jars/\(id)/withdraw"
+        case let .deleteSavingsJar(id):
+            return "\(Self.apiPrefix)/savings-jars/\(id)"
+        case .deleteSavingsJarsBulk:
+            return "\(Self.apiPrefix)/savings-jars/bulk"
         }
     }
 }
@@ -78,11 +99,13 @@ extension APIEndpoint {
 extension APIEndpoint {
     var method: String {
         switch self {
-        case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer, .payService:
+        case .register, .login, .verifyStudent, .changePassword, .changePin, .createTopup, .transfer, .payService, .createSavingsJar, .depositSavingsJar, .withdrawSavingsJar:
             return "POST"
+        case .deleteSavingsJar, .deleteSavingsJarsBulk:
+            return "DELETE"
         case .markNotificationRead:
             return "PUT"
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .getSavingsJars, .getSavingsJarDetail:
             return "GET"
         }
     }
@@ -168,7 +191,34 @@ extension APIEndpoint {
                 body["content"] = content
             }
             return body
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead:
+        case let .createSavingsJar(name, targetAmount, deadline, icon):
+            var body: [String: Any] = [
+                "name": name,
+                "targetAmount": targetAmount
+            ]
+            if let deadline, !deadline.isEmpty {
+                body["deadline"] = deadline
+            }
+            if let icon, !icon.isEmpty {
+                body["icon"] = icon
+            }
+            return body
+        case let .depositSavingsJar(_, amount, pin):
+            return [
+                "amount": amount,
+                "pin": pin
+            ]
+        case let .withdrawSavingsJar(_, amount, pin):
+            var body: [String: Any] = [
+                "pin": pin
+            ]
+            if let amount {
+                body["amount"] = amount
+            }
+            return body
+        case let .deleteSavingsJarsBulk(ids):
+            return ["ids": ids]
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead, .getSavingsJars, .getSavingsJarDetail, .deleteSavingsJar:
             return nil
         }
     }

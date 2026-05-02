@@ -180,6 +180,11 @@ final class AuthService {
         do {
             let decoded = try decoder.decode(AuthResponse.self, from: data)
             if decoded.success, let token = decoded.data?.token {
+                let role = decoded.data?.user?.role ?? "user"
+                guard role == "user" else {
+                    TokenStore.shared.clear()
+                    throw AuthError.server("Đăng nhập không hợp lệ")
+                }
                 TokenStore.shared.token = token
             } else {
                 let message = decoded.message ?? "Đăng nhập thất bại"
