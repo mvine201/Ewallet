@@ -295,8 +295,6 @@ final class CreateSavingsJarViewController: UIViewController {
 
 final class SavingsJarDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private let jarId: String
-    private let scrollView = UIScrollView()
-    private let contentStack = UIStackView()
     private let titleLabel = UILabel()
     private let amountLabel = UILabel()
     private let tableView = UITableView(frame: .zero, style: .plain)
@@ -334,11 +332,6 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
     }
 
     private func setupLayout() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.axis = .vertical
-        contentStack.spacing = 16
-
         titleLabel.font = .systemFont(ofSize: 28, weight: .bold)
         titleLabel.numberOfLines = 0
         amountLabel.font = .systemFont(ofSize: 20, weight: .bold)
@@ -352,32 +345,39 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
         buttons.distribution = .fillEqually
 
         let historyTitle = UILabel()
-        historyTitle.text = "Lịch sử góp/rút quỹ"
+        historyTitle.text = "Lịch sử nạp/rút quỹ"
         historyTitle.font = .systemFont(ofSize: 18, weight: .bold)
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SavingsHistoryCell")
-        tableView.isScrollEnabled = false
-        tableView.heightAnchor.constraint(equalToConstant: 360).isActive = true
+        tableView.register(SavingsHistoryCell.self, forCellReuseIdentifier: SavingsHistoryCell.reuseIdentifier)
+        tableView.isScrollEnabled = true
+        tableView.alwaysBounceVertical = true
         tableView.layer.cornerRadius = 12
+        tableView.clipsToBounds = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
 
         activity.hidesWhenStopped = true
+        activity.translatesAutoresizingMaskIntoConstraints = false
 
-        [titleLabel, amountLabel, buttons, historyTitle, tableView, activity].forEach { contentStack.addArrangedSubview($0) }
+        let headerStack = UIStackView(arrangedSubviews: [titleLabel, amountLabel, buttons, historyTitle])
+        headerStack.axis = .vertical
+        headerStack.spacing = 16
+        headerStack.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentStack)
+        view.addSubview(headerStack)
+        view.addSubview(tableView)
+        view.addSubview(activity)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            contentStack.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 20),
-            contentStack.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -20),
-            contentStack.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 20),
-            contentStack.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24),
-            contentStack.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40)
+            headerStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            headerStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            headerStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            tableView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: 16),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            activity.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activity.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
@@ -393,6 +393,7 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
                     self.transactions = detail.transactions
                     self.titleLabel.text = "\(detail.jar.icon ?? "🐷") \(detail.jar.name)"
                     self.amountLabel.text = "\(SavingsJarListViewController.money(detail.jar.currentAmount)) / \(SavingsJarListViewController.money(detail.jar.targetAmount))"
+                    self.tableView.backgroundView = self.transactions.isEmpty ? self.makeEmptyView() : nil
                     self.tableView.reloadData()
                 }
             } catch {
@@ -471,39 +472,25 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        max(transactions.count, 1)
+        transactions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SavingsHistoryCell", for: indexPath)
-        guard !transactions.isEmpty else {
-            var content = cell.defaultContentConfiguration()
-            content.text = "Chưa có giao dịch"
-            content.secondaryText = nil
-            cell.contentConfiguration = content
-            cell.accessoryView = nil
-            return cell
-        }
-
         let transaction = transactions[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        let isDeposit = transaction.type == "savings_deposit"
-        content.text = isDeposit ? "Góp quỹ" : "Rút quỹ"
-        content.secondaryText = Self.dateText(transaction.createdAt)
-        cell.contentConfiguration = content
-        cell.accessoryView = {
-            let label = UILabel()
-            let prefix = isDeposit ? "+" : "-"
-            label.text = "\(prefix)\(SavingsJarListViewController.money(transaction.amount))"
-            label.textColor = isDeposit ? .systemGreen : .systemGray
-            label.font = .systemFont(ofSize: 16, weight: .bold)
-            return label
-        }()
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: SavingsHistoryCell.reuseIdentifier, for: indexPath) as! SavingsHistoryCell
+        cell.configure(with: transaction)
         return cell
     }
 
-    private static func dateText(_ value: String?) -> String {
+    private func makeEmptyView() -> UIView {
+        let label = UILabel()
+        label.text = "Chưa có giao dịch"
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        return label
+    }
+
+    fileprivate static func dateText(_ value: String?) -> String {
         guard let value else { return "—" }
         return value.replacingOccurrences(of: "T", with: " ").prefix(16).description
     }
@@ -512,6 +499,65 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+}
+
+final class SavingsHistoryCell: UITableViewCell {
+    static let reuseIdentifier = "SavingsHistoryCell"
+
+    private let titleLabel = UILabel()
+    private let dateLabel = UILabel()
+    private let amountLabel = UILabel()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupLayout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayout() {
+        titleLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        titleLabel.textColor = .label
+
+        dateLabel.font = .systemFont(ofSize: 13)
+        dateLabel.textColor = .secondaryLabel
+
+        amountLabel.font = .systemFont(ofSize: 17, weight: .bold)
+        amountLabel.textAlignment = .right
+        amountLabel.setContentHuggingPriority(.required, for: .horizontal)
+
+        let textStack = UIStackView(arrangedSubviews: [titleLabel, dateLabel])
+        textStack.axis = .vertical
+        textStack.spacing = 4
+
+        let rowStack = UIStackView(arrangedSubviews: [textStack, amountLabel])
+        rowStack.axis = .horizontal
+        rowStack.spacing = 12
+        rowStack.alignment = .center
+        rowStack.translatesAutoresizingMaskIntoConstraints = false
+
+        contentView.addSubview(rowStack)
+        NSLayoutConstraint.activate([
+            rowStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            rowStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            rowStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            rowStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
+        ])
+
+        selectionStyle = .none
+    }
+
+    func configure(with transaction: WalletTransaction) {
+        let isDeposit = transaction.type == "savings_deposit"
+        let prefix = isDeposit ? "+" : "-"
+
+        titleLabel.text = isDeposit ? "Nạp quỹ" : "Rút quỹ"
+        dateLabel.text = SavingsJarDetailViewController.dateText(transaction.createdAt)
+        amountLabel.text = "\(prefix)\(SavingsJarListViewController.money(transaction.amount))"
+        amountLabel.textColor = isDeposit ? .systemGreen : .systemGray
     }
 }
 

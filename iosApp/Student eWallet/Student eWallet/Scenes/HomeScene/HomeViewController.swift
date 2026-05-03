@@ -22,6 +22,11 @@ final class HomeViewController: UIViewController {
     private let balanceLabel = UILabel()
     private let visibilityButton = UIButton(type: .system)
     private let activity = UIActivityIndicatorView(style: .medium)
+    private let statisticsCard = UIControl()
+    private let statisticsPreviewChartView = CustomPieChartView()
+    private let statisticsLegendStack = UIStackView()
+    private let statisticsSummaryLabel = UILabel()
+    private let statisticsHintLabel = UILabel()
 
     private var currentBalance: Double = 0
     private var isBalanceHidden = false
@@ -32,11 +37,13 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         setupLayout()
         loadWalletSummary()
+        loadStatisticsPreview()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadWalletSummary()
+        loadStatisticsPreview()
     }
 
     private func setupLayout() {
@@ -221,38 +228,60 @@ final class HomeViewController: UIViewController {
 
     private func makeStatisticsSection() -> UIView {
         let titleLabel = UILabel()
-        titleLabel.text = "Thống kê"
+        titleLabel.text = "Thống kê chi tiêu"
         titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         titleLabel.textColor = .label
 
-        let chartView = SpendingPieChartView()
-        chartView.translatesAutoresizingMaskIntoConstraints = false
-        chartView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        statisticsPreviewChartView.translatesAutoresizingMaskIntoConstraints = false
+        statisticsPreviewChartView.heightAnchor.constraint(equalToConstant: 170).isActive = true
 
-        let legendStack = UIStackView(arrangedSubviews: [
-            makeLegendItem(color: .systemBlue, title: "Học phí"),
-            makeLegendItem(color: .systemGreen, title: "Ăn uống"),
-            makeLegendItem(color: .systemOrange, title: "Giữ xe"),
-            makeLegendItem(color: .systemGray, title: "Khác")
-        ])
-        legendStack.axis = .vertical
-        legendStack.spacing = 8
+        statisticsLegendStack.axis = .vertical
+        statisticsLegendStack.spacing = 8
 
-        let bodyStack = UIStackView(arrangedSubviews: [chartView, legendStack])
+        statisticsSummaryLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        statisticsSummaryLabel.textColor = .secondaryLabel
+        statisticsSummaryLabel.numberOfLines = 0
+        statisticsSummaryLabel.text = "Đang tải thống kê..."
+
+        statisticsHintLabel.text = "Chạm để xem chi tiết và AI gợi ý"
+        statisticsHintLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        statisticsHintLabel.textColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
+
+        let bodyStack = UIStackView(arrangedSubviews: [statisticsPreviewChartView, statisticsLegendStack])
         bodyStack.axis = .horizontal
         bodyStack.spacing = 16
         bodyStack.alignment = .center
         bodyStack.distribution = .fillEqually
 
-        let stack = UIStackView(arrangedSubviews: [titleLabel, bodyStack])
+        let chevronView = UIImageView(image: UIImage(systemName: "chevron.right"))
+        chevronView.tintColor = .tertiaryLabel
+
+        let footerRow = UIStackView(arrangedSubviews: [statisticsHintLabel, chevronView])
+        footerRow.axis = .horizontal
+        footerRow.alignment = .center
+
+        let stack = UIStackView(arrangedSubviews: [titleLabel, bodyStack, statisticsSummaryLabel, footerRow])
         stack.axis = .vertical
-        stack.spacing = 16
+        stack.spacing = 14
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 18, left: 16, bottom: 18, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
-        return stack
+        stack.isUserInteractionEnabled = false
+
+        statisticsCard.addTarget(self, action: #selector(tapStatistics), for: .touchUpInside)
+        statisticsCard.backgroundColor = .secondarySystemGroupedBackground
+        statisticsCard.layer.cornerRadius = 12
+        statisticsCard.layer.masksToBounds = true
+        statisticsCard.addSubview(stack)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: statisticsCard.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: statisticsCard.trailingAnchor),
+            stack.topAnchor.constraint(equalTo: statisticsCard.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: statisticsCard.bottomAnchor)
+        ])
+
+        applyStatisticsPreviewPlaceholder()
+        return statisticsCard
     }
 
     private func makeLegendItem(color: UIColor, title: String) -> UIView {
@@ -297,6 +326,78 @@ final class HomeViewController: UIViewController {
         }
     }
 
+    private func loadStatisticsPreview() {
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                let stats = try await StatisticsService.shared.getStats(period: .month)
+                await MainActor.run {
+                    self.applyStatisticsPreview(stats)
+                }
+            } catch {
+                await MainActor.run {
+                    self.applyStatisticsPreviewPlaceholder()
+                }
+            }
+        }
+    }
+
+    private func applyStatisticsPreview(_ stats: AnalyticsStatsData) {
+        let topCategories = Array(stats.categories.prefix(4))
+        let segments = topCategories.map {
+            CustomPieChartView.Segment(
+                value: $0.amount,
+                color: UIColor(analyticsHex: $0.colorHex) ?? .systemGray
+            )
+        }
+        statisticsPreviewChartView.configure(
+            segments: segments,
+            centerTitle: Self.currencyFormatter.string(from: NSNumber(value: stats.totalExpense)) ?? "0₫",
+            centerSubtitle: "Chi tiêu tháng này"
+        )
+
+        statisticsLegendStack.arrangedSubviews.forEach { view in
+            statisticsLegendStack.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
+        if topCategories.isEmpty {
+            statisticsLegendStack.addArrangedSubview(makeLegendItem(color: .systemGray, title: "Chưa có dữ liệu"))
+            statisticsSummaryLabel.text = "Chưa có giao dịch chi tiêu trong tháng này."
+            return
+        }
+
+        topCategories.forEach { category in
+            statisticsLegendStack.addArrangedSubview(
+                makeLegendItem(
+                    color: UIColor(analyticsHex: category.colorHex) ?? .systemGray,
+                    title: "\(category.title) • \(String(format: "%.0f%%", category.percentage))"
+                )
+            )
+        }
+
+        if let top = topCategories.first {
+            statisticsSummaryLabel.text = "Nổi bật nhất hiện là \(top.title), chiếm \(String(format: "%.1f%%", top.percentage)) tổng chi."
+        } else {
+            statisticsSummaryLabel.text = "Chạm để xem chi tiết thống kê chi tiêu."
+        }
+    }
+
+    private func applyStatisticsPreviewPlaceholder() {
+        statisticsPreviewChartView.configure(
+            segments: [],
+            centerTitle: "0₫",
+            centerSubtitle: "Chưa có dữ liệu",
+            animated: false
+        )
+        statisticsLegendStack.arrangedSubviews.forEach { view in
+            statisticsLegendStack.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        statisticsLegendStack.addArrangedSubview(makeLegendItem(color: .systemGray, title: "Chưa có dữ liệu chi tiêu"))
+        statisticsSummaryLabel.text = "Chạm để xem chi tiết thống kê và AI gợi ý."
+    }
+
     private func updateBalanceText() {
         balanceLabel.text = isBalanceHidden
             ? "****"
@@ -332,6 +433,10 @@ final class HomeViewController: UIViewController {
         navigationController?.pushViewController(SavingsJarListViewController(), animated: true)
     }
 
+    @objc private func tapStatistics() {
+        navigationController?.pushViewController(StatisticsViewController(), animated: true)
+    }
+
     @objc private func tapPhoneTopup() {
         showMessage(title: "Nạp điện thoại", message: "Chức năng nạp điện thoại sẽ được phát triển sau.")
     }
@@ -357,47 +462,4 @@ final class HomeViewController: UIViewController {
         formatter.locale = Locale(identifier: "vi_VN")
         return formatter
     }()
-}
-
-private final class SpendingPieChartView: UIView {
-    private let segments: [(value: CGFloat, color: UIColor)] = [
-        (45, .systemBlue),
-        (20, .systemGreen),
-        (10, .systemOrange),
-        (25, .systemGray)
-    ]
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        contentMode = .redraw
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func draw(_ rect: CGRect) {
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-
-        let size = min(rect.width, rect.height) - 8
-        let center = CGPoint(x: rect.midX, y: rect.midY)
-        let radius = size / 2
-        let total = segments.reduce(CGFloat(0)) { $0 + $1.value }
-        var startAngle = -CGFloat.pi / 2
-
-        segments.forEach { segment in
-            let endAngle = startAngle + (segment.value / total) * 2 * CGFloat.pi
-            context.setFillColor(segment.color.cgColor)
-            context.move(to: center)
-            context.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            context.closePath()
-            context.fillPath()
-            startAngle = endAngle
-        }
-
-        context.setFillColor(UIColor.secondarySystemGroupedBackground.cgColor)
-        context.addEllipse(in: CGRect(x: center.x - radius * 0.48, y: center.y - radius * 0.48, width: radius * 0.96, height: radius * 0.96))
-        context.fillPath()
-    }
 }

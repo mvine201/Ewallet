@@ -25,6 +25,8 @@ enum APIEndpoint {
     case payService(serviceId: String, amount: Double?, content: String?, paymentMode: String, pin: String)
     case getNotifications
     case markNotificationRead(id: String)
+    case getAnalyticsStats(period: String)
+    case getAnalyticsAIPlan(period: String)
     case getSavingsJars
     case getSavingsJarDetail(id: String)
     case createSavingsJar(name: String, targetAmount: Double, deadline: String?, icon: String?)
@@ -76,6 +78,10 @@ extension APIEndpoint {
             return "\(Self.apiPrefix)/notifications"
         case let .markNotificationRead(id):
             return "\(Self.apiPrefix)/notifications/\(id)/read"
+        case .getAnalyticsStats:
+            return "\(Self.apiPrefix)/analytics/stats"
+        case .getAnalyticsAIPlan:
+            return "\(Self.apiPrefix)/analytics/ai-plan"
         case .getSavingsJars:
             return "\(Self.apiPrefix)/savings-jars"
         case let .getSavingsJarDetail(id):
@@ -102,7 +108,7 @@ extension APIEndpoint {
             return "DELETE"
         case .markNotificationRead:
             return "PUT"
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .getSavingsJars, .getSavingsJarDetail:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .getAnalyticsStats, .getAnalyticsAIPlan, .getSavingsJars, .getSavingsJarDetail:
             return "GET"
         }
     }
@@ -117,6 +123,8 @@ extension APIEndpoint {
         case let .getPaymentServices(type):
             guard let type, !type.isEmpty else { return nil }
             return [URLQueryItem(name: "type", value: type)]
+        case let .getAnalyticsStats(period), let .getAnalyticsAIPlan(period):
+            return [URLQueryItem(name: "period", value: period)]
         default:
             return nil
         }
@@ -213,7 +221,7 @@ extension APIEndpoint {
                 body["amount"] = amount
             }
             return body
-        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead, .getSavingsJars, .getSavingsJarDetail, .deleteSavingsJar:
+        case .getMe, .getMyWallet, .getTopupStatus, .getTransactions, .lookupReceiver, .getPaymentServices, .getNotifications, .markNotificationRead, .getAnalyticsStats, .getAnalyticsAIPlan, .getSavingsJars, .getSavingsJarDetail, .deleteSavingsJar:
             return nil
         }
     }

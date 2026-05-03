@@ -316,7 +316,12 @@ export const getTransactions = async (req, res) => {
       let direction = "out";
       let displayType = "Giao dịch";
 
-      if (item.type === "topup" || item.type === "refund" || isTransferIn) {
+      if (
+        item.type === "topup" ||
+        item.type === "refund" ||
+        item.type === "savings_withdraw" ||
+        isTransferIn
+      ) {
         direction = "in";
       }
 
@@ -332,6 +337,12 @@ export const getTransactions = async (req, res) => {
           break;
         case "refund":
           displayType = "Hoàn tiền";
+          break;
+        case "savings_deposit":
+          displayType = "Nạp quỹ";
+          break;
+        case "savings_withdraw":
+          displayType = "Rút quỹ";
           break;
         default:
           displayType = item.type;

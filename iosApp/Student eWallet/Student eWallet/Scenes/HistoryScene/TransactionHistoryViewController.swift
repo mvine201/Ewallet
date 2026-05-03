@@ -312,7 +312,7 @@ final class TransactionHistoryCell: UITableViewCell {
 
     func configure(with transaction: WalletTransaction) {
         let isIncoming = transaction.isIncoming
-        titleLabel.text = transaction.displayType ?? displayType(transaction)
+        titleLabel.text = displayType(transaction)
         subtitleLabel.text = [
             transaction.description,
             displayStatus(transaction.status),
@@ -333,6 +333,8 @@ final class TransactionHistoryCell: UITableViewCell {
         case "transfer": return transaction.isIncoming ? "Nhận tiền" : "Chuyển tiền"
         case "payment": return "Thanh toán dịch vụ"
         case "refund": return "Hoàn tiền"
+        case "savings_deposit": return "Nạp quỹ"
+        case "savings_withdraw": return "Rút quỹ"
         default: return transaction.type
         }
     }
@@ -352,6 +354,8 @@ final class TransactionHistoryCell: UITableViewCell {
         case "transfer": return incoming ? "arrow.down.circle.fill" : "arrow.up.circle.fill"
         case "payment": return "doc.text.fill"
         case "refund": return "arrow.uturn.left.circle.fill"
+        case "savings_deposit": return "arrow.up.circle.fill"
+        case "savings_withdraw": return "arrow.down.circle.fill"
         default: return "clock.fill"
         }
     }
@@ -377,6 +381,8 @@ final class TransactionHistoryCell: UITableViewCell {
 
 private extension WalletTransaction {
     var isIncoming: Bool {
+        if type == "savings_withdraw" { return true }
+        if type == "savings_deposit" { return false }
         if direction == "in" { return true }
         if direction == "out" { return false }
         if type == "topup" || type == "refund" { return true }

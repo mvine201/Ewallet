@@ -10,6 +10,7 @@ import adminRoutes from "./routes/admin.routes.js";
 import savingsJarRoutes from "./routes/savingsjar.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
 import notificationRoutes from "./routes/notification.routes.js";
+import analyticsRoutes from "./routes/analytics.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -28,6 +29,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/savings-jars", savingsJarRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/analytics", analyticsRoutes);
 app.get("/", (req, res) => {
   res.send("API đang chạy ngon lành!");
 });
