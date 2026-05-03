@@ -16,7 +16,7 @@ final class AccountInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Thông tin tài khoản"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadAccountInfo()
     }
@@ -103,9 +103,7 @@ final class AccountInfoViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 0
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 18)
 
         let titleLabel = UILabel()
         titleLabel.text = title

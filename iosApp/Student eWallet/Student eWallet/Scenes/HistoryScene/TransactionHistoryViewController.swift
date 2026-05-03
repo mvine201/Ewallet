@@ -36,7 +36,7 @@ final class TransactionHistoryViewController: UIViewController, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Lịch sử"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadTransactions()
     }
@@ -216,7 +216,7 @@ final class TransactionHistoryViewController: UIViewController, UITableViewDataS
     private func updateButtons(in stack: UIStackView, selectedTitle: String) {
         stack.arrangedSubviews.compactMap { $0 as? UIButton }.forEach { button in
             let isSelected = button.title(for: .normal) == selectedTitle
-            button.backgroundColor = isSelected ? UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1) : .secondarySystemGroupedBackground
+            button.backgroundColor = isSelected ? UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1) : .appSurfaceBackground
             button.tintColor = isSelected ? .white : .label
         }
     }

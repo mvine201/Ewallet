@@ -33,7 +33,7 @@ final class AccountSecurityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bảo mật"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
@@ -105,7 +105,7 @@ final class AccountSecurityViewController: UIViewController {
         configuration.image = UIImage(systemName: systemImage)
         configuration.imagePadding = 14
         configuration.titlePadding = 4
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = .appSurfaceBackground
         configuration.baseForegroundColor = .label
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -123,8 +123,7 @@ final class AccountSecurityViewController: UIViewController {
         let button = UIButton(type: .system)
         button.configuration = configuration
         button.contentHorizontalAlignment = .leading
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
+        button.applyNeutralSurfaceButtonStyle(cornerRadius: 16)
         button.heightAnchor.constraint(greaterThanOrEqualToConstant: 76).isActive = true
         button.addTarget(self, action: action, for: .touchUpInside)
         return button

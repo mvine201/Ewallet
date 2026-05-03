@@ -30,7 +30,7 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Chuyển tiền"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupBackButton()
         setupLayout()
         loadCurrentUser()

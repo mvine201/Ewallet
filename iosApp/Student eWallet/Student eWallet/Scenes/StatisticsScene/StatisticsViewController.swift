@@ -28,7 +28,7 @@ final class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Thống kê chi tiêu"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadAnalytics()
     }
@@ -160,8 +160,7 @@ final class StatisticsViewController: UIViewController {
         headerRow.alignment = .top
 
         let focusCard = UIView()
-        focusCard.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.72)
-        focusCard.layer.cornerRadius = 12
+        focusCard.applyInsetSurfaceStyle(cornerRadius: 14)
 
         let focusStack = UIStackView(arrangedSubviews: [aiFocusLabel, aiFocusValueLabel])
         focusStack.axis = .vertical
@@ -190,9 +189,7 @@ final class StatisticsViewController: UIViewController {
         stack.spacing = 14
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 18, left: 16, bottom: 18, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 14
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 18)
         return stack
     }
 
@@ -215,8 +212,7 @@ final class StatisticsViewController: UIViewController {
         stack.spacing = 6
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
-        stack.backgroundColor = .systemBackground
-        stack.layer.cornerRadius = 12
+        stack.applyInsetSurfaceStyle(cornerRadius: 14)
         return stack
     }
 
@@ -344,8 +340,7 @@ final class StatisticsViewController: UIViewController {
         rowStack.alignment = .center
 
         let container = UIView()
-        container.backgroundColor = .systemBackground
-        container.layer.cornerRadius = 12
+        container.applyInsetSurfaceStyle(cornerRadius: 14)
         rowStack.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(rowStack)
         NSLayoutConstraint.activate([
@@ -439,8 +434,7 @@ final class StatisticsViewController: UIViewController {
         stack.alignment = .top
 
         let container = UIView()
-        container.backgroundColor = .systemBackground
-        container.layer.cornerRadius = 12
+        container.applyInsetSurfaceStyle(cornerRadius: 14)
         stack.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(stack)
         NSLayoutConstraint.activate([
@@ -457,9 +451,11 @@ final class StatisticsViewController: UIViewController {
         label.text = text
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .secondaryLabel
-        label.backgroundColor = .systemBackground
+        label.backgroundColor = .appElevatedSurfaceBackground
         label.layer.cornerRadius = 12
         label.layer.masksToBounds = true
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.appSurfaceBorder.resolvedColor(with: label.traitCollection).cgColor
         return label
     }
 

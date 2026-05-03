@@ -31,7 +31,7 @@ final class TopupWaitingViewController: UIViewController {
         super.viewDidLoad()
         title = "Chờ thanh toán"
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         NotificationCenter.default.addObserver(
             self,
@@ -97,8 +97,8 @@ final class TopupWaitingViewController: UIViewController {
             button.backgroundColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
             button.tintColor = .white
         } else {
-            button.backgroundColor = .secondarySystemGroupedBackground
             button.tintColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
+            button.applyNeutralSurfaceButtonStyle(cornerRadius: 12)
         }
         return button
     }

@@ -28,25 +28,30 @@ final class TopupResultViewController: UIViewController {
         super.viewDidLoad()
         title = "Kết quả giao dịch"
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
     private func setupLayout() {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+
         let iconView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
         iconView.tintColor = .systemGreen
         iconView.contentMode = .scaleAspectFit
-        iconView.heightAnchor.constraint(equalToConstant: 72).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
         let statusLabel = UILabel()
         statusLabel.text = "Giao dịch thành công"
-        statusLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        statusLabel.font = .systemFont(ofSize: 24, weight: .bold)
         statusLabel.textAlignment = .center
 
         let amountLabel = UILabel()
         amountLabel.text = Self.currencyFormatter.string(from: NSNumber(value: amount)) ?? "\(amount) VND"
-        amountLabel.font = .systemFont(ofSize: 28, weight: .bold)
+        amountLabel.font = .systemFont(ofSize: 34, weight: .bold)
         amountLabel.textAlignment = .center
+        amountLabel.textColor = .label
 
         let noteLabel = UILabel()
         noteLabel.text = "Giao dịch thành công, vui lòng kiểm tra số dư và lịch sử giao dịch!"
@@ -64,37 +69,71 @@ final class TopupResultViewController: UIViewController {
         homeButton.addTarget(self, action: #selector(tapHome), for: .touchUpInside)
 
         let buttonStack = UIStackView(arrangedSubviews: [retryButton, homeButton])
-        buttonStack.axis = .horizontal
-        buttonStack.spacing = 12
-        buttonStack.distribution = .fillEqually
+        buttonStack.axis = .vertical
+        buttonStack.spacing = 14
+
+        let resultCard = UIView()
+        resultCard.applyAppCardStyle()
 
         let stack = UIStackView(arrangedSubviews: [iconView, statusLabel, amountLabel, noteLabel, infoCard, buttonStack])
         stack.axis = .vertical
-        stack.spacing = 16
+        stack.spacing = 24
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 32, left: 24, bottom: 32, right: 24)
         stack.translatesAutoresizingMaskIntoConstraints = false
+        resultCard.addSubview(stack)
 
-        view.addSubview(stack)
+        view.addSubview(scrollView)
+        scrollView.addSubview(resultCard)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32)
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            resultCard.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 20),
+            resultCard.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -20),
+            resultCard.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 24),
+            resultCard.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24),
+            resultCard.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40),
+            
+            stack.leadingAnchor.constraint(equalTo: resultCard.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: resultCard.trailingAnchor),
+            stack.topAnchor.constraint(equalTo: resultCard.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: resultCard.bottomAnchor)
         ])
+        
+        // Subtle entrance animation
+        resultCard.alpha = 0
+        resultCard.transform = CGAffineTransform(translationX: 0, y: 20)
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut) {
+            resultCard.alpha = 1
+            resultCard.transform = .identity
+        }
     }
 
     private func makeInfoCard() -> UIView {
+        let card = UIView()
+        card.applyInfoCardStyle()
+        
         let stack = UIStackView(arrangedSubviews: [
             makeRow(title: "Dịch vụ", value: "Nạp tiền vào ví"),
             makeRow(title: "Mã giao dịch", value: orderId),
             makeRow(title: "Thời gian tạo", value: Self.timeFormatter.string(from: Date()))
         ])
         stack.axis = .vertical
-        stack.spacing = 14
-        stack.isLayoutMarginsRelativeArrangement = true
-        stack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
-        return stack
+        stack.spacing = 16
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        card.addSubview(stack)
+        
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            stack.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
+            stack.topAnchor.constraint(equalTo: card.topAnchor, constant: 16),
+            stack.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -16)
+        ])
+        
+        return card
     }
 
     private func makeRow(title: String, value: String) -> UIView {
@@ -120,10 +159,7 @@ final class TopupResultViewController: UIViewController {
     private func makePrimaryButton(title: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
-        button.backgroundColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
-        button.tintColor = .white
-        button.layer.cornerRadius = 10
+        button.applyPrimaryAppStyle()
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
         return button
     }
@@ -131,10 +167,7 @@ final class TopupResultViewController: UIViewController {
     private func makeSecondaryButton(title: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
-        button.tintColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
-        button.backgroundColor = .secondarySystemGroupedBackground
-        button.layer.cornerRadius = 10
+        button.applySecondaryAppStyle()
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
         return button
     }
@@ -146,14 +179,7 @@ final class TopupResultViewController: UIViewController {
     }
 
     @objc private func tapHome() {
-        if let tabBarController {
-            tabBarController.viewControllers?
-                .compactMap { $0 as? UINavigationController }
-                .forEach { $0.popToRootViewController(animated: false) }
-            tabBarController.selectedIndex = 0
-        } else {
-            navigationController?.setViewControllers([HomeViewController()], animated: true)
-        }
+        redirectToHomeTab()
     }
 
     private static let currencyFormatter: NumberFormatter = {

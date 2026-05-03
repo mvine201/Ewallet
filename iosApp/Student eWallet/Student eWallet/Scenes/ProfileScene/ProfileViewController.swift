@@ -59,7 +59,7 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tài Khoản"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadProfile()
     }
@@ -89,6 +89,7 @@ final class ProfileViewController: UIViewController {
         headerStack.alignment = .center
         headerStack.isLayoutMarginsRelativeArrangement = true
         headerStack.layoutMargins = UIEdgeInsets(top: 28, left: 20, bottom: 18, right: 20)
+        headerStack.applyAppCardStyle(cornerRadius: 24)
 
         activity.hidesWhenStopped = true
 
@@ -130,15 +131,14 @@ final class ProfileViewController: UIViewController {
         configuration.title = title
         configuration.image = UIImage(systemName: systemImage)
         configuration.imagePadding = 12
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = .appSurfaceBackground
         configuration.baseForegroundColor = .label
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
 
         let button = UIButton(type: .system)
         button.configuration = configuration
         button.contentHorizontalAlignment = .leading
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
+        button.applyNeutralSurfaceButtonStyle(cornerRadius: 16)
         button.heightAnchor.constraint(greaterThanOrEqualToConstant: 56).isActive = true
         button.addTarget(self, action: action, for: .touchUpInside)
         return button

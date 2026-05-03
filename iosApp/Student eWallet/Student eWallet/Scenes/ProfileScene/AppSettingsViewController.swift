@@ -25,7 +25,7 @@ final class AppSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cài đặt về app"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         applyCurrentPreferences()
     }
@@ -93,9 +93,7 @@ final class AppSettingsViewController: UIViewController {
         row.spacing = 12
         row.isLayoutMarginsRelativeArrangement = true
         row.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        row.backgroundColor = .secondarySystemGroupedBackground
-        row.layer.cornerRadius = 12
-        row.layer.masksToBounds = true
+        row.applyAppCardStyle(cornerRadius: 18)
         return row
     }
 
@@ -112,7 +110,7 @@ final class AppSettingsViewController: UIViewController {
         configuration.image = UIImage(systemName: systemImage)
         configuration.imagePadding = 14
         configuration.titlePadding = 4
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = .appSurfaceBackground
         configuration.baseForegroundColor = tintColor
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -130,8 +128,7 @@ final class AppSettingsViewController: UIViewController {
         let button = UIButton(type: .system)
         button.configuration = configuration
         button.contentHorizontalAlignment = .leading
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
+        button.applyNeutralSurfaceButtonStyle(cornerRadius: 16)
         button.heightAnchor.constraint(greaterThanOrEqualToConstant: 76).isActive = true
         button.addTarget(self, action: action, for: .touchUpInside)
         return button

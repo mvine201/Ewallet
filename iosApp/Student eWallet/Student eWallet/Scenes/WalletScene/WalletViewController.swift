@@ -18,7 +18,7 @@ final class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Wallet"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadWallet()
     }
@@ -86,9 +86,7 @@ final class WalletViewController: UIViewController {
         stack.spacing = 14
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 18, left: 16, bottom: 18, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 20)
         return stack
     }
 
@@ -135,14 +133,13 @@ final class WalletViewController: UIViewController {
         configuration.image = UIImage(systemName: image)
         configuration.imagePlacement = .top
         configuration.imagePadding = 8
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = .appSurfaceBackground
         configuration.baseForegroundColor = .label
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 10, bottom: 16, trailing: 10)
 
         let button = UIButton(type: .system)
         button.configuration = configuration
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
+        button.applyNeutralSurfaceButtonStyle(cornerRadius: 16)
         button.heightAnchor.constraint(equalToConstant: 92).isActive = true
         button.addTarget(self, action: action, for: .touchUpInside)
         return button

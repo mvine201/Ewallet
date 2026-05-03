@@ -63,7 +63,7 @@ final class StudentVerificationViewController: UIViewController, UITextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Xác thực"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         setupDatePicker()
         setupActions()

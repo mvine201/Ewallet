@@ -34,7 +34,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Trang chủ"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadWalletSummary()
         loadStatisticsPreview()
@@ -118,9 +118,7 @@ final class HomeViewController: UIViewController {
         stack.spacing = 12
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 18, left: 16, bottom: 16, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 20)
         return stack
     }
 
@@ -130,14 +128,13 @@ final class HomeViewController: UIViewController {
         configuration.image = UIImage(systemName: image)
         configuration.imagePlacement = .top
         configuration.imagePadding = 6
-        configuration.baseBackgroundColor = .systemBackground
+        configuration.baseBackgroundColor = .appElevatedSurfaceBackground
         configuration.baseForegroundColor = .label
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 6, bottom: 12, trailing: 6)
 
         let button = UIButton(type: .system)
         button.configuration = configuration
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
+        button.applyNeutralSurfaceButtonStyle(cornerRadius: 14)
         button.heightAnchor.constraint(equalToConstant: 74).isActive = true
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
@@ -195,9 +192,7 @@ final class HomeViewController: UIViewController {
         stack.spacing = 16
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 18, left: 16, bottom: 18, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 20)
         return stack
     }
 
@@ -268,9 +263,7 @@ final class HomeViewController: UIViewController {
         stack.isUserInteractionEnabled = false
 
         statisticsCard.addTarget(self, action: #selector(tapStatistics), for: .touchUpInside)
-        statisticsCard.backgroundColor = .secondarySystemGroupedBackground
-        statisticsCard.layer.cornerRadius = 12
-        statisticsCard.layer.masksToBounds = true
+        statisticsCard.applyAppCardStyle(cornerRadius: 20)
         statisticsCard.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

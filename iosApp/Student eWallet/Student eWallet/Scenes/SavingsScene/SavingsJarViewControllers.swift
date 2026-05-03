@@ -10,7 +10,7 @@ final class SavingsJarListViewController: UIViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Quỹ tiết kiệm"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         loadJars()
     }
@@ -144,7 +144,7 @@ final class CreateSavingsJarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tạo quỹ"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
@@ -315,7 +315,7 @@ final class SavingsJarDetailViewController: UIViewController, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Chi tiết quỹ"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Xoá",
             style: .plain,
@@ -579,7 +579,7 @@ final class SavingsJarAmountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = action.title
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
@@ -648,7 +648,7 @@ final class SavingsJarConfirmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = draft.action.title
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
     }
@@ -678,9 +678,7 @@ final class SavingsJarConfirmViewController: UIViewController {
         infoCard.spacing = 14
         infoCard.isLayoutMarginsRelativeArrangement = true
         infoCard.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        infoCard.backgroundColor = .secondarySystemGroupedBackground
-        infoCard.layer.cornerRadius = 12
-        infoCard.layer.masksToBounds = true
+        infoCard.applyAppCardStyle(cornerRadius: 18)
 
         let stack = UIStackView(arrangedSubviews: [titleLabel, infoCard, confirmButton])
         stack.axis = .vertical
@@ -849,39 +847,31 @@ final class SavingsJarResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
     private func setupLayout() {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+
         let iconView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
         iconView.tintColor = .systemGreen
         iconView.contentMode = .scaleAspectFit
-        iconView.heightAnchor.constraint(equalToConstant: 76).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
         let titleLabel = UILabel()
         titleLabel.text = "\(draft.action.title) thành công"
-        titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
         titleLabel.textAlignment = .center
 
         let amountLabel = UILabel()
         let actionAmount = draft.action == .deposit ? (result.depositAmount ?? draft.amount ?? 0) : (result.withdrawAmount ?? draft.amount ?? 0)
         amountLabel.text = SavingsJarListViewController.money(actionAmount)
-        amountLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        amountLabel.font = .systemFont(ofSize: 34, weight: .bold)
         amountLabel.textAlignment = .center
-
-        let infoCard = UIStackView(arrangedSubviews: [
-            makeRow(title: "Tên quỹ", value: draft.jar.name),
-            makeRow(title: "Số dư ví", value: SavingsJarListViewController.money(result.walletBalance ?? 0)),
-            makeRow(title: "Thời gian", value: Self.timeFormatter.string(from: Date()))
-        ])
-        infoCard.axis = .vertical
-        infoCard.spacing = 14
-        infoCard.isLayoutMarginsRelativeArrangement = true
-        infoCard.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        infoCard.backgroundColor = .secondarySystemGroupedBackground
-        infoCard.layer.cornerRadius = 12
-        infoCard.layer.masksToBounds = true
+        amountLabel.textColor = .label
 
         let detailButton = makeButton(title: "Quay lại chi tiết quỹ", filled: false)
         detailButton.addTarget(self, action: #selector(tapBackToDetail), for: .touchUpInside)
@@ -889,16 +879,72 @@ final class SavingsJarResultViewController: UIViewController {
         let homeButton = makeButton(title: "Màn hình chính", filled: true)
         homeButton.addTarget(self, action: #selector(tapHome), for: .touchUpInside)
 
-        let stack = UIStackView(arrangedSubviews: [iconView, titleLabel, amountLabel, infoCard, detailButton, homeButton])
+        let buttonStack = UIStackView(arrangedSubviews: [detailButton, homeButton])
+        buttonStack.axis = .vertical
+        buttonStack.spacing = 14
+
+        let resultCard = UIView()
+        resultCard.applyAppCardStyle()
+
+        let stack = UIStackView(arrangedSubviews: [iconView, titleLabel, amountLabel, makeInfoCard(), buttonStack])
+        stack.axis = .vertical
+        stack.spacing = 24
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 32, left: 24, bottom: 32, right: 24)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        resultCard.addSubview(stack)
+
+        view.addSubview(scrollView)
+        scrollView.addSubview(resultCard)
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            resultCard.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 20),
+            resultCard.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -20),
+            resultCard.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 24),
+            resultCard.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24),
+            resultCard.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40),
+            
+            stack.leadingAnchor.constraint(equalTo: resultCard.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: resultCard.trailingAnchor),
+            stack.topAnchor.constraint(equalTo: resultCard.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: resultCard.bottomAnchor)
+        ])
+        
+        // Subtle entrance animation
+        resultCard.alpha = 0
+        resultCard.transform = CGAffineTransform(translationX: 0, y: 20)
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut) {
+            resultCard.alpha = 1
+            resultCard.transform = .identity
+        }
+    }
+
+    private func makeInfoCard() -> UIView {
+        let card = UIView()
+        card.applyInfoCardStyle()
+        
+        let stack = UIStackView(arrangedSubviews: [
+            makeRow(title: "Tên quỹ", value: draft.jar.name),
+            makeRow(title: "Số dư ví", value: SavingsJarListViewController.money(result.walletBalance ?? 0)),
+            makeRow(title: "Thời gian", value: Self.timeFormatter.string(from: Date()))
+        ])
         stack.axis = .vertical
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stack)
+        card.addSubview(stack)
+        
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32)
+            stack.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            stack.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
+            stack.topAnchor.constraint(equalTo: card.topAnchor, constant: 16),
+            stack.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -16)
         ])
+        
+        return card
     }
 
     private func makeRow(title: String, value: String) -> UIView {
@@ -911,6 +957,7 @@ final class SavingsJarResultViewController: UIViewController {
         let valueLabel = UILabel()
         valueLabel.text = value
         valueLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        valueLabel.textColor = .label
         valueLabel.textAlignment = .right
         valueLabel.numberOfLines = 0
 
@@ -923,13 +970,13 @@ final class SavingsJarResultViewController: UIViewController {
 
     private func makeButton(title: String, filled: Bool) -> UIButton {
         let button = UIButton(type: .system)
-        var config = UIButton.Configuration.filled()
-        config.title = title
-        config.baseBackgroundColor = filled ? UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1) : .secondarySystemGroupedBackground
-        config.baseForegroundColor = filled ? .white : UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1)
-        config.cornerStyle = .large
-        button.configuration = config
-        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        if filled {
+            button.applyPrimaryAppStyle()
+        } else {
+            button.applySecondaryAppStyle()
+        }
+        button.setTitle(title, for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         return button
     }
 
@@ -941,8 +988,7 @@ final class SavingsJarResultViewController: UIViewController {
     }
 
     @objc private func tapHome() {
-        tabBarController?.selectedIndex = 0
-        navigationController?.popToRootViewController(animated: false)
+        redirectToHomeTab()
     }
 
     private static let timeFormatter: DateFormatter = {

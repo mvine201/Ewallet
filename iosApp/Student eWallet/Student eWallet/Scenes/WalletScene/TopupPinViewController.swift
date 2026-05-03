@@ -35,7 +35,7 @@ final class TopupPinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Xác nhận PIN"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 

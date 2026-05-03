@@ -27,7 +27,7 @@ final class TopupConfirmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Xác nhận nạp tiền"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
     }
@@ -65,9 +65,7 @@ final class TopupConfirmViewController: UIViewController {
         stack.spacing = 14
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 18)
         return stack
     }
 

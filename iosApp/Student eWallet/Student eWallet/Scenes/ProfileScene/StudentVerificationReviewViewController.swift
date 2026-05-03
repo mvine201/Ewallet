@@ -26,7 +26,7 @@ final class StudentVerificationReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Kiểm tra thông tin"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 
@@ -90,9 +90,7 @@ final class StudentVerificationReviewViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 0
-        stack.backgroundColor = .secondarySystemGroupedBackground
-        stack.layer.cornerRadius = 12
-        stack.layer.masksToBounds = true
+        stack.applyAppCardStyle(cornerRadius: 18)
 
         rows.enumerated().forEach { index, row in
             if index > 0 {
