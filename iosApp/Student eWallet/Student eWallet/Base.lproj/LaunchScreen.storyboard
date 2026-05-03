@@ -13,7 +13,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoUniEwallet_xoanen" translatesAutoresizingMaskIntoConstraints="NO" id="qzS-Hd-A8Q">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GxV-NU-lrj"/>
+                                    <constraint firstAttribute="height" constant="150" id="n4b-Ty-7nq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qzS-Hd-A8Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dsf-mR-N74"/>
+                            <constraint firstItem="qzS-Hd-A8Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vjb-gF-afp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +35,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LogoUniEwallet_xoanen" width="507" height="492"/>
+    </resources>
 </document>
