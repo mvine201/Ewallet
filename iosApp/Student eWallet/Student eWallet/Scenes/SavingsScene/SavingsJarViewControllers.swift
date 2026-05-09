@@ -146,6 +146,7 @@ final class CreateSavingsJarViewController: UIViewController {
         title = "Tạo quỹ"
         view.backgroundColor = .systemBackground
         setupLayout()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -155,7 +156,7 @@ final class CreateSavingsJarViewController: UIViewController {
         }
         nameField.placeholder = "Tên quỹ"
         targetAmountField.placeholder = "Số tiền mục tiêu"
-        targetAmountField.keyboardType = .numberPad
+        targetAmountField.applyMoneyInputStyle(target: self, action: #selector(targetAmountTextDidChange))
         deadlineField.placeholder = "Thời hạn (tuỳ chọn)"
 
         datePicker.datePickerMode = .date
@@ -212,7 +213,7 @@ final class CreateSavingsJarViewController: UIViewController {
 
     @objc private func tapCreate() {
         let name = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let targetAmount = Double(targetAmountField.text ?? "") ?? 0
+        let targetAmount = AppMoneyFormatter.amount(from: targetAmountField.text) ?? 0
         guard !name.isEmpty else { return showMessage("Vui lòng nhập tên quỹ") }
         guard targetAmount >= 10000 else { return showMessage("Số tiền mục tiêu tối thiểu là 10,000₫") }
 
@@ -239,6 +240,10 @@ final class CreateSavingsJarViewController: UIViewController {
                 }
             }
         }
+    }
+
+    @objc private func targetAmountTextDidChange() {
+        targetAmountField.formatMoneyInputKeepingCursorAtEnd()
     }
 
     private func setLoading(_ loading: Bool) {
@@ -581,6 +586,7 @@ final class SavingsJarAmountViewController: UIViewController {
         title = action.title
         view.backgroundColor = .systemBackground
         setupLayout()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -590,7 +596,7 @@ final class SavingsJarAmountViewController: UIViewController {
 
         amountField.placeholder = action == .deposit ? "Số tiền góp quỹ" : "Số tiền rút quỹ"
         amountField.borderStyle = .roundedRect
-        amountField.keyboardType = .numberPad
+        amountField.applyMoneyInputStyle(target: self, action: #selector(amountTextDidChange))
         amountField.heightAnchor.constraint(equalToConstant: 46).isActive = true
 
         let continueButton = UIButton(type: .system)
@@ -616,10 +622,17 @@ final class SavingsJarAmountViewController: UIViewController {
     }
 
     @objc private func tapContinue() {
-        let amount = Double(amountField.text ?? "") ?? 0
+        let amount = AppMoneyFormatter.amount(from: amountField.text) ?? 0
         guard amount > 0 else { return showError("Vui lòng nhập số tiền hợp lệ") }
+        if action == .withdraw, amount > jar.currentAmount {
+            return showError("Số tiền rút không được lớn hơn số dư quỹ")
+        }
         let draft = SavingsJarActionDraft(jar: jar, amount: amount, action: action)
         navigationController?.pushViewController(SavingsJarConfirmViewController(draft: draft), animated: true)
+    }
+
+    @objc private func amountTextDidChange() {
+        amountField.formatMoneyInputKeepingCursorAtEnd()
     }
 
     private func showError(_ message: String) {
@@ -651,6 +664,7 @@ final class SavingsJarConfirmViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -732,8 +746,7 @@ final class SavingsJarConfirmViewController: UIViewController {
         titleLabel.textAlignment = .center
 
         pinField.placeholder = "PIN ví"
-        pinField.keyboardType = .numberPad
-        pinField.isSecureTextEntry = true
+        pinField.applyPinInputStyle()
         pinField.textAlignment = .center
         pinField.font = .systemFont(ofSize: 22, weight: .semibold)
         pinField.borderStyle = .roundedRect
@@ -773,6 +786,17 @@ final class SavingsJarConfirmViewController: UIViewController {
     }
 
     @objc private func tapConfirm() {
+        let amount = draft.amount ?? 0
+        guard amount > 0 else {
+            showInvalidConfirmationAndReturn(message: "Số tiền không hợp lệ. Vui lòng nhập lại số tiền.")
+            return
+        }
+
+        if draft.action == .withdraw, amount > draft.jar.currentAmount {
+            showInvalidConfirmationAndReturn(message: "Số tiền rút không được lớn hơn số dư quỹ. Vui lòng nhập lại số tiền.")
+            return
+        }
+
         pinField.text = nil
         UIView.animate(withDuration: 0.25) {
             self.dimView.alpha = 1

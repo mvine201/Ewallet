@@ -27,6 +27,8 @@ final class TopupViewController: UIViewController, UITextFieldDelegate {
         title = "Nạp tiền"
         view.backgroundColor = .systemBackground
         setupLayout()
+        amountField.applyMoneyInputStyle(target: self, action: #selector(amountTextDidChange))
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -65,14 +67,17 @@ final class TopupViewController: UIViewController, UITextFieldDelegate {
 
     @objc private func tapContinue() {
         view.endEditing(true)
-        let amountText = amountField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        guard let amount = Double(amountText), amount >= 10000 else {
+        guard let amount = AppMoneyFormatter.amount(from: amountField.text), amount >= 10000 else {
             showMessage(title: "Lỗi", message: "Số tiền nạp tối thiểu là 10,000 VND")
             return
         }
 
         let confirmViewController = TopupConfirmViewController(draft: TopupDraft(amount: amount))
         navigationController?.pushViewController(confirmViewController, animated: true)
+    }
+
+    @objc private func amountTextDidChange() {
+        amountField.formatMoneyInputKeepingCursorAtEnd()
     }
 
     private func showMessage(title: String, message: String) {

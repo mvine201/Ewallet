@@ -178,6 +178,7 @@ final class ServiceDetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         updateContentForMode()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -363,6 +364,11 @@ final class ServicePaymentConfirmViewController: UIViewController {
     private let pinSheet = UIView()
     private let pinField = UITextField()
     private let activity = UIActivityIndicatorView(style: .medium)
+    private lazy var confirmButton: UIButton = {
+        let button = makePrimaryButton(title: "Xác nhận")
+        button.addTarget(self, action: #selector(tapConfirm), for: .touchUpInside)
+        return button
+    }()
 
     init(draft: ServicePaymentDraft) {
         self.draft = draft
@@ -379,6 +385,7 @@ final class ServicePaymentConfirmViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -386,9 +393,6 @@ final class ServicePaymentConfirmViewController: UIViewController {
         titleLabel.text = "Xác nhận thanh toán"
         titleLabel.font = .systemFont(ofSize: 26, weight: .bold)
         titleLabel.numberOfLines = 0
-
-        let confirmButton = makePrimaryButton(title: "Xác nhận")
-        confirmButton.addTarget(self, action: #selector(tapConfirm), for: .touchUpInside)
 
         let stack = UIStackView(arrangedSubviews: [titleLabel, makeInfoCard(), confirmButton])
         stack.axis = .vertical
@@ -458,8 +462,7 @@ final class ServicePaymentConfirmViewController: UIViewController {
         titleLabel.textAlignment = .center
 
         pinField.placeholder = "PIN ví"
-        pinField.keyboardType = .numberPad
-        pinField.isSecureTextEntry = true
+        pinField.applyPinInputStyle()
         pinField.textAlignment = .center
         pinField.font = .systemFont(ofSize: 22, weight: .semibold)
         pinField.borderStyle = .roundedRect
@@ -492,6 +495,35 @@ final class ServicePaymentConfirmViewController: UIViewController {
     }
 
     @objc private func tapConfirm() {
+        if let validationMessage = validationMessageBeforePin() {
+            showInvalidConfirmationAndReturn(message: validationMessage)
+            return
+        }
+
+        setConfirmChecking(true)
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                let wallet = try await AuthService.shared.getMyWallet()
+                await MainActor.run {
+                    self.setConfirmChecking(false)
+                    guard wallet.balance >= self.draft.amount else {
+                        self.showInsufficientBalanceAndReturn(balance: wallet.balance)
+                        return
+                    }
+
+                    self.showPinSheet()
+                }
+            } catch {
+                await MainActor.run {
+                    self.setConfirmChecking(false)
+                    self.showMessage(title: "Lỗi", message: "Không kiểm tra được số dư ví. Vui lòng thử lại.")
+                }
+            }
+        }
+    }
+
+    private func showPinSheet() {
         pinField.text = nil
         UIView.animate(withDuration: 0.25) {
             self.dimView.alpha = 1
@@ -499,6 +531,59 @@ final class ServicePaymentConfirmViewController: UIViewController {
         } completion: { _ in
             self.pinField.becomeFirstResponder()
         }
+    }
+
+    private func validationMessageBeforePin() -> String? {
+        if draft.amount <= 0 {
+            return "Số tiền thanh toán không hợp lệ. Vui lòng kiểm tra lại dịch vụ."
+        }
+
+        if draft.service.paymentStatus?.canPay == false {
+            return "Dịch vụ này đã được thanh toán hoặc không còn khả dụng. Vui lòng chọn lại dịch vụ."
+        }
+
+        if draft.service.category == "internal", draft.student == nil {
+            return "Bạn cần xác thực sinh viên trước khi thanh toán dịch vụ nội bộ."
+        }
+
+        if draft.service.requireVerification == true, draft.student == nil {
+            return "Bạn cần xác thực sinh viên trước khi thanh toán dịch vụ này."
+        }
+
+        if draft.service.requireActiveStudent == true, draft.student?.academicStatus == "graduated" {
+            return "Dịch vụ này chỉ dành cho sinh viên đang học. Vui lòng chọn lại dịch vụ."
+        }
+
+        if draft.service.type == "parking", draft.paymentMode == "monthly" {
+            let nowDay = Calendar.current.component(.day, from: Date())
+            let fromDay = draft.service.parkingConfig?.monthlyPassOpenDayFrom ?? 1
+            let toDay = draft.service.parkingConfig?.monthlyPassOpenDayTo ?? 5
+            if draft.service.parkingConfig?.monthlyPassEnabled != true {
+                return "Dịch vụ chưa mở gói giữ xe theo tháng. Vui lòng chọn lại hình thức thanh toán."
+            }
+            if nowDay < fromDay || nowDay > toDay {
+                return "Gói tháng chỉ mở từ ngày \(fromDay)-\(toDay) hằng tháng. Vui lòng chọn lại hình thức thanh toán."
+            }
+        }
+
+        return nil
+    }
+
+    private func setConfirmChecking(_ checking: Bool) {
+        confirmButton.isEnabled = !checking
+        confirmButton.alpha = checking ? 0.6 : 1
+        confirmButton.setTitle(checking ? "Đang kiểm tra..." : "Xác nhận", for: .normal)
+    }
+
+    private func showInsufficientBalanceAndReturn(balance: Double) {
+        let balanceText = Self.currencyFormatter.string(from: NSNumber(value: balance)) ?? "\(balance) VND"
+        let amountText = Self.currencyFormatter.string(from: NSNumber(value: draft.amount)) ?? "\(draft.amount) VND"
+        let message = "Số dư ví hiện tại là \(balanceText), không đủ để thanh toán \(amountText). Vui lòng nhập lại thông tin hoặc nạp thêm tiền."
+        let alert = UIAlertController(title: "Số dư không đủ", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Nhập lại", style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        })
+        present(alert, animated: true)
     }
 
     @objc private func hidePinSheet() {

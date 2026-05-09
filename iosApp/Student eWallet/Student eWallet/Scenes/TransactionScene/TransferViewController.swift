@@ -33,6 +33,7 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .systemBackground
         setupBackButton()
         setupLayout()
+        enableKeyboardDismissOnTap()
         loadCurrentUser()
     }
 
@@ -46,8 +47,7 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func setupLayout() {
-        amountField.keyboardType = .numberPad
-        amountField.addTarget(self, action: #selector(amountTextDidChange), for: .editingChanged)
+        amountField.applyMoneyInputStyle(target: self, action: #selector(amountTextDidChange))
         receiverField.delegate = self
         receiverField.addTarget(self, action: #selector(receiverTextDidChange), for: .editingChanged)
 
@@ -123,6 +123,7 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc private func amountTextDidChange() {
+        amountField.formatMoneyInputKeepingCursorAtEnd()
         _ = validateAmount(shouldShowEmpty: false)
     }
 
@@ -226,7 +227,7 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
             return nil
         }
 
-        guard let amount = Self.parseAmount(amountText) else {
+        guard let amount = AppMoneyFormatter.amount(from: amountText) else {
             setAmountError("Số tiền sai định dạng")
             return nil
         }
@@ -280,34 +281,4 @@ final class TransferViewController: UIViewController, UITextFieldDelegate {
             .uppercased()
     }
 
-    private static func parseAmount(_ text: String) -> Double? {
-        let cleaned = text.replacingOccurrences(of: " ", with: "")
-
-        guard !cleaned.isEmpty else {
-            return nil
-        }
-
-        if cleaned.allSatisfy({ $0.isNumber }) {
-            return Double(cleaned)
-        }
-
-        let hasDot = cleaned.contains(".")
-        let hasComma = cleaned.contains(",")
-
-        guard hasDot != hasComma else {
-            return nil
-        }
-
-        let separator: Character = hasDot ? "." : ","
-        let parts = cleaned.split(separator: separator, omittingEmptySubsequences: false)
-
-        guard parts.count > 1,
-              (1...3).contains(parts[0].count),
-              parts[0].allSatisfy({ $0.isNumber }),
-              parts.dropFirst().allSatisfy({ $0.count == 3 && $0.allSatisfy { $0.isNumber } }) else {
-            return nil
-        }
-
-        return Double(parts.joined())
-    }
 }

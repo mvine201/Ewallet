@@ -183,13 +183,15 @@ final class AuthService {
                 let role = decoded.data?.user?.role ?? "user"
                 guard role == "user" else {
                     TokenStore.shared.clear()
-                    throw AuthError.server("Đăng nhập không hợp lệ")
+                    throw AuthError.server("Tài khoản admin chỉ đăng nhập trên trang quản trị web. Vui lòng dùng tài khoản sinh viên để vào ứng dụng iOS.")
                 }
                 TokenStore.shared.token = token
             } else {
                 let message = decoded.message ?? "Đăng nhập thất bại"
                 throw AuthError.server(message)
             }
+        } catch let error as AuthError {
+            throw error
         } catch {
             let message = serverMessage(from: data, statusCode: http.statusCode, defaultMessage: "Phản hồi máy chủ không đúng định dạng")
             throw AuthError.server(message)

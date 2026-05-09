@@ -13,8 +13,7 @@ final class TopupPinViewController: UIViewController {
     private let pinField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Nhập mã PIN"
-        textField.keyboardType = .numberPad
-        textField.isSecureTextEntry = true
+        textField.applyPinInputStyle()
         textField.borderStyle = .roundedRect
         textField.textAlignment = .center
         textField.font = .systemFont(ofSize: 22, weight: .semibold)
@@ -37,6 +36,7 @@ final class TopupPinViewController: UIViewController {
         title = "Xác nhận PIN"
         view.backgroundColor = .systemBackground
         setupLayout()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {

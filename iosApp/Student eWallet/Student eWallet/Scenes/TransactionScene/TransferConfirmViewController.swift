@@ -30,6 +30,7 @@ final class TransferConfirmViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -125,8 +126,7 @@ final class TransferConfirmViewController: UIViewController {
         titleLabel.textAlignment = .center
 
         pinField.placeholder = "PIN ví"
-        pinField.keyboardType = .numberPad
-        pinField.isSecureTextEntry = true
+        pinField.applyPinInputStyle()
         pinField.textAlignment = .center
         pinField.font = .systemFont(ofSize: 22, weight: .semibold)
         pinField.borderStyle = .roundedRect
@@ -161,6 +161,16 @@ final class TransferConfirmViewController: UIViewController {
     }
 
     @objc private func tapConfirm() {
+        guard !draft.receiver.id.isEmpty else {
+            showInvalidConfirmationAndReturn(message: "Thông tin người nhận không hợp lệ. Vui lòng nhập lại người nhận.")
+            return
+        }
+
+        guard draft.amount >= 1000 else {
+            showInvalidConfirmationAndReturn(message: "Số tiền chuyển tối thiểu là 1.000đ. Vui lòng nhập lại số tiền.")
+            return
+        }
+
         showPinSheet()
     }
 

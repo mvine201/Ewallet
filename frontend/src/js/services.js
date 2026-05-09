@@ -35,6 +35,27 @@ function formatMoney(n) {
   return (Number(n) || 0).toLocaleString("vi-VN") + "₫";
 }
 
+function formatMoneyInputValue(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  if (!digits) return "";
+  const normalizedDigits = digits.replace(/^0+(?=\d)/, "");
+  return normalizedDigits.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function parseMoneyInputValue(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  return digits ? Number(digits) : 0;
+}
+
+function setupMoneyInput(input) {
+  input.value = formatMoneyInputValue(input.value);
+  input.inputMode = "numeric";
+  input.autocomplete = "off";
+  input.addEventListener("input", () => {
+    input.value = formatMoneyInputValue(input.value);
+  });
+}
+
 function getVNDateParts(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
@@ -122,7 +143,7 @@ function showServiceModal(service, onSave) {
           </div>
           <div class="form-group">
             <label>Giá mặc định (VNĐ)</label>
-            <input class="form-input" id="svc-price" type="number" value="${s.price || 0}" min="0" />
+            <input class="form-input" id="svc-price" type="text" inputmode="numeric" value="${formatMoneyInputValue(s.price || 0)}" />
           </div>
           <div class="form-group" id="cohort-group">
             <label>Khoá áp dụng</label>
@@ -170,7 +191,7 @@ function showServiceModal(service, onSave) {
           <div class="detail-grid">
             <div class="form-group">
               <label>Giá mỗi lượt (VNĐ)</label>
-              <input class="form-input" id="svc-parking-use" type="number" min="0" value="${parkingConfig.perUsePrice || 0}" />
+              <input class="form-input" id="svc-parking-use" type="text" inputmode="numeric" value="${formatMoneyInputValue(parkingConfig.perUsePrice || 0)}" />
             </div>
             <div class="form-group" style="display:flex;align-items:center;gap:10px;margin-top:28px">
               <input type="checkbox" id="svc-parking-monthly-enabled" ${parkingConfig.monthlyPassEnabled ? "checked" : ""} />
@@ -178,7 +199,7 @@ function showServiceModal(service, onSave) {
             </div>
             <div class="form-group">
               <label>Giá gói tháng (VNĐ)</label>
-              <input class="form-input" id="svc-parking-monthly-price" type="number" min="0" value="${parkingConfig.monthlyPassPrice || 0}" />
+              <input class="form-input" id="svc-parking-monthly-price" type="text" inputmode="numeric" value="${formatMoneyInputValue(parkingConfig.monthlyPassPrice || 0)}" />
             </div>
             <div class="form-group">
               <label>Mở bán từ ngày</label>
@@ -212,6 +233,9 @@ function showServiceModal(service, onSave) {
   document.body.appendChild(modal);
   modal.querySelector("#svc-cancel").onclick = closeModal;
   modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+  ["svc-price", "svc-parking-use", "svc-parking-monthly-price"].forEach((id) => {
+    setupMoneyInput(document.getElementById(id));
+  });
 
   const refreshDynamicSections = () => {
     const category = document.getElementById("svc-category").value;
@@ -240,7 +264,7 @@ function showServiceModal(service, onSave) {
       category,
       type: document.getElementById("svc-type").value,
       scopeType: category === "internal" ? document.getElementById("svc-scope").value : "school",
-      price: Number(document.getElementById("svc-price").value) || 0,
+      price: parseMoneyInputValue(document.getElementById("svc-price").value),
       icon: document.getElementById("svc-icon").value.trim() || "💳",
       description: document.getElementById("svc-desc").value.trim(),
       applicableCohorts: document.getElementById("svc-cohorts").value,
@@ -258,9 +282,9 @@ function showServiceModal(service, onSave) {
           .filter((n) => Number.isFinite(n) && n > 0),
       },
       parkingConfig: {
-        perUsePrice: Number(document.getElementById("svc-parking-use").value) || 0,
+        perUsePrice: parseMoneyInputValue(document.getElementById("svc-parking-use").value),
         monthlyPassEnabled: document.getElementById("svc-parking-monthly-enabled").checked,
-        monthlyPassPrice: Number(document.getElementById("svc-parking-monthly-price").value) || 0,
+        monthlyPassPrice: parseMoneyInputValue(document.getElementById("svc-parking-monthly-price").value),
         monthlyPassOpenDayFrom: Number(document.getElementById("svc-parking-day-from").value) || 1,
         monthlyPassOpenDayTo: Number(document.getElementById("svc-parking-day-to").value) || 5,
       },

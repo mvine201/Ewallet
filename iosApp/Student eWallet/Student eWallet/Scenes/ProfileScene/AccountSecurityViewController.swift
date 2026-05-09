@@ -208,13 +208,11 @@ final class AccountSecurityViewController: UIViewController {
         )
         alert.addTextField { textField in
             textField.placeholder = "Nhập PIN"
-            textField.keyboardType = .numberPad
-            textField.isSecureTextEntry = true
+            textField.applyPinInputStyle()
         }
         alert.addTextField { textField in
             textField.placeholder = "Nhập lại PIN"
-            textField.keyboardType = .numberPad
-            textField.isSecureTextEntry = true
+            textField.applyPinInputStyle()
         }
 
         alert.addAction(UIAlertAction(title: "Huỷ", style: .cancel))
@@ -235,18 +233,15 @@ final class AccountSecurityViewController: UIViewController {
         )
         alert.addTextField { textField in
             textField.placeholder = "PIN hiện tại"
-            textField.keyboardType = .numberPad
-            textField.isSecureTextEntry = true
+            textField.applyPinInputStyle()
         }
         alert.addTextField { textField in
             textField.placeholder = "PIN mới gồm 6 chữ số"
-            textField.keyboardType = .numberPad
-            textField.isSecureTextEntry = true
+            textField.applyPinInputStyle()
         }
         alert.addTextField { textField in
             textField.placeholder = "Nhập lại PIN mới"
-            textField.keyboardType = .numberPad
-            textField.isSecureTextEntry = true
+            textField.applyPinInputStyle()
         }
 
         alert.addAction(UIAlertAction(title: "Huỷ", style: .cancel))

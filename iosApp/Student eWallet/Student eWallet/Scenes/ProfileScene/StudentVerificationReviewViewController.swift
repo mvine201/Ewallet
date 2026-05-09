@@ -170,7 +170,7 @@ final class StudentVerificationReviewViewController: UIViewController {
             } catch {
                 await MainActor.run {
                     self.setLoading(false)
-                    self.showError(error.localizedDescription)
+                    self.showErrorAndReturnToInput(error.localizedDescription)
                 }
             }
         }
@@ -196,6 +196,14 @@ final class StudentVerificationReviewViewController: UIViewController {
     private func showError(_ message: String) {
         let alert = UIAlertController(title: "Lỗi", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+
+    private func showErrorAndReturnToInput(_ message: String) {
+        let alert = UIAlertController(title: "Thông tin chưa đúng", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Nhập lại", style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        })
         present(alert, animated: true)
     }
 }

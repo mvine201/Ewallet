@@ -67,6 +67,7 @@ final class StudentVerificationViewController: UIViewController, UITextFieldDele
         setupLayout()
         setupDatePicker()
         setupActions()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {

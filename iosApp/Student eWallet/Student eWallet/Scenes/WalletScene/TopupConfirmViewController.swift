@@ -30,6 +30,7 @@ final class TopupConfirmViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         setupPinSheet()
+        enableKeyboardDismissOnTap()
     }
 
     private func setupLayout() {
@@ -101,6 +102,16 @@ final class TopupConfirmViewController: UIViewController {
     }
 
     @objc private func tapConfirm() {
+        guard draft.amount >= 10000 else {
+            showInvalidConfirmationAndReturn(message: "Số tiền nạp tối thiểu là 10.000đ. Vui lòng nhập lại số tiền.")
+            return
+        }
+
+        guard draft.amount <= 50000000 else {
+            showInvalidConfirmationAndReturn(message: "Số tiền nạp tối đa là 50.000.000đ. Vui lòng nhập lại số tiền.")
+            return
+        }
+
         showPinSheet()
     }
 
@@ -133,8 +144,7 @@ final class TopupConfirmViewController: UIViewController {
         subtitleLabel.numberOfLines = 0
 
         pinField.placeholder = "PIN ví"
-        pinField.keyboardType = .numberPad
-        pinField.isSecureTextEntry = true
+        pinField.applyPinInputStyle()
         pinField.textAlignment = .center
         pinField.font = .systemFont(ofSize: 22, weight: .semibold)
         pinField.borderStyle = .roundedRect

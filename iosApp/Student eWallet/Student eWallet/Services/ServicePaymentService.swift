@@ -50,6 +50,8 @@ struct SchoolServiceItem: Decodable {
     let paymentWindow: ServicePaymentWindow?
     let parkingConfig: ServiceParkingConfig?
     let paymentStatus: ServicePaymentStatus?
+    let requireVerification: Bool?
+    let requireActiveStudent: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -63,6 +65,8 @@ struct SchoolServiceItem: Decodable {
         case paymentWindow
         case parkingConfig
         case paymentStatus
+        case requireVerification
+        case requireActiveStudent
     }
 
     init(from decoder: Decoder) throws {
@@ -78,6 +82,8 @@ struct SchoolServiceItem: Decodable {
         paymentWindow = try container.decodeIfPresent(ServicePaymentWindow.self, forKey: .paymentWindow)
         parkingConfig = try container.decodeIfPresent(ServiceParkingConfig.self, forKey: .parkingConfig)
         paymentStatus = try container.decodeIfPresent(ServicePaymentStatus.self, forKey: .paymentStatus)
+        requireVerification = try container.decodeIfPresent(Bool.self, forKey: .requireVerification)
+        requireActiveStudent = try container.decodeIfPresent(Bool.self, forKey: .requireActiveStudent)
     }
 }
 

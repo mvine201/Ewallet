@@ -70,6 +70,7 @@ final class RegisterViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.keyboardLayoutGuide.followsUndockedKeyboard = true
         setupLayout()
+        enableKeyboardDismissOnTap()
         registerButton.addTarget(self, action: #selector(tapRegister), for: .touchUpInside)
         navigationItem.backButtonTitle = ""
     }
