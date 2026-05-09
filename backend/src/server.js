@@ -40,3 +40,4 @@ connectDB().then(() => {
     console.log(`Server start on PORT ${PORT}`);
   });
 });
+
