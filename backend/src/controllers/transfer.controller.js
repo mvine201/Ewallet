@@ -105,6 +105,13 @@ export const lookupReceiver = async (req, res) => {
       });
     }
 
+    if (!user.isVerified) {
+      return res.status(403).json({
+        success: false,
+        message: "Người nhận chưa xác thực sinh viên nên chưa thể sử dụng ví Uni Ewallet",
+      });
+    }
+
     // Không cho tự chuyển cho chính mình
     if (user._id.toString() === req.user.id) {
       return res.status(400).json({
@@ -207,6 +214,20 @@ export const transfer = async (req, res) => {
     }
 
     // --- Lấy ví người nhận ---
+    const receiverUser = await User.findOne({
+      _id: receiverId,
+      isActive: true,
+      isVerified: true,
+    }).session(session);
+
+    if (!receiverUser) {
+      await session.abortTransaction();
+      return res.status(403).json({
+        success: false,
+        message: "Người nhận chưa xác thực sinh viên hoặc tài khoản không khả dụng",
+      });
+    }
+
     const receiverWallet = await Wallet.findOne({ userId: receiverId }).session(session);
     if (!receiverWallet || receiverWallet.status !== "active") {
       await session.abortTransaction();

@@ -1,0 +1,583 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/54zidony",
+    "id": "54zidony",
+    "slide": 18,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt",
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ovahoza1",
+      "id": "18",
+      "name": "Rectangle 17",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x0nuxc3y",
+      "id": "2",
+      "name": "Rectangle 1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fil0rqd4",
+      "id": "4",
+      "name": "Rectangle 3",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 12",
+      "textPreview": "Slide 12",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 12"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 12",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 12",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj2t83it",
+      "id": "10",
+      "name": "Rounded Rectangle 9",
+      "bbox": [
+        -86.67,
+        73,
+        781.33,
+        260
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg2"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d4vmtwra",
+      "id": "11",
+      "name": "Rectangle 10",
+      "bbox": [
+        221.5,
+        94.01,
+        165,
+        69.58
+      ],
+      "geometry": "rect",
+      "text": "HẠN CHẾ",
+      "textPreview": "HẠN CHẾ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HẠN"
+          },
+          {
+            "index": 2,
+            "text": "CHẾ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HẠN CHẾ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "HẠN CHẾ",
+              "fontSize": 37.33,
+              "typeface": "Aptos",
+              "color": "#FF0000",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vy90je9c",
+      "id": "13",
+      "name": "TextBox 12",
+      "bbox": [
+        10.67,
+        128.8,
+        684,
+        182.41
+      ],
+      "geometry": "rect",
+      "text": "- Chưa thể hoàn thiện một số chức năng: rút tiền, liên kết ngân hàng, xác thực số điện thoại bằng OTP\n- Xác thực sinh viên vẫn dùng dữ liệu có sẵn trong cơ sở dữ liệu\n- Các giao dịch, thanh toán vẫn chỉ dừng lại ở mức mô phỏng",
+      "textPreview": "- Chưa thể hoàn thiện một số chức năng: rút tiền, liên kết ngân hàng, xác thực số điện thoại bằng OTP | - Xác thực sinh viên vẫn dùng dữ ...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Chưa thể hoàn thiện một số chức năng: rút tiền, liên kết"
+          },
+          {
+            "index": 2,
+            "text": "ngân hàng, xác thực số điện thoại bằng OTP"
+          },
+          {
+            "index": 3,
+            "text": "- Xác thực sinh viên vẫn dùng dữ liệu có sẵn trong cơ sở dữ"
+          },
+          {
+            "index": 4,
+            "text": "liệu"
+          },
+          {
+            "index": 5,
+            "text": "- Các giao dịch, thanh toán vẫn chỉ dừng lại ở mức mô"
+          },
+          {
+            "index": 6,
+            "text": "phỏng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Chưa thể hoàn thiện một số chức năng: rút tiền, liên kết ngân hàng, xác thực số điện thoại bằng OTP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Chưa thể hoàn ",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#202631"
+            },
+            {
+              "index": 2,
+              "text": "thiện",
+              "fontSize": 25.33,
+              "typeface": "Aptos",
+              "color": "#202631"
+            },
+            {
+              "index": 3,
+              "text": " một số chức năng: rút tiền, liên kết ngân hàng, xác thực số điện thoại bằng OTP",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "- Xác thực sinh viên vẫn dùng dữ liệu có sẵn trong cơ sở dữ liệu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Xác thực sinh viên vẫn dùng dữ liệu có sẵn trong cơ sở dữ liệu",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "- Các giao dịch, thanh toán vẫn chỉ dừng lại ở mức mô phỏng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Các giao dịch, thanh toán vẫn chỉ dừng lại ở mức mô phỏng",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7qpg3ex",
+      "id": "14",
+      "name": "Rounded Rectangle 13",
+      "bbox": [
+        526.67,
+        340,
+        832.67,
+        335
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsji5sne",
+      "id": "15",
+      "name": "Rectangle 14",
+      "bbox": [
+        788.67,
+        377.33,
+        360,
+        69.58
+      ],
+      "geometry": "rect",
+      "text": "HƯỚNG PHÁT TRIỂN",
+      "textPreview": "HƯỚNG PHÁT TRIỂN",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HƯỚNG PHÁT"
+          },
+          {
+            "index": 2,
+            "text": "TRIỂN"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HƯỚNG PHÁT TRIỂN",
+          "runs": [
+            {
+              "index": 1,
+              "text": "HƯỚNG PHÁT TRIỂN",
+              "fontSize": 37.33,
+              "typeface": "Aptos",
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61032lsz",
+      "id": "16",
+      "name": "TextBox 15",
+      "bbox": [
+        554.17,
+        415.72,
+        725.83,
+        235.49
+      ],
+      "geometry": "rect",
+      "text": "- Kết nối ngân hàng và cổng thanh toán thật\n- Kết nối API dữ liệu sinh viên của trường để xác thực chính xác hơn\n- Phát triển thêm chức năng tăng thêm bảo mật\n- Cải thiện AI bằng dữ liệu giao dịch thực tế",
+      "textPreview": "- Kết nối ngân hàng và cổng thanh toán thật | - Kết nối API dữ liệu sinh viên của trường để xác thực chính xác hơn | - Phát triển thêm ch...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Kết nối ngân hàng và cổng thanh toán thật"
+          },
+          {
+            "index": 2,
+            "text": "- Kết nối API dữ liệu sinh viên của trường để xác thực chính"
+          },
+          {
+            "index": 3,
+            "text": "xác hơn"
+          },
+          {
+            "index": 4,
+            "text": "- Phát triển thêm chức năng tăng thêm bảo mật"
+          },
+          {
+            "index": 5,
+            "text": "- Cải thiện AI bằng dữ liệu giao dịch thực tế"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Kết nối ngân hàng và cổng thanh toán thật",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Kết nối ngân hàng và cổng thanh toán thật",
+              "fontSize": 25.33,
+              "typeface": "Aptos",
+              "color": "bg1"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "- Kết nối API dữ liệu sinh viên của trường để xác thực chính xác hơn",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Kết nối API dữ liệu sinh viên của trường để xác thực chính xác hơn",
+              "fontSize": 25.33,
+              "typeface": "Aptos",
+              "color": "bg1"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "- Phát triển thêm chức năng tăng thêm bảo mật",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Phát triển thêm chức năng tăng thêm bảo mật",
+              "fontSize": 25.33,
+              "typeface": "Aptos",
+              "color": "bg1"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "text": "- Cải thiện AI bằng dữ liệu giao dịch thực tế",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Cải thiện AI bằng dữ liệu giao dịch thực tế",
+              "fontSize": 25.33,
+              "typeface": "Aptos",
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/qh0fepkz",
+      "id": "19",
+      "name": "Picture 16",
+      "bbox": [
+        1175.51,
+        24.34,
+        79,
+        72.58
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      }
+    }
+  ],
+  "composeRuns": []
+}

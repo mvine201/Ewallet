@@ -1,0 +1,1393 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/p4b5w5",
+    "id": "p4b5w5",
+    "slide": 9,
+    "layoutId": "4656cb10-d13b-4039-af58-cce23079c1c7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4656cb10-d13b-4039-af58-cce23079c1c7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "3",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z25kb6x",
+      "id": "4",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 09",
+      "textPreview": "Slide 09",
+      "resolvedFontSize": 8,
+      "resolvedTextStyle": {
+        "fontSize": 8,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 09"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 09",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 09",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gvy90je",
+      "id": "5",
+      "bbox": [
+        72,
+        47,
+        16,
+        16
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qtcj6tov",
+      "id": "6",
+      "bbox": [
+        98,
+        42,
+        330,
+        28
+      ],
+      "geometry": "rect",
+      "text": "GIAO DỊCH",
+      "textPreview": "GIAO DỊCH",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GIAO DỊCH"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GIAO DỊCH",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GIAO DỊCH",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je9cvixc",
+      "id": "7",
+      "bbox": [
+        72,
+        72,
+        980,
+        76
+      ],
+      "geometry": "rect",
+      "text": "Mỗi thao tác tiền đi qua xác thực PIN, kiểm tra số dư và ghi nhận lịch sử.",
+      "textPreview": "Mỗi thao tác tiền đi qua xác thực PIN, kiểm tra số dư và ghi nhận lịch sử.",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mỗi thao tác tiền đi qua xác thực PIN, kiểm tra số dư và ghi"
+          },
+          {
+            "index": 2,
+            "text": "nhận lịch sử."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mỗi thao tác tiền đi qua xác thực PIN, kiểm tra số dư và ghi nhận lịch sử.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mỗi thao tác tiền đi qua xác thực PIN, kiểm tra số dư và ghi nhận lịch sử.",
+              "fontSize": 34,
+              "typeface": "Aptos Display",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "8",
+      "bbox": [
+        72,
+        156,
+        1130,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#EEF1F5",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xczed8v6",
+      "id": "9",
+      "bbox": [
+        86,
+        230,
+        150,
+        88
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/donyd0z6",
+      "id": "10",
+      "bbox": [
+        144,
+        342,
+        34,
+        34
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#F45B63",
+      "lineWidth": 3
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3q5o7qp",
+      "id": "11",
+      "bbox": [
+        150,
+        350,
+        22,
+        16
+      ],
+      "geometry": "rect",
+      "text": "1",
+      "textPreview": "1",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1",
+          "runs": [
+            {
+              "index": 1,
+              "text": "1",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vixczed8",
+      "id": "12",
+      "bbox": [
+        98,
+        250,
+        126,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Nhập thông tin\nngười nhận/dịch vụ/số tiền",
+      "textPreview": "Nhập thông tin | người nhận/dịch vụ/số tiền",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nhập thông tin"
+          },
+          {
+            "index": 2,
+            "text": "người nhận/dịch"
+          },
+          {
+            "index": 3,
+            "text": "vụ/số tiền"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nhập thông tin",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nhập thông tin",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "người nhận/dịch vụ/số tiền",
+          "runs": [
+            {
+              "index": 1,
+              "text": "người nhận/dịch vụ/số tiền",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2x4nap4r",
+      "id": "13",
+      "bbox": [
+        236,
+        274,
+        76,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dcbulwva",
+      "id": "14",
+      "bbox": [
+        312,
+        230,
+        150,
+        88
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kre1w7mp",
+      "id": "15",
+      "bbox": [
+        370,
+        342,
+        34,
+        34
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#18202C",
+      "lineWidth": 3
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/val87ed8",
+      "id": "16",
+      "bbox": [
+        376,
+        350,
+        22,
+        16
+      ],
+      "geometry": "rect",
+      "text": "2",
+      "textPreview": "2",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2",
+          "runs": [
+            {
+              "index": 1,
+              "text": "2",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#18202C",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6psfil0r",
+      "id": "17",
+      "bbox": [
+        324,
+        250,
+        126,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Xác nhận\nthông tin giao dịch",
+      "textPreview": "Xác nhận | thông tin giao dịch",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Xác nhận"
+          },
+          {
+            "index": 2,
+            "text": "thông tin giao dịch"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Xác nhận",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Xác nhận",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "thông tin giao dịch",
+          "runs": [
+            {
+              "index": 1,
+              "text": "thông tin giao dịch",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8bat47y",
+      "id": "18",
+      "bbox": [
+        462,
+        274,
+        76,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/knih4byh",
+      "id": "19",
+      "bbox": [
+        538,
+        230,
+        150,
+        88
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjudg7ad",
+      "id": "20",
+      "bbox": [
+        596,
+        342,
+        34,
+        34
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#F45B63",
+      "lineWidth": 3
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4r65wju",
+      "id": "21",
+      "bbox": [
+        602,
+        350,
+        22,
+        16
+      ],
+      "geometry": "rect",
+      "text": "3",
+      "textPreview": "3",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3",
+          "runs": [
+            {
+              "index": 1,
+              "text": "3",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8v6psf",
+      "id": "22",
+      "bbox": [
+        550,
+        250,
+        126,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Nhập PIN\nbảo mật ví",
+      "textPreview": "Nhập PIN | bảo mật ví",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nhập PIN"
+          },
+          {
+            "index": 2,
+            "text": "bảo mật ví"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nhập PIN",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nhập PIN",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "bảo mật ví",
+          "runs": [
+            {
+              "index": 1,
+              "text": "bảo mật ví",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1kre1w",
+      "id": "23",
+      "bbox": [
+        688,
+        274,
+        76,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0bi9s36h",
+      "id": "24",
+      "bbox": [
+        764,
+        230,
+        150,
+        88
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwb2hwfy",
+      "id": "25",
+      "bbox": [
+        822,
+        342,
+        34,
+        34
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#18202C",
+      "lineWidth": 3
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i5sneloj",
+      "id": "26",
+      "bbox": [
+        828,
+        350,
+        22,
+        16
+      ],
+      "geometry": "rect",
+      "text": "4",
+      "textPreview": "4",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "4"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "4",
+          "runs": [
+            {
+              "index": 1,
+              "text": "4",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#18202C",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qpg3ex0",
+      "id": "27",
+      "bbox": [
+        776,
+        250,
+        126,
+        46
+      ],
+      "geometry": "rect",
+      "text": "API kiểm tra\nPIN + số dư + trạng thái",
+      "textPreview": "API kiểm tra | PIN + số dư + trạng thái",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "API kiểm tra"
+          },
+          {
+            "index": 2,
+            "text": "PIN + số dư +"
+          },
+          {
+            "index": 3,
+            "text": "trạng thái"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "API kiểm tra",
+          "runs": [
+            {
+              "index": 1,
+              "text": "API kiểm tra",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "PIN + số dư + trạng thái",
+          "runs": [
+            {
+              "index": 1,
+              "text": "PIN + số dư + trạng thái",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0z61032l",
+      "id": "28",
+      "bbox": [
+        914,
+        274,
+        76,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pkzupwb2",
+      "id": "29",
+      "bbox": [
+        990,
+        230,
+        150,
+        88
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je9cvixc",
+      "id": "30",
+      "bbox": [
+        1048,
+        342,
+        34,
+        34
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#F45B63",
+      "lineWidth": 3
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qtcj6tov",
+      "id": "31",
+      "bbox": [
+        1054,
+        350,
+        22,
+        16
+      ],
+      "geometry": "rect",
+      "text": "5",
+      "textPreview": "5",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "5"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "5",
+          "runs": [
+            {
+              "index": 1,
+              "text": "5",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gvy90je",
+      "id": "32",
+      "bbox": [
+        1002,
+        250,
+        126,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Cập nhật ví\nvà tạo transaction",
+      "textPreview": "Cập nhật ví | và tạo transaction",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cập nhật ví"
+          },
+          {
+            "index": 2,
+            "text": "và tạo transaction"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cập nhật ví",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cập nhật ví",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "và tạo transaction",
+          "runs": [
+            {
+              "index": 1,
+              "text": "và tạo transaction",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z25kb6x",
+      "id": "33",
+      "bbox": [
+        135,
+        468,
+        360,
+        104
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#EEF1F5",
+      "lineWidth": 1
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "34",
+      "bbox": [
+        153,
+        482,
+        324,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Các loại giao dịch",
+      "textPreview": "Các loại giao dịch",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Các loại giao dịch"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Các loại giao dịch",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Các loại giao dịch",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "35",
+      "bbox": [
+        153,
+        514,
+        324,
+        46
+      ],
+      "geometry": "rect",
+      "text": "topup, payment, transfer, refund, savings_deposit, savings_withdraw",
+      "textPreview": "topup, payment, transfer, refund, savings_deposit, savings_withdraw",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "topup, payment, transfer, refund,"
+          },
+          {
+            "index": 2,
+            "text": "savings_deposit, savings_withdraw"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "topup, payment, transfer, refund, savings_deposit, savings_withdraw",
+          "runs": [
+            {
+              "index": 1,
+              "text": "topup, payment, transfer, refund, savings_deposit, savings_withdraw",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "36",
+      "bbox": [
+        548,
+        468,
+        585,
+        104
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "#18202C",
+      "lineWidth": 1
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "37",
+      "bbox": [
+        566,
+        482,
+        549,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Ràng buộc chính",
+      "textPreview": "Ràng buộc chính",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ràng buộc chính"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ràng buộc chính",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ràng buộc chính",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "38",
+      "bbox": [
+        566,
+        514,
+        549,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Ví có balance, currency, PIN và status; transaction có type, status, receiverWalletId, amount, description.",
+      "textPreview": "Ví có balance, currency, PIN và status; transaction có type, status, receiverWalletId, amount, description.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ví có balance, currency, PIN và status; transaction có type, status,"
+          },
+          {
+            "index": 2,
+            "text": "receiverWalletId, amount, description."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ví có balance, currency, PIN và status; transaction có type, status, receiverWalletId, amount, description.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ví có balance, currency, PIN và status; transaction có type, status, receiverWalletId, amount, description.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

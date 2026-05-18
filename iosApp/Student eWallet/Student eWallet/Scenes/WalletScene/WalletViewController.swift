@@ -14,6 +14,8 @@ final class WalletViewController: UIViewController {
     private let phoneValueLabel = UILabel()
     private let balanceValueLabel = UILabel()
     private let activity = UIActivityIndicatorView(style: .medium)
+    private var currentUser: AuthUser?
+    private var hasShownVerificationPrompt = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,13 +152,27 @@ final class WalletViewController: UIViewController {
         Task { [weak self] in
             guard let self else { return }
             do {
-                async let user = AuthService.shared.getMe()
-                async let wallet = AuthService.shared.getMyWallet()
-                let result = try await (user, wallet)
+                let user = try await AuthService.shared.getMe()
+                guard user.isVerified else {
+                    await MainActor.run {
+                        self.setLoading(false)
+                        self.currentUser = user
+                        self.phoneValueLabel.text = user.phone
+                        self.balanceValueLabel.text = "Cần xác thực"
+                        if !self.hasShownVerificationPrompt {
+                            self.hasShownVerificationPrompt = true
+                            self.showStudentVerificationRequired()
+                        }
+                    }
+                    return
+                }
+
+                let wallet = try await AuthService.shared.getMyWallet()
                 await MainActor.run {
                     self.setLoading(false)
-                    self.phoneValueLabel.text = result.0.phone
-                    self.balanceValueLabel.text = Self.currencyFormatter.string(from: NSNumber(value: result.1.balance)) ?? "\(result.1.balance) VND"
+                    self.currentUser = user
+                    self.phoneValueLabel.text = user.phone
+                    self.balanceValueLabel.text = Self.currencyFormatter.string(from: NSNumber(value: wallet.balance)) ?? "\(wallet.balance) VND"
                 }
             } catch {
                 await MainActor.run {
@@ -172,22 +188,42 @@ final class WalletViewController: UIViewController {
     }
 
     @objc private func tapTopup() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(TopupViewController(), animated: true)
     }
 
     @objc private func tapWithdraw() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         showMessage(title: "Rút tiền", message: "Chức năng rút tiền sẽ được phát triển sau.")
     }
 
     @objc private func tapTransfer() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(TransferViewController(), animated: true)
     }
 
     @objc private func tapServicePayment() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(ServiceListViewController(), animated: true)
     }
 
     @objc private func tapPhoneTopup() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         showMessage(title: "Nạp tiền điện thoại", message: "Chức năng nạp tiền điện thoại sẽ được phát triển sau.")
     }
 
@@ -205,4 +241,8 @@ final class WalletViewController: UIViewController {
         formatter.locale = Locale(identifier: "vi_VN")
         return formatter
     }()
+
+    private var isStudentVerified: Bool {
+        currentUser?.isVerified ?? TokenStore.shared.currentUser?.isVerified ?? false
+    }
 }

@@ -30,6 +30,8 @@ final class HomeViewController: UIViewController {
 
     private var currentBalance: Double = 0
     private var isBalanceHidden = false
+    private var currentUser: AuthUser?
+    private var hasShownVerificationPrompt = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +39,11 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         loadWalletSummary()
-        loadStatisticsPreview()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadWalletSummary()
-        loadStatisticsPreview()
     }
 
     private func setupLayout() {
@@ -301,14 +301,34 @@ final class HomeViewController: UIViewController {
         Task { [weak self] in
             guard let self else { return }
             do {
-                async let userRequest = AuthService.shared.getMe()
-                async let walletRequest = AuthService.shared.getMyWallet()
-                let (user, wallet) = try await (userRequest, walletRequest)
+                let user = try await AuthService.shared.getMe()
+
+                guard user.isVerified else {
+                    await MainActor.run {
+                        self.setLoading(false)
+                        self.currentUser = user
+                        self.phoneLabel.text = user.phone
+                        self.currentBalance = 0
+                        self.balanceLabel.text = "Cần xác thực"
+                        self.visibilityButton.isEnabled = false
+                        self.applyStatisticsPreviewPlaceholder()
+                        if !self.hasShownVerificationPrompt {
+                            self.hasShownVerificationPrompt = true
+                            self.showStudentVerificationRequired()
+                        }
+                    }
+                    return
+                }
+
+                let wallet = try await AuthService.shared.getMyWallet()
                 await MainActor.run {
                     self.setLoading(false)
+                    self.currentUser = user
                     self.phoneLabel.text = user.phone
+                    self.visibilityButton.isEnabled = true
                     self.currentBalance = wallet.balance
                     self.updateBalanceText()
+                    self.loadStatisticsPreview()
                 }
             } catch {
                 await MainActor.run {
@@ -320,6 +340,11 @@ final class HomeViewController: UIViewController {
     }
 
     private func loadStatisticsPreview() {
+        if currentUser?.isVerified == false || TokenStore.shared.currentUser?.isVerified == false {
+            applyStatisticsPreviewPlaceholder()
+            return
+        }
+
         Task { [weak self] in
             guard let self else { return }
             do {
@@ -406,35 +431,67 @@ final class HomeViewController: UIViewController {
     }
 
     @objc private func toggleBalanceVisibility() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         isBalanceHidden.toggle()
         updateBalanceText()
     }
 
     @objc private func tapTransfer() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(TransferViewController(), animated: true)
     }
 
     @objc private func tapTopup() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(TopupViewController(), animated: true)
     }
 
     @objc private func tapWithdraw() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         showMessage(title: "Rút tiền", message: "Chức năng rút tiền sẽ được phát triển sau.")
     }
 
     @objc private func tapSavingsFund() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(SavingsJarListViewController(), animated: true)
     }
 
     @objc private func tapStatistics() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(StatisticsViewController(), animated: true)
     }
 
     @objc private func tapPhoneTopup() {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         showMessage(title: "Nạp điện thoại", message: "Chức năng nạp điện thoại sẽ được phát triển sau.")
     }
 
     @objc private func tapService(_ sender: UIButton) {
+        guard isStudentVerified else {
+            showStudentVerificationRequired()
+            return
+        }
         navigationController?.pushViewController(
             ServiceListViewController(serviceType: sender.accessibilityIdentifier),
             animated: true
@@ -455,4 +512,8 @@ final class HomeViewController: UIViewController {
         formatter.locale = Locale(identifier: "vi_VN")
         return formatter
     }()
+
+    private var isStudentVerified: Bool {
+        currentUser?.isVerified ?? TokenStore.shared.currentUser?.isVerified ?? false
+    }
 }

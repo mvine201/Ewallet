@@ -1,0 +1,21 @@
+Preserve
+- White canvas, coral title strips, dark navy blocks, small slide-number labels, strong horizontal rules.
+- Minimal icon-like geometry and clear contrast.
+- Closing thank-you rhythm from the supplied template.
+
+Improve
+- Replace placeholder text with defense-ready Vietnamese claims.
+- Use project screenshots and architecture diagrams as proof objects.
+- Keep text shorter than the report and suited for oral presentation.
+
+Do not imitate
+- Generic business placeholder language.
+- Decorative charts without project meaning.
+- Fake logos or fake product screenshots.
+
+Brand/assets
+- Project logo from repository.
+- Screenshots from the student's own report.
+
+Insertion contract
+- Build a clean editable PPTX that follows the template visual grammar while using project-specific content and proof.

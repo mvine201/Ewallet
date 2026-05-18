@@ -1,0 +1,1372 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/54zidony",
+    "id": "54zidony",
+    "slide": 18,
+    "layoutId": "/ppt/slideLayouts/slideLayout43.xml",
+    "layoutName": "自定义版式",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1279.83,
+      "height": 720.17
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#5B9BD5",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#4472C4",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout43.xml",
+      "name": "自定义版式",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster10.xml",
+      "type": "master",
+      "backgroundColor": "bg1",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/2",
+          "id": "2",
+          "name": "Title Placeholder 1",
+          "bbox": [
+            63.99,
+            28.84,
+            1151.85,
+            120.03
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/3",
+          "id": "3",
+          "name": "Text Placeholder 2",
+          "bbox": [
+            63.99,
+            168.04,
+            1151.85,
+            475.28
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/4",
+          "id": "4",
+          "name": "Date Placeholder 3",
+          "bbox": [
+            63.99,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/5",
+          "id": "5",
+          "name": "Footer Placeholder 4",
+          "bbox": [
+            437.28,
+            667.49,
+            405.28,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 5,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/6",
+          "id": "6",
+          "name": "Slide Number Placeholder 5",
+          "bbox": [
+            917.21,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4fu18jqh",
+      "id": "3",
+      "name": "矩形 2",
+      "bbox": [
+        0,
+        0,
+        1279.83,
+        100.07
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4nap4r65",
+      "id": "32",
+      "name": "9",
+      "bbox": [
+        465.7,
+        27.74,
+        350.43,
+        45.24
+      ],
+      "geometry": "rect",
+      "text": "ADD YOUR TITLE",
+      "textPreview": "ADD YOUR TITLE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ADD YOUR TITLE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ADD YOUR TITLE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ADD YOUR TITLE",
+              "fontSize": 37.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxs72x4n",
+      "id": "5",
+      "name": "椭圆 4",
+      "bbox": [
+        220.08,
+        555.71,
+        96,
+        96
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xobm58z2",
+      "id": "6",
+      "name": "椭圆 5",
+      "bbox": [
+        468.03,
+        555.71,
+        96,
+        96
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83itgfml",
+      "id": "7",
+      "name": "椭圆 6",
+      "bbox": [
+        715.97,
+        555.71,
+        96,
+        96
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fepkzupw",
+      "id": "8",
+      "name": "椭圆 7",
+      "bbox": [
+        963.92,
+        555.71,
+        96,
+        96
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtwra5gb",
+      "id": "9",
+      "name": "任意多边形 9",
+      "bbox": [
+        164.14,
+        238.86,
+        207.87,
+        296.83
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj2t83it",
+      "id": "10",
+      "name": "任意多边形 10",
+      "bbox": [
+        412.09,
+        238.86,
+        207.87,
+        296.83
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d4vmtwra",
+      "id": "11",
+      "name": "任意多边形 11",
+      "bbox": [
+        660.04,
+        238.86,
+        207.87,
+        296.83
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6dcbulwv",
+      "id": "12",
+      "name": "任意多边形 12",
+      "bbox": [
+        907.98,
+        238.86,
+        207.87,
+        296.83
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7qpg3ex",
+      "id": "14",
+      "name": "Freeform 5",
+      "bbox": [
+        487.68,
+        580.9,
+        51.42,
+        50.88
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsji5sne",
+      "id": "15",
+      "name": "Freeform 6",
+      "bbox": [
+        512.76,
+        603.62,
+        8.72,
+        8.9
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61032lsz",
+      "id": "16",
+      "name": "Freeform 7",
+      "bbox": [
+        535.65,
+        575.63,
+        8.72,
+        8.72
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmtwra5g",
+      "id": "17",
+      "name": "Freeform 8",
+      "bbox": [
+        502.22,
+        601.98,
+        7.09,
+        6.9
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ovahoza1",
+      "id": "18",
+      "name": "Oval 9",
+      "bbox": [
+        509.3,
+        614.16,
+        3.45,
+        3.63
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dg7adsji",
+      "id": "19",
+      "name": "Oval 10",
+      "bbox": [
+        537.29,
+        587.81,
+        3.63,
+        3.63
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kre1w7m",
+      "id": "20",
+      "name": "Freeform 5",
+      "bbox": [
+        246.32,
+        577.25,
+        43.52,
+        52.91
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ji5snelo",
+      "id": "22",
+      "name": "Freeform 6",
+      "bbox": [
+        735.63,
+        572.96,
+        28.2,
+        47.05
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uxc3ylc7",
+      "id": "23",
+      "name": "Oval 7",
+      "bbox": [
+        747.59,
+        583.54,
+        3.77,
+        3.77
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cfa9w3m",
+      "id": "24",
+      "name": "Freeform 8",
+      "bbox": [
+        737.22,
+        620.15,
+        25.01,
+        5.58
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/crmhk3q5",
+      "id": "25",
+      "name": "Freeform 9",
+      "bbox": [
+        762.23,
+        604.64,
+        24.72,
+        10.87
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j6tovaho",
+      "id": "26",
+      "name": "Freeform 10",
+      "bbox": [
+        757.09,
+        599.78,
+        35.23,
+        20.88
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ulwval87",
+      "id": "27",
+      "name": "Freeform 11",
+      "bbox": [
+        754.62,
+        580.28,
+        13.7,
+        26.61
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18jqh0fe",
+      "id": "28",
+      "name": "Freeform 12",
+      "bbox": [
+        758.46,
+        589.42,
+        7.03,
+        13.63
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nqxs72x",
+      "id": "29",
+      "name": "Freeform 13",
+      "bbox": [
+        748.46,
+        588.55,
+        32.41,
+        32.33
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhk3q5o7",
+      "id": "30",
+      "name": "Freeform 5",
+      "bbox": [
+        983.58,
+        583.54,
+        56.69,
+        42
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b2hwfyxo",
+      "id": "31",
+      "name": "文本框 31",
+      "bbox": [
+        198.14,
+        260.06,
+        139.89,
+        38.96
+      ],
+      "geometry": "rect",
+      "text": "TEXT HERE",
+      "textPreview": "TEXT HERE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEXT HERE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEXT HERE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEXT HERE",
+              "fontSize": 21.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t83itgfm",
+      "id": "33",
+      "name": "文本框 32",
+      "bbox": [
+        446.08,
+        260.06,
+        139.89,
+        38.96
+      ],
+      "geometry": "rect",
+      "text": "TEXT HERE",
+      "textPreview": "TEXT HERE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEXT HERE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEXT HERE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEXT HERE",
+              "fontSize": 21.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m58z25kb",
+      "id": "34",
+      "name": "文本框 33",
+      "bbox": [
+        693.89,
+        260.06,
+        139.89,
+        38.96
+      ],
+      "geometry": "rect",
+      "text": "TEXT HERE",
+      "textPreview": "TEXT HERE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEXT HERE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEXT HERE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEXT HERE",
+              "fontSize": 21.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq1oryts",
+      "id": "35",
+      "name": "文本框 34",
+      "bbox": [
+        941.98,
+        260.06,
+        139.89,
+        38.96
+      ],
+      "geometry": "rect",
+      "text": "TEXT HERE",
+      "textPreview": "TEXT HERE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEXT HERE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEXT HERE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEXT HERE",
+              "fontSize": 21.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4byhgn29",
+      "id": "36",
+      "name": "文本框 35",
+      "bbox": [
+        164.14,
+        309.73,
+        207.87,
+        136.57
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your text"
+          },
+          {
+            "index": 2,
+            "text": "here click to add your"
+          },
+          {
+            "index": 3,
+            "text": "text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here click to"
+          },
+          {
+            "index": 5,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twra5gbq",
+      "id": "37",
+      "name": "文本框 36",
+      "bbox": [
+        412.09,
+        309.73,
+        207.87,
+        136.57
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your text"
+          },
+          {
+            "index": 2,
+            "text": "here click to add your"
+          },
+          {
+            "index": 3,
+            "text": "text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here click to"
+          },
+          {
+            "index": 5,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1cfa9w3",
+      "id": "38",
+      "name": "文本框 37",
+      "bbox": [
+        659.89,
+        309.73,
+        207.87,
+        136.57
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your text"
+          },
+          {
+            "index": 2,
+            "text": "here click to add your"
+          },
+          {
+            "index": 3,
+            "text": "text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here click to"
+          },
+          {
+            "index": 5,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bm58z25k",
+      "id": "39",
+      "name": "文本框 38",
+      "bbox": [
+        907.69,
+        309.73,
+        207.87,
+        136.57
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your text"
+          },
+          {
+            "index": 2,
+            "text": "here click to add your"
+          },
+          {
+            "index": 3,
+            "text": "text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here click to"
+          },
+          {
+            "index": 5,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add your text here click to add your text here click to add your text here click to add your text here.",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

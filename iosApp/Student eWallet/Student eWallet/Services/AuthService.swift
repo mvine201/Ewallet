@@ -139,7 +139,11 @@ final class TokenStore {
     static let shared = TokenStore()
     private init() {}
     var token: String?
-    func clear() { token = nil }
+    var currentUser: AuthUser?
+    func clear() {
+        token = nil
+        currentUser = nil
+    }
 }
 
 // MARK: - AuthService
@@ -186,6 +190,7 @@ final class AuthService {
                     throw AuthError.server("Tài khoản admin chỉ đăng nhập trên trang quản trị web. Vui lòng dùng tài khoản sinh viên để vào ứng dụng iOS.")
                 }
                 TokenStore.shared.token = token
+                TokenStore.shared.currentUser = decoded.data?.user
             } else {
                 let message = decoded.message ?? "Đăng nhập thất bại"
                 throw AuthError.server(message)
@@ -234,6 +239,10 @@ final class AuthService {
 
         if let decoded = try? decoder.decode(AuthResponse.self, from: data), decoded.success == false {
             throw AuthError.server(decoded.message ?? "Xác thực sinh viên thất bại")
+        }
+
+        if let user = try? await getMe() {
+            TokenStore.shared.currentUser = user
         }
     }
 
@@ -286,6 +295,7 @@ final class AuthService {
         do {
             let decoded = try decoder.decode(CurrentUserResponse.self, from: data)
             if decoded.success, let user = decoded.data {
+                TokenStore.shared.currentUser = user
                 return user
             } else {
                 let message = decoded.message ?? "Không lấy được thông tin người dùng"

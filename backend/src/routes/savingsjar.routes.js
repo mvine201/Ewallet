@@ -9,12 +9,12 @@ import {
   deleteSavingsJar,
   deleteSavingsJarsBulk,
 } from "../controllers/savingsjar.controller.js";
-import { protect } from "../middlewares/auth.middleware.js";
+import { protect, requireStudentVerification } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
 // Tất cả routes đều yêu cầu đăng nhập
-router.use(protect);
+router.use(protect, requireStudentVerification);
 
 // CRUD
 router.get("/", getSavingsJars);

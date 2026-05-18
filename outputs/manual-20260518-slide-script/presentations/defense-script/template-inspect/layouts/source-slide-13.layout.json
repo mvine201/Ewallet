@@ -1,0 +1,877 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/lwval87e",
+    "id": "lwval87e",
+    "slide": 14,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt",
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vahoza1g",
+      "id": "35",
+      "name": "Rectangle 34",
+      "bbox": [
+        0,
+        4.68,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l0rqd4vm",
+      "id": "2",
+      "name": "Rectangle 1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wfyxobm5",
+      "id": "3",
+      "name": "Rectangle 2",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/36hcrmhk",
+      "id": "4",
+      "name": "Rectangle 3",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 08",
+      "textPreview": "Slide 08",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 08"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 08",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 08",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc7u54zi",
+      "id": "6",
+      "name": "Rectangle 5",
+      "bbox": [
+        72,
+        38,
+        320,
+        22
+      ],
+      "geometry": "rect",
+      "text": "TRIỂN KHAI IOS",
+      "textPreview": "TRIỂN KHAI IOS",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TRIỂN KHAI IOS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TRIỂN KHAI IOS",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TRIỂN KHAI IOS",
+              "fontSize": 12,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wra5gbq1",
+      "id": "7",
+      "name": "Rectangle 6",
+      "bbox": [
+        72,
+        106.55,
+        1080,
+        32
+      ],
+      "geometry": "rect",
+      "text": "DEMO ỨNG DỤNG THỰC TẾ",
+      "textPreview": "DEMO ỨNG DỤNG THỰC TẾ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DEMO ỨNG DỤNG THỰC TẾ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DEMO ỨNG DỤNG THỰC TẾ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "DEMO ỨNG DỤNG THỰC TẾ",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "tx2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7adsji5s",
+      "id": "8",
+      "name": "Rectangle 7",
+      "bbox": [
+        100,
+        222,
+        154,
+        360
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/neloj2t8",
+      "id": "36",
+      "name": "Picture 8",
+      "bbox": [
+        104,
+        230.99,
+        146,
+        316.01
+      ],
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image16.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 44933
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image16.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 44933
+      }
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "10",
+      "name": "Rectangle 9",
+      "bbox": [
+        108,
+        558,
+        138,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Đăng nhập",
+      "textPreview": "Đăng nhập",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Đăng nhập"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Đăng nhập",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đăng nhập",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "11",
+      "name": "Rectangle 10",
+      "bbox": [
+        324,
+        221.86,
+        154,
+        360
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/ytsvu9kn",
+      "id": "37",
+      "name": "Picture 11",
+      "bbox": [
+        328,
+        230.72,
+        146,
+        316.28
+      ],
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image17.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 79328
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image17.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 79328
+      }
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "13",
+      "name": "Rectangle 12",
+      "bbox": [
+        332,
+        557.86,
+        138,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Trang chủ ví",
+      "textPreview": "Trang chủ ví",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trang chủ ví"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trang chủ ví",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trang chủ ví",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "14",
+      "name": "Rectangle 13",
+      "bbox": [
+        544,
+        222.03,
+        154,
+        360
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/58z25kb6",
+      "id": "38",
+      "name": "Picture 14",
+      "bbox": [
+        548,
+        231.05,
+        146,
+        315.95
+      ],
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image18.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 46015
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image18.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 46015
+      }
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "16",
+      "name": "Rectangle 15",
+      "bbox": [
+        552,
+        558.03,
+        138,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Chuyển tiền",
+      "textPreview": "Chuyển tiền",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chuyển tiền"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chuyển tiền",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chuyển tiền",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "17",
+      "name": "Rectangle 16",
+      "bbox": [
+        775,
+        221.45,
+        154,
+        360
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/gn29gr2p",
+      "id": "39",
+      "name": "Picture 17",
+      "bbox": [
+        779,
+        230.72,
+        146,
+        315.45
+      ],
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image19.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 107338
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image19.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 107338
+      }
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gvy90je",
+      "id": "19",
+      "name": "Rectangle 18",
+      "bbox": [
+        783,
+        557.45,
+        138,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Lịch sử",
+      "textPreview": "Lịch sử",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lịch sử"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lịch sử",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lịch sử",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj2t83i",
+      "id": "20",
+      "name": "Rectangle 19",
+      "bbox": [
+        1002,
+        222.14,
+        154,
+        360
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/032lszqt",
+      "id": "40",
+      "name": "Picture 20",
+      "bbox": [
+        1006,
+        231.28,
+        146,
+        315.72
+      ],
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image20.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 69214
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image20.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 69214
+      }
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3itgfmlk",
+      "id": "22",
+      "name": "Rectangle 21",
+      "bbox": [
+        1010,
+        558.14,
+        138,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Thanh toán dịch vụ",
+      "textPreview": "Thanh toán dịch vụ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thanh toán dịch vụ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thanh toán dịch vụ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thanh toán dịch vụ",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/tovahoza",
+      "id": "41",
+      "name": "Picture 35",
+      "bbox": [
+        1175.51,
+        24.34,
+        79,
+        72.58
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      }
+    }
+  ],
+  "composeRuns": []
+}

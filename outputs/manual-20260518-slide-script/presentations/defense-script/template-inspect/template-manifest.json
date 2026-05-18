@@ -1,0 +1,329 @@
+{
+  "sourcePptx": "/Users/macvanvinh/KLTN_T06_MacVanVinh/SCA_KLTN_Canhan07/slide_bao_cao_kltn_macvanvinh.pptx",
+  "workspace": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script",
+  "outDir": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect",
+  "generatedAt": "2026-05-18T05:57:08.083Z",
+  "slideCount": 18,
+  "slideArtifacts": [
+    {
+      "slide": 1,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-01.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-01.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-01.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-01.layout.json"
+    },
+    {
+      "slide": 2,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-02.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-02.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-02.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-02.layout.json"
+    },
+    {
+      "slide": 3,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-03.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-03.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-03.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-03.layout.json"
+    },
+    {
+      "slide": 4,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-04.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-04.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-04.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-04.layout.json"
+    },
+    {
+      "slide": 5,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-05.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-05.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-05.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-05.layout.json"
+    },
+    {
+      "slide": 6,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-06.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-06.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-06.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-06.layout.json"
+    },
+    {
+      "slide": 7,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-07.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-07.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-07.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-07.layout.json"
+    },
+    {
+      "slide": 8,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-08.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-08.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-08.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-08.layout.json"
+    },
+    {
+      "slide": 9,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-09.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-09.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-09.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-09.layout.json"
+    },
+    {
+      "slide": 10,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-10.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-10.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-10.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-10.layout.json"
+    },
+    {
+      "slide": 11,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-11.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-11.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-11.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-11.layout.json"
+    },
+    {
+      "slide": 12,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-12.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-12.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-12.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-12.layout.json"
+    },
+    {
+      "slide": 13,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-13.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-13.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-13.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-13.layout.json"
+    },
+    {
+      "slide": 14,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-14.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-14.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-14.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-14.layout.json"
+    },
+    {
+      "slide": 15,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-15.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-15.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-15.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-15.layout.json"
+    },
+    {
+      "slide": 16,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-16.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-16.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-16.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-16.layout.json"
+    },
+    {
+      "slide": 17,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-17.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-17.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-17.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-17.layout.json"
+    },
+    {
+      "slide": 18,
+      "previewPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/source-slides/source-slide-18.png",
+      "previewRelativePath": "template-inspect/source-slides/source-slide-18.png",
+      "layoutPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/layouts/source-slide-18.layout.json",
+      "layoutRelativePath": "template-inspect/layouts/source-slide-18.layout.json"
+    }
+  ],
+  "inspectPath": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/template-inspect.ndjson",
+  "inspectRelativePath": "template-inspect/template-inspect.ndjson",
+  "inspectTruncated": true,
+  "inspectMetadata": {
+    "revision": "sywp82",
+    "target": {
+      "id": "pr/blqf76"
+    },
+    "kind": {
+      "requested": "slide,textbox,shape,image,table,chart",
+      "tokens": [
+        "slide",
+        "textbox",
+        "shape",
+        "image",
+        "table",
+        "chart"
+      ]
+    },
+    "include": {
+      "tokens": []
+    },
+    "exclude": {
+      "tokens": []
+    },
+    "notices": []
+  },
+  "extractedMedia": [
+    {
+      "entry": "ppt/media/image4.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image4.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image4.jpeg",
+      "bytes": 70489
+    },
+    {
+      "entry": "ppt/media/image3.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image3.png",
+      "relativePath": "template-inspect/assets/ppt/media/image3.png",
+      "bytes": 38489
+    },
+    {
+      "entry": "ppt/media/image2.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image2.png",
+      "relativePath": "template-inspect/assets/ppt/media/image2.png",
+      "bytes": 61554
+    },
+    {
+      "entry": "ppt/media/image1.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image1.png",
+      "relativePath": "template-inspect/assets/ppt/media/image1.png",
+      "bytes": 154324
+    },
+    {
+      "entry": "ppt/media/image7.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image7.png",
+      "relativePath": "template-inspect/assets/ppt/media/image7.png",
+      "bytes": 21993
+    },
+    {
+      "entry": "ppt/media/image25.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image25.png",
+      "relativePath": "template-inspect/assets/ppt/media/image25.png",
+      "bytes": 263840
+    },
+    {
+      "entry": "ppt/media/image24.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image24.png",
+      "relativePath": "template-inspect/assets/ppt/media/image24.png",
+      "bytes": 153878
+    },
+    {
+      "entry": "ppt/media/image23.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image23.png",
+      "relativePath": "template-inspect/assets/ppt/media/image23.png",
+      "bytes": 137049
+    },
+    {
+      "entry": "ppt/media/image22.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image22.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image22.jpeg",
+      "bytes": 119631
+    },
+    {
+      "entry": "ppt/media/image21.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image21.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image21.jpeg",
+      "bytes": 85934
+    },
+    {
+      "entry": "ppt/media/image20.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image20.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image20.jpeg",
+      "bytes": 69214
+    },
+    {
+      "entry": "ppt/media/image19.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image19.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image19.jpeg",
+      "bytes": 107338
+    },
+    {
+      "entry": "ppt/media/image18.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image18.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image18.jpeg",
+      "bytes": 46015
+    },
+    {
+      "entry": "ppt/media/image17.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image17.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image17.jpeg",
+      "bytes": 79328
+    },
+    {
+      "entry": "ppt/media/image16.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image16.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image16.jpeg",
+      "bytes": 44933
+    },
+    {
+      "entry": "ppt/media/image15.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image15.png",
+      "relativePath": "template-inspect/assets/ppt/media/image15.png",
+      "bytes": 42182
+    },
+    {
+      "entry": "ppt/media/image14.svg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image14.svg",
+      "relativePath": "template-inspect/assets/ppt/media/image14.svg",
+      "bytes": 12100
+    },
+    {
+      "entry": "ppt/media/image13.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image13.png",
+      "relativePath": "template-inspect/assets/ppt/media/image13.png",
+      "bytes": 58414
+    },
+    {
+      "entry": "ppt/media/image12.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image12.png",
+      "relativePath": "template-inspect/assets/ppt/media/image12.png",
+      "bytes": 3774
+    },
+    {
+      "entry": "ppt/media/image11.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image11.png",
+      "relativePath": "template-inspect/assets/ppt/media/image11.png",
+      "bytes": 20036
+    },
+    {
+      "entry": "ppt/media/image10.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image10.png",
+      "relativePath": "template-inspect/assets/ppt/media/image10.png",
+      "bytes": 198309
+    },
+    {
+      "entry": "ppt/media/image9.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image9.png",
+      "relativePath": "template-inspect/assets/ppt/media/image9.png",
+      "bytes": 508034
+    },
+    {
+      "entry": "ppt/media/image8.png",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image8.png",
+      "relativePath": "template-inspect/assets/ppt/media/image8.png",
+      "bytes": 60653
+    },
+    {
+      "entry": "ppt/media/image5.jpeg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image5.jpeg",
+      "relativePath": "template-inspect/assets/ppt/media/image5.jpeg",
+      "bytes": 155912
+    },
+    {
+      "entry": "ppt/media/image6.svg",
+      "path": "/Users/macvanvinh/MyProject/Student_eWallet/outputs/manual-20260518-slide-script/presentations/defense-script/template-inspect/assets/ppt/media/image6.svg",
+      "relativePath": "template-inspect/assets/ppt/media/image6.svg",
+      "bytes": 1043
+    }
+  ],
+  "fonts": [
+    "+mj-lt",
+    "+mn-lt",
+    "Aptos",
+    "Aptos Display",
+    "Calibri",
+    "Calibri Light",
+    "Times New Roman"
+  ],
+  "packageParts": {
+    "mediaCount": 25,
+    "slideXmlCount": 18,
+    "chartCount": 0,
+    "tableSlideCount": 0
+  }
+}

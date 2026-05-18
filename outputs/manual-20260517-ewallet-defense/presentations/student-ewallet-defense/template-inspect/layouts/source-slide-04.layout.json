@@ -1,0 +1,1532 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/val87ed8",
+    "id": "val87ed8",
+    "slide": 5,
+    "layoutId": "/ppt/slideLayouts/slideLayout43.xml",
+    "layoutName": "自定义版式",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1279.83,
+      "height": 720.17
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#5B9BD5",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#4472C4",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout43.xml",
+      "name": "自定义版式",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster10.xml",
+      "type": "master",
+      "backgroundColor": "bg1",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/2",
+          "id": "2",
+          "name": "Title Placeholder 1",
+          "bbox": [
+            63.99,
+            28.84,
+            1151.85,
+            120.03
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/3",
+          "id": "3",
+          "name": "Text Placeholder 2",
+          "bbox": [
+            63.99,
+            168.04,
+            1151.85,
+            475.28
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/4",
+          "id": "4",
+          "name": "Date Placeholder 3",
+          "bbox": [
+            63.99,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/5",
+          "id": "5",
+          "name": "Footer Placeholder 4",
+          "bbox": [
+            437.28,
+            667.49,
+            405.28,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 5,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/6",
+          "id": "6",
+          "name": "Slide Number Placeholder 5",
+          "bbox": [
+            917.21,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je9cvixc",
+      "id": "3",
+      "name": "矩形 2",
+      "bbox": [
+        0,
+        0,
+        1279.83,
+        100.07
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/psfil0rq",
+      "id": "32",
+      "name": "9",
+      "bbox": [
+        465.7,
+        27.74,
+        350.43,
+        45.24
+      ],
+      "geometry": "rect",
+      "text": "ADD YOUR TITLE",
+      "textPreview": "ADD YOUR TITLE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ADD YOUR TITLE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ADD YOUR TITLE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ADD YOUR TITLE",
+              "fontSize": 37.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/crmhk3q5",
+      "id": "19",
+      "name": "Rectangle 2",
+      "bbox": [
+        446.19,
+        178.92,
+        254.05,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "lineWidth": 3,
+      "fillImage": {
+        "assetId": "/ppt/media/image7.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 1349061
+      }
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfil0rqd",
+      "id": "20",
+      "name": "Rectangle 3",
+      "bbox": [
+        446.19,
+        394.93,
+        254.05,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "accent2",
+      "lineWidth": 3
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0fepkzu",
+      "id": "21",
+      "name": "Rectangle 4",
+      "bbox": [
+        700.24,
+        178.92,
+        242.5,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2",
+      "lineWidth": 3
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9w3m94f",
+      "id": "22",
+      "name": "Rectangle 5",
+      "bbox": [
+        700.24,
+        395.44,
+        242.5,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "lineWidth": 3,
+      "fillImage": {
+        "assetId": "/ppt/media/image8.jpg",
+        "contentType": "image/jpeg",
+        "byteLength": 815968
+      }
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zupwb2hw",
+      "id": "23",
+      "name": "Rectangle 6",
+      "bbox": [
+        942.74,
+        178.92,
+        242.5,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "lineWidth": 3,
+      "fillImage": {
+        "assetId": "/ppt/media/image9.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 1118579
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/orytsvu9",
+      "id": "24",
+      "name": "Rectangle 7",
+      "bbox": [
+        942.74,
+        394.93,
+        242.5,
+        216.52
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "accent2",
+      "lineWidth": 3
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "25",
+      "name": "Text Box 7",
+      "bbox": [
+        119.8,
+        624.59,
+        1074.52,
+        50.08
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here click to add your text here click to add your text here click to add your text he...",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your text here click to add your text here click to add your text here click to add your text here click to add your text"
+          },
+          {
+            "index": 2,
+            "text": "here click to add your text here click to add your text here click to add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 7,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 8,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 9,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 10,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 11,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 12,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 13,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 14,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 15,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 16,
+              "text": "your text here.",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ],
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "26",
+      "name": "Text Box 10",
+      "bbox": [
+        962.95,
+        443.93,
+        206.21,
+        108.25
+      ],
+      "geometry": "rect",
+      "text": "Portfolio III\n\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Portfolio III |  | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Portfolio III"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 4,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 5,
+            "text": "click to add your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Portfolio III",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Portfolio III",
+              "fontSize": 21.33,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 16,
+              "color": "bg1"
+            }
+          ]
+        }
+      ],
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "27",
+      "name": "Text Box 10",
+      "bbox": [
+        718.39,
+        229.21,
+        206.21,
+        108.25
+      ],
+      "geometry": "rect",
+      "text": "Portfolio II\n\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Portfolio II |  | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Portfolio II"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 4,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 5,
+            "text": "click to add your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Portfolio II",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Portfolio II",
+              "fontSize": 21.33,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 16,
+              "color": "bg1"
+            }
+          ]
+        }
+      ],
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oza1gvy9",
+      "id": "28",
+      "name": "Text Box 10",
+      "bbox": [
+        470.11,
+        443.93,
+        206.21,
+        108.25
+      ],
+      "geometry": "rect",
+      "text": "Portfolio I\n\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Portfolio I |  | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Portfolio I"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 4,
+            "text": "click to add your text here"
+          },
+          {
+            "index": 5,
+            "text": "click to add your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Portfolio I",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Portfolio I",
+              "fontSize": 21.33,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 16,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 16,
+              "color": "bg1"
+            }
+          ]
+        }
+      ],
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "7",
+      "name": "Oval 8",
+      "bbox": [
+        119.8,
+        188.89,
+        64.74,
+        64.74
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "8",
+      "name": "Rectangle 9",
+      "bbox": [
+        212,
+        178.92,
+        234.18,
+        95.7
+      ],
+      "geometry": "rect",
+      "text": "Design and Illsutartions\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Design and Illsutartions | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Design and Illsutartions"
+          },
+          {
+            "index": 2,
+            "text": "click to add your text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Design and Illsutartions",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Design and ",
+              "fontSize": 14,
+              "color": "bg1",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "Illsutartions",
+              "fontSize": 14,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 14,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "9",
+      "name": "Oval 10",
+      "bbox": [
+        119.8,
+        399.48,
+        64.74,
+        64.74
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1w7mp0bi",
+      "id": "10",
+      "name": "Rectangle 11",
+      "bbox": [
+        212,
+        389.51,
+        234.18,
+        95.7
+      ],
+      "geometry": "rect",
+      "text": "Marketing Analysis\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Marketing Analysis | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Marketing Analysis"
+          },
+          {
+            "index": 2,
+            "text": "click to add your text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Marketing Analysis",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Marketing Analysis",
+              "fontSize": 14,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 14,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8bat47y1",
+      "id": "11",
+      "name": "Oval 12",
+      "bbox": [
+        119.8,
+        303.87,
+        64.74,
+        64.74
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqh0fepk",
+      "id": "12",
+      "name": "Rectangle 13",
+      "bbox": [
+        212,
+        293.9,
+        234.18,
+        95.7
+      ],
+      "geometry": "rect",
+      "text": "Web & App Development\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Web & App Development | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Web & App Development"
+          },
+          {
+            "index": 2,
+            "text": "click to add your text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Web & App Development",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Web & App Development",
+              "fontSize": 14,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 14,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5o7qpg3",
+      "id": "13",
+      "name": "Oval 14",
+      "bbox": [
+        119.8,
+        514.46,
+        64.74,
+        64.74
+      ],
+      "geometry": "ellipse",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18jqh0fe",
+      "id": "14",
+      "name": "Rectangle 15",
+      "bbox": [
+        212,
+        504.49,
+        234.18,
+        95.7
+      ],
+      "geometry": "rect",
+      "text": "Business Strategy\nclick to add your text here click to add your text here click to add your text here",
+      "textPreview": "Business Strategy | click to add your text here click to add your text here click to add your text here",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business Strategy"
+          },
+          {
+            "index": 2,
+            "text": "click to add your text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here click to add"
+          },
+          {
+            "index": 4,
+            "text": "your text here"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business Strategy",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business Strategy",
+              "fontSize": 14,
+              "color": "bg1",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "click to add your text here click to add your text here click to add your text here",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 5,
+              "text": "click to add ",
+              "fontSize": 14,
+              "color": "bg1"
+            },
+            {
+              "index": 6,
+              "text": "your text here",
+              "fontSize": 14,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nqxs72x",
+      "id": "15",
+      "name": "Freeform 11",
+      "bbox": [
+        133.92,
+        318.48,
+        34.64,
+        33.86
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t83itg",
+      "id": "16",
+      "name": "Freeform 70",
+      "bbox": [
+        136.49,
+        531.06,
+        31.36,
+        28.87
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qh0fepkz",
+      "id": "17",
+      "name": "Freeform 71",
+      "bbox": [
+        134.85,
+        411.89,
+        34.64,
+        36.67
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cfa9w3m",
+      "id": "18",
+      "name": "Freeform 105",
+      "bbox": [
+        140.16,
+        202.81,
+        28.4,
+        34.33
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    }
+  ],
+  "composeRuns": []
+}

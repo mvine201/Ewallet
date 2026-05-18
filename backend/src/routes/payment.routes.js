@@ -5,12 +5,12 @@ import {
   getPaymentDetail,
   payService,
 } from "../controllers/payment.controller.js";
-import { protect } from "../middlewares/auth.middleware.js";
+import { protect, requireStudentVerification } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
 // Tất cả routes đều yêu cầu đăng nhập
-router.use(protect);
+router.use(protect, requireStudentVerification);
 
 // Xem danh sách dịch vụ khả dụng (đã lọc theo khoá/khoa/trạng thái)
 router.get("/services", getAvailableServices);

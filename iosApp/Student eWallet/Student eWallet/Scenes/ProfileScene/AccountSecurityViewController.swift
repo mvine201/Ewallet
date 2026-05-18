@@ -184,6 +184,14 @@ final class AccountSecurityViewController: UIViewController {
         Task { [weak self] in
             guard let self else { return }
             do {
+                let user = try await AuthService.shared.getMe()
+                guard user.isVerified else {
+                    await MainActor.run {
+                        self.showStudentVerificationRequired()
+                    }
+                    return
+                }
+
                 let wallet = try await AuthService.shared.getMyWallet()
                 await MainActor.run {
                     if wallet.hasPin {

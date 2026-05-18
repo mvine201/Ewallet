@@ -27,6 +27,11 @@ enum AppMoneyFormatter {
     }
 }
 
+enum StudentVerificationGate {
+    static let title = "Cần xác thực sinh viên"
+    static let message = "Hãy xác thực để sử dụng các dịch vụ của Uni Ewallet"
+}
+
 extension UIColor {
     static var appSurfaceBackground: UIColor {
         UIColor { traitCollection in
@@ -57,6 +62,35 @@ extension UIColor {
 }
 
 extension UIViewController {
+    func showStudentVerificationRequired(offerVerification: Bool = true) {
+        guard presentedViewController == nil else { return }
+
+        let alert = UIAlertController(
+            title: StudentVerificationGate.title,
+            message: StudentVerificationGate.message,
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "Để sau", style: .cancel))
+
+        if offerVerification {
+            alert.addAction(UIAlertAction(title: "Xác thực ngay", style: .default) { [weak self] _ in
+                guard let self else { return }
+                let verificationViewController = StudentVerificationViewController()
+                if let navigationController = self.navigationController {
+                    navigationController.pushViewController(verificationViewController, animated: true)
+                } else if let tabBarController = self as? UITabBarController,
+                          let navigationController = tabBarController.selectedViewController as? UINavigationController {
+                    navigationController.pushViewController(verificationViewController, animated: true)
+                } else if let navigationController = self.tabBarController?.selectedViewController as? UINavigationController {
+                    navigationController.pushViewController(verificationViewController, animated: true)
+                }
+            })
+        }
+
+        present(alert, animated: true)
+    }
+
     func redirectToHomeTab() {
         if let tabBarController = tabBarController ?? navigationController?.tabBarController {
             let navigations = tabBarController.viewControllers?.compactMap { $0 as? UINavigationController } ?? []

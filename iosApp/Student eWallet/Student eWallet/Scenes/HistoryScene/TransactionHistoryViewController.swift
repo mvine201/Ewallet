@@ -129,6 +129,17 @@ final class TransactionHistoryViewController: UIViewController, UITableViewDataS
         Task { [weak self] in
             guard let self else { return }
             do {
+                let user = try await AuthService.shared.getMe()
+                guard user.isVerified else {
+                    await MainActor.run {
+                        self.setLoading(false)
+                        self.transactions = []
+                        self.applyFilters()
+                        self.showStudentVerificationRequired()
+                    }
+                    return
+                }
+
                 let transactions = try await TransactionService.shared.getTransactions()
                 await MainActor.run {
                     self.setLoading(false)

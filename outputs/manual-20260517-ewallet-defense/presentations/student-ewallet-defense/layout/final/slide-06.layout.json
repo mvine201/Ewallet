@@ -1,0 +1,859 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ynbh6k",
+    "id": "ynbh6k",
+    "slide": 6,
+    "layoutId": "4656cb10-d13b-4039-af58-cce23079c1c7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4656cb10-d13b-4039-af58-cce23079c1c7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z25kb6x",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je9cvixc",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qtcj6tov",
+      "id": "3",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "4",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 06",
+      "textPreview": "Slide 06",
+      "resolvedFontSize": 8,
+      "resolvedTextStyle": {
+        "fontSize": 8,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 06"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 06",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 06",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "5",
+      "bbox": [
+        0,
+        54,
+        1280,
+        56
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "6",
+      "bbox": [
+        72,
+        38,
+        320,
+        22
+      ],
+      "geometry": "rect",
+      "text": "KIẾN TRÚC",
+      "textPreview": "KIẾN TRÚC",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "KIẾN TRÚC"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "KIẾN TRÚC",
+          "runs": [
+            {
+              "index": 1,
+              "text": "KIẾN TRÚC",
+              "fontSize": 12,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "7",
+      "bbox": [
+        72,
+        66,
+        1080,
+        32
+      ],
+      "geometry": "rect",
+      "text": "REST API liên kết app iOS, admin web, cơ sở dữ liệu và các dịch vụ xử lý.",
+      "textPreview": "REST API liên kết app iOS, admin web, cơ sở dữ liệu và các dịch vụ xử lý.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "REST API liên kết app iOS, admin web, cơ sở dữ liệu và các dịch vụ xử lý."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "REST API liên kết app iOS, admin web, cơ sở dữ liệu và các dịch vụ xử lý.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "REST API liên kết app iOS, admin web, cơ sở dữ liệu và các dịch vụ xử lý.",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "8",
+      "bbox": [
+        110,
+        190,
+        190,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "9",
+      "bbox": [
+        120,
+        200,
+        170,
+        66
+      ],
+      "geometry": "rect",
+      "text": "iOS App\nSwift + UIKit",
+      "textPreview": "iOS App | Swift + UIKit",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "iOS App"
+          },
+          {
+            "index": 2,
+            "text": "Swift + UIKit"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "iOS App",
+          "runs": [
+            {
+              "index": 1,
+              "text": "iOS App",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "Swift + UIKit",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Swift + UIKit",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mp0bi9s3",
+      "id": "10",
+      "bbox": [
+        110,
+        385,
+        190,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bat47y1k",
+      "id": "11",
+      "bbox": [
+        120,
+        395,
+        170,
+        66
+      ],
+      "geometry": "rect",
+      "text": "Admin Web\nVite + JS",
+      "textPreview": "Admin Web | Vite + JS",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Admin Web"
+          },
+          {
+            "index": 2,
+            "text": "Vite + JS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Admin Web",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Admin Web",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "Vite + JS",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vite + JS",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vmtwra5",
+      "id": "12",
+      "bbox": [
+        472,
+        270,
+        340,
+        126
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tgfmlkjm",
+      "id": "13",
+      "bbox": [
+        482,
+        280,
+        320,
+        106
+      ],
+      "geometry": "rect",
+      "text": "Express API Server\nAuth / Wallet / Transfer / Payment / Analytics",
+      "textPreview": "Express API Server | Auth / Wallet / Transfer / Payment / Analytics",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Express API Server"
+          },
+          {
+            "index": 2,
+            "text": "Auth / Wallet / Transfer / Payment /"
+          },
+          {
+            "index": 3,
+            "text": "Analytics"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Express API Server",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Express API Server",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#202631",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "Auth / Wallet / Transfer / Payment / Analytics",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Auth / Wallet / Transfer / Payment / Analytics",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#202631",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1cfa9w3",
+      "id": "14",
+      "bbox": [
+        970,
+        190,
+        190,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bm58z25k",
+      "id": "15",
+      "bbox": [
+        980,
+        200,
+        170,
+        66
+      ],
+      "geometry": "rect",
+      "text": "MongoDB\nCollections nghiệp vụ",
+      "textPreview": "MongoDB | Collections nghiệp vụ",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MongoDB"
+          },
+          {
+            "index": 2,
+            "text": "Collections nghiệp vụ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MongoDB",
+          "runs": [
+            {
+              "index": 1,
+              "text": "MongoDB",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "Collections nghiệp vụ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Collections nghiệp vụ",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/47y1kre1",
+      "id": "16",
+      "bbox": [
+        938,
+        385,
+        254,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tsvu9kni",
+      "id": "17",
+      "bbox": [
+        948,
+        395,
+        234,
+        66
+      ],
+      "geometry": "rect",
+      "text": "VNPay + AI Engine\nTop-up callback / gợi ý chi tiêu",
+      "textPreview": "VNPay + AI Engine | Top-up callback / gợi ý chi tiêu",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "VNPay + AI Engine"
+          },
+          {
+            "index": 2,
+            "text": "Top-up callback / gợi ý chi"
+          },
+          {
+            "index": 3,
+            "text": "tiêu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "VNPay + AI Engine",
+          "runs": [
+            {
+              "index": 1,
+              "text": "VNPay + AI Engine",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "Top-up callback / gợi ý chi tiêu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Top-up callback / gợi ý chi tiêu",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m58z25kb",
+      "id": "18",
+      "bbox": [
+        300,
+        233,
+        172,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq1oryts",
+      "id": "19",
+      "bbox": [
+        300,
+        428,
+        172,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7mp0bi9s",
+      "id": "20",
+      "bbox": [
+        812,
+        313,
+        158,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e1w7mp0b",
+      "id": "21",
+      "bbox": [
+        874,
+        250,
+        3,
+        178
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/psfil0rq",
+      "id": "22",
+      "bbox": [
+        812,
+        428,
+        126,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#6B7280",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7mp0bi9",
+      "id": "23",
+      "bbox": [
+        166,
+        548,
+        940,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Node.js/Express định tuyến API; middleware JWT bảo vệ tài nguyên; MongoDB lưu user, wallet, transaction, payment, service, notification và savings jar.",
+      "textPreview": "Node.js/Express định tuyến API; middleware JWT bảo vệ tài nguyên; MongoDB lưu user, wallet, transaction, payment, service, notification v...",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Node.js/Express định tuyến API; middleware JWT bảo vệ tài nguyên; MongoDB lưu user, wallet, transaction,"
+          },
+          {
+            "index": 2,
+            "text": "payment, service, notification và savings jar."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Node.js/Express định tuyến API; middleware JWT bảo vệ tài nguyên; MongoDB lưu user, wallet, transaction, payment, service, notification và savings jar.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Node.js/Express định tuyến API; middleware JWT bảo vệ tài nguyên; MongoDB lưu user, wallet, transaction, payment, service, notification và savings jar.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

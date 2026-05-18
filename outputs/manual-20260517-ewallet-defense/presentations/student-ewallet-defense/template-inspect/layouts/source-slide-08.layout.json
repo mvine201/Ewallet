@@ -1,0 +1,1259 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fu18jqh0",
+    "id": "fu18jqh0",
+    "slide": 9,
+    "layoutId": "/ppt/slideLayouts/slideLayout43.xml",
+    "layoutName": "自定义版式",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1279.83,
+      "height": 720.17
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#5B9BD5",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#4472C4",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "typefaces": [
+      "+mn-lt",
+      "Open Sans Light"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout43.xml",
+      "name": "自定义版式",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster10.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster10.xml",
+      "type": "master",
+      "backgroundColor": "bg1",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/2",
+          "id": "2",
+          "name": "Title Placeholder 1",
+          "bbox": [
+            63.99,
+            28.84,
+            1151.85,
+            120.03
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/3",
+          "id": "3",
+          "name": "Text Placeholder 2",
+          "bbox": [
+            63.99,
+            168.04,
+            1151.85,
+            475.28
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/4",
+          "id": "4",
+          "name": "Date Placeholder 3",
+          "bbox": [
+            63.99,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/5",
+          "id": "5",
+          "name": "Footer Placeholder 4",
+          "bbox": [
+            437.28,
+            667.49,
+            405.28,
+            38.34
+          ],
+          "geometry": "rect"
+        },
+        {
+          "order": 5,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster10.xml/6",
+          "id": "6",
+          "name": "Slide Number Placeholder 5",
+          "bbox": [
+            917.21,
+            667.49,
+            298.63,
+            38.34
+          ],
+          "geometry": "rect"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "3",
+      "name": "矩形 2",
+      "bbox": [
+        0,
+        0,
+        1279.83,
+        100.07
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l0rqd4vm",
+      "id": "32",
+      "name": "9",
+      "bbox": [
+        465.7,
+        27.74,
+        350.43,
+        45.24
+      ],
+      "geometry": "rect",
+      "text": "ADD YOUR TITLE",
+      "textPreview": "ADD YOUR TITLE",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ADD YOUR TITLE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ADD YOUR TITLE",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ADD YOUR TITLE",
+              "fontSize": 37.33,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "6",
+      "name": "TextBox 5",
+      "bbox": [
+        744.99,
+        617.37,
+        111.44,
+        32.31
+      ],
+      "geometry": "rect",
+      "text": "Diego Pina",
+      "textPreview": "Diego Pina",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Diego Pina"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Diego Pina",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Diego",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": " Pina",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "7",
+      "name": "TextBox 6",
+      "bbox": [
+        749.78,
+        646.96,
+        101.85,
+        27.47
+      ],
+      "geometry": "rect",
+      "text": "FACEBOOK",
+      "textPreview": "FACEBOOK",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FACEBOOK"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FACEBOOK",
+          "runs": [
+            {
+              "index": 1,
+              "text": "FACEBOOK",
+              "fontSize": 14.67,
+              "color": "tx1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cvixczed",
+      "id": "8",
+      "name": "Rectangle 9",
+      "bbox": [
+        952.68,
+        444.66,
+        263.57,
+        214.74
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5gbq1ory",
+      "id": "9",
+      "name": "Subtitle 2",
+      "bbox": [
+        980.46,
+        456.29,
+        208,
+        175.56
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Open Sans Light",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your"
+          },
+          {
+            "index": 2,
+            "text": "text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here.",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18jqh0fe",
+      "id": "10",
+      "name": "TextBox 9",
+      "bbox": [
+        1020.78,
+        302.78,
+        133.32,
+        32.31
+      ],
+      "geometry": "rect",
+      "text": "Vero Wellford",
+      "textPreview": "Vero Wellford",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vero Wellford"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vero Wellford",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vero",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": " Wellford",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nqxs72x",
+      "id": "11",
+      "name": "TextBox 10",
+      "bbox": [
+        1044.76,
+        332.38,
+        85.36,
+        27.47
+      ],
+      "geometry": "rect",
+      "text": "TWITTER",
+      "textPreview": "TWITTER",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TWITTER"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TWITTER",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TWITTER",
+              "fontSize": 14.67,
+              "color": "tx1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t83itg",
+      "id": "12",
+      "name": "Shape 2896",
+      "bbox": [
+        784.27,
+        426.1,
+        28.25,
+        56.5
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qh0fepkz",
+      "id": "13",
+      "name": "Rectangle 117",
+      "bbox": [
+        672.66,
+        186.83,
+        263.57,
+        214.74
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1w7mp0bi",
+      "id": "14",
+      "name": "Subtitle 2",
+      "bbox": [
+        700.45,
+        198.46,
+        208,
+        175.56
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Open Sans Light",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your"
+          },
+          {
+            "index": 2,
+            "text": "text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here.",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8bat47y1",
+      "id": "15",
+      "name": "Shape 2895",
+      "bbox": [
+        1073.06,
+        367.52,
+        28.75,
+        57.49
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqh0fepk",
+      "id": "16",
+      "name": "TextBox 15",
+      "bbox": [
+        134.34,
+        617.37,
+        111.44,
+        32.31
+      ],
+      "geometry": "rect",
+      "text": "Diego Pina",
+      "textPreview": "Diego Pina",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Diego Pina"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Diego Pina",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Diego",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": " Pina",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5o7qpg3",
+      "id": "17",
+      "name": "TextBox 16",
+      "bbox": [
+        139.13,
+        646.96,
+        101.85,
+        27.47
+      ],
+      "geometry": "rect",
+      "text": "FACEBOOK",
+      "textPreview": "FACEBOOK",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FACEBOOK"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FACEBOOK",
+          "runs": [
+            {
+              "index": 1,
+              "text": "FACEBOOK",
+              "fontSize": 14.67,
+              "color": "tx1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kre1w7m",
+      "id": "18",
+      "name": "Rectangle 136",
+      "bbox": [
+        342.03,
+        444.66,
+        263.57,
+        214.74
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F46268"
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c3ylc7u5",
+      "id": "19",
+      "name": "Subtitle 2",
+      "bbox": [
+        369.81,
+        456.29,
+        208,
+        175.56
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Open Sans Light",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your"
+          },
+          {
+            "index": 2,
+            "text": "text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here.",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/orytsvu9",
+      "id": "20",
+      "name": "TextBox 19",
+      "bbox": [
+        410.13,
+        302.78,
+        133.32,
+        32.31
+      ],
+      "geometry": "rect",
+      "text": "Vero Wellford",
+      "textPreview": "Vero Wellford",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vero Wellford"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vero Wellford",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vero",
+              "fontSize": 18.67,
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": " Wellford",
+              "fontSize": 18.67,
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "21",
+      "name": "TextBox 20",
+      "bbox": [
+        434.11,
+        332.38,
+        85.36,
+        27.47
+      ],
+      "geometry": "rect",
+      "text": "TWITTER",
+      "textPreview": "TWITTER",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TWITTER"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TWITTER",
+          "runs": [
+            {
+              "index": 1,
+              "text": "TWITTER",
+              "fontSize": 14.67,
+              "color": "tx1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "22",
+      "name": "Shape 2896",
+      "bbox": [
+        173.62,
+        426.1,
+        28.25,
+        56.5
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "23",
+      "name": "Rectangle 142",
+      "bbox": [
+        62.01,
+        186.83,
+        263.57,
+        214.74
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx2"
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfil0rqd",
+      "id": "24",
+      "name": "Subtitle 2",
+      "bbox": [
+        89.8,
+        198.46,
+        208,
+        175.56
+      ],
+      "geometry": "rect",
+      "text": "click to add your text here click to add your text here.",
+      "textPreview": "click to add your text here click to add your text here.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Open Sans Light",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "click to add your"
+          },
+          {
+            "index": 2,
+            "text": "text here click to"
+          },
+          {
+            "index": 3,
+            "text": "add your text here."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "click to add your text here click to add your text here.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 2,
+              "text": "your text here ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 3,
+              "text": "click to add ",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            },
+            {
+              "index": 4,
+              "text": "your text here.",
+              "fontSize": 18.67,
+              "typeface": "+mn-lt",
+              "color": "bg1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0fepkzu",
+      "id": "25",
+      "name": "Shape 2895",
+      "bbox": [
+        462.41,
+        367.52,
+        28.75,
+        57.49
+      ],
+      "geometry": "custom",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "bg1"
+    },
+    {
+      "order": 23,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/zed8v6ps",
+      "id": "33",
+      "name": "图片占位符 7",
+      "bbox": [
+        139.79,
+        502.43,
+        95.91,
+        95.85
+      ],
+      "geometry": "ellipse",
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image11.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 5474
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image11.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 5474
+      }
+    },
+    {
+      "order": 24,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/obm58z25",
+      "id": "34",
+      "name": "图片占位符 5",
+      "bbox": [
+        426.51,
+        187.84,
+        95.91,
+        95.85
+      ],
+      "geometry": "ellipse",
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image12.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 4033
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image12.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 4033
+      }
+    },
+    {
+      "order": 25,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/hwfyxobm",
+      "id": "35",
+      "name": "图片占位符 8",
+      "bbox": [
+        750.44,
+        502.43,
+        95.91,
+        95.85
+      ],
+      "geometry": "ellipse",
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image13.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 6823
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image13.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 6823
+      }
+    },
+    {
+      "order": 26,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/65wjudg7",
+      "id": "36",
+      "name": "图片占位符 6",
+      "bbox": [
+        1037.16,
+        187.84,
+        95.91,
+        95.85
+      ],
+      "geometry": "ellipse",
+      "contentType": "image/jpeg",
+      "asset": {
+        "assetId": "/ppt/media/image14.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 4322
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image14.jpeg",
+        "contentType": "image/jpeg",
+        "byteLength": 4322
+      }
+    }
+  ],
+  "composeRuns": []
+}

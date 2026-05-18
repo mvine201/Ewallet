@@ -1,0 +1,834 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/val87ed8",
+    "id": "val87ed8",
+    "slide": 5,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt",
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "27",
+      "name": "Rectangle 26",
+      "bbox": [
+        0,
+        28.07,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qtcj6tov",
+      "id": "2",
+      "name": "Rectangle 1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je9cvixc",
+      "id": "3",
+      "name": "Rectangle 2",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "4",
+      "name": "Rectangle 3",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 03",
+      "textPreview": "Slide 03",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 03",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 03",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "5",
+      "name": "Rectangle 4",
+      "bbox": [
+        72,
+        47,
+        16,
+        16
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "6",
+      "name": "Rectangle 5",
+      "bbox": [
+        98,
+        42,
+        330,
+        28
+      ],
+      "geometry": "rect",
+      "text": "BỐI CẢNH",
+      "textPreview": "BỐI CẢNH",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BỐI CẢNH"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BỐI CẢNH",
+          "runs": [
+            {
+              "index": 1,
+              "text": "BỐI CẢNH",
+              "fontSize": 18.67,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "7",
+      "name": "Rectangle 6",
+      "bbox": [
+        80,
+        72.68,
+        980,
+        76
+      ],
+      "geometry": "rect",
+      "text": "THỐNG KÊ NĂM 2025",
+      "textPreview": "THỐNG KÊ NĂM 2025",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "THỐNG KÊ NĂM 2025"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "THỐNG KÊ NĂM 2025",
+          "runs": [
+            {
+              "index": 1,
+              "text": "THỐNG KÊ NĂM 2025",
+              "fontSize": 34,
+              "typeface": "Aptos Display",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "8",
+      "name": "Rectangle 7",
+      "bbox": [
+        72,
+        156,
+        1130,
+        2
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#EEF1F5",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cfa9w3m",
+      "id": "18",
+      "name": "Rectangle 17",
+      "bbox": [
+        142.83,
+        190,
+        400.39,
+        242.84
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/crmhk3q5",
+      "id": "19",
+      "name": "Rectangle 18",
+      "bbox": [
+        229.02,
+        236.76,
+        228,
+        38
+      ],
+      "geometry": "rect",
+      "text": "85%",
+      "textPreview": "85%",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "85%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "85%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "85%",
+              "fontSize": 53.33,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0fepkzu",
+      "id": "21",
+      "name": "Rectangle 20",
+      "bbox": [
+        753.56,
+        190,
+        400.39,
+        242.84
+      ],
+      "geometry": "rect",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9w3m94f",
+      "id": "22",
+      "name": "Rectangle 21",
+      "bbox": [
+        839.76,
+        236.76,
+        228,
+        38
+      ],
+      "geometry": "rect",
+      "text": "71%",
+      "textPreview": "71%",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "71%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "71%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "71%",
+              "fontSize": 53.33,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oza1gvy9",
+      "id": "28",
+      "name": "TextBox 27",
+      "bbox": [
+        142.83,
+        295.83,
+        400.39,
+        101.97
+      ],
+      "geometry": "rect",
+      "text": "Số lượng người dùng Internet tại Việt Nam sở  hữu ít nhất 1 ví điện tử",
+      "textPreview": "Số lượng người dùng Internet tại Việt Nam sở  hữu ít nhất 1 ví điện tử",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Số lượng người dùng Internet"
+          },
+          {
+            "index": 2,
+            "text": "tại Việt Nam sở  hữu ít nhất 1 ví"
+          },
+          {
+            "index": 3,
+            "text": "điện tử"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Số lượng người dùng Internet tại Việt Nam sở  hữu ít nhất 1 ví điện tử",
+          "runs": [
+            {
+              "index": 1,
+              "text": "S",
+              "fontSize": 26.67,
+              "typeface": "Aptos Display",
+              "color": "bg1",
+              "italic": true
+            },
+            {
+              "index": 2,
+              "text": "ố lượng người dùng Internet tại Việt Nam sở  hữu ít nhất 1 ví điện tử",
+              "fontSize": 26.67,
+              "typeface": "Aptos Display",
+              "color": "bg1",
+              "italic": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hk3q5o7q",
+      "id": "29",
+      "name": "TextBox 28",
+      "bbox": [
+        753.56,
+        298.22,
+        400.39,
+        101.97
+      ],
+      "geometry": "rect",
+      "text": "Số người sử dụng ví điện tử hàng tuần tại Việt Nam",
+      "textPreview": "Số người sử dụng ví điện tử hàng tuần tại Việt Nam",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Số người sử dụng ví điện tử"
+          },
+          {
+            "index": 2,
+            "text": "hàng tuần tại Việt Nam"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Số người sử dụng ví điện tử hàng tuần tại Việt Nam",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Số người sử dụng ví điện tử hàng tuần tại Việt Nam",
+              "fontSize": 26.67,
+              "typeface": "Aptos Display",
+              "color": "bg1",
+              "italic": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7mp0bi9s",
+      "id": "30",
+      "name": "TextBox 29",
+      "bbox": [
+        351.51,
+        440.93,
+        568.68,
+        46.87
+      ],
+      "geometry": "rect",
+      "text": "Trích: Thị Trường Thanh Toán Số Việt Nam 2025, Infina",
+      "textPreview": "Trích: Thị Trường Thanh Toán Số Việt Nam 2025, Infina",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trích: Thị Trường Thanh Toán Số Việt Nam 2025,"
+          },
+          {
+            "index": 2,
+            "text": "Infina"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trích: Thị Trường Thanh Toán Số Việt Nam 2025, Infina",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trích: ",
+              "fontSize": 22.67,
+              "typeface": "Aptos Display",
+              "italic": true
+            },
+            {
+              "index": 2,
+              "text": "Thị Trường Thanh Toán Số Việt Nam 2025",
+              "fontSize": 22.67,
+              "italic": true
+            },
+            {
+              "index": 3,
+              "text": ", Infina",
+              "fontSize": 22.67,
+              "typeface": "Aptos Display",
+              "italic": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e1w7mp0b",
+      "id": "31",
+      "name": "TextBox 30",
+      "bbox": [
+        351.51,
+        535.17,
+        716.24,
+        64.46
+      ],
+      "geometry": "rect",
+      "text": "Việt Nam đang bùng nổ trong lĩnh vực thanh toán số",
+      "textPreview": "Việt Nam đang bùng nổ trong lĩnh vực thanh toán số",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Việt Nam đang bùng nổ trong lĩnh vực thanh"
+          },
+          {
+            "index": 2,
+            "text": "toán số"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Việt Nam đang bùng nổ trong lĩnh vực thanh toán số",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Việt Nam đang bùng nổ trong lĩnh vực thanh toán số",
+              "fontSize": 33.33,
+              "typeface": "Aptos Display",
+              "italic": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7mp0bi9",
+      "id": "33",
+      "name": "Right Arrow 32",
+      "bbox": [
+        188.49,
+        550.27,
+        97.93,
+        37.26
+      ],
+      "geometry": "rightArrow",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "tx1"
+    },
+    {
+      "order": 18,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/0bi9s36h",
+      "id": "34",
+      "name": "Picture 33",
+      "bbox": [
+        1175.51,
+        24.34,
+        79,
+        72.58
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 61554
+      }
+    }
+  ],
+  "composeRuns": []
+}

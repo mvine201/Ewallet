@@ -1,0 +1,827 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/2e8yzq",
+    "id": "2e8yzq",
+    "slide": 4,
+    "layoutId": "4656cb10-d13b-4039-af58-cce23079c1c7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4656cb10-d13b-4039-af58-cce23079c1c7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3itgfmlk",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3m94fu1",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj2t83i",
+      "id": "3",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9cvixcz",
+      "id": "4",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 04",
+      "textPreview": "Slide 04",
+      "resolvedFontSize": 8,
+      "resolvedTextStyle": {
+        "fontSize": 8,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 04"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 04",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 04",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3q5o7qpg",
+      "id": "5",
+      "bbox": [
+        0,
+        54,
+        1280,
+        56
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wb2hwfyx",
+      "id": "6",
+      "bbox": [
+        72,
+        38,
+        320,
+        22
+      ],
+      "geometry": "rect",
+      "text": "MỤC TIÊU",
+      "textPreview": "MỤC TIÊU",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MỤC TIÊU"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MỤC TIÊU",
+          "runs": [
+            {
+              "index": 1,
+              "text": "MỤC TIÊU",
+              "fontSize": 12,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwval87e",
+      "id": "7",
+      "bbox": [
+        72,
+        66,
+        1080,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Đề tài tập trung vào ví iOS cho sinh viên và cổng quản trị cho nhà trường.",
+      "textPreview": "Đề tài tập trung vào ví iOS cho sinh viên và cổng quản trị cho nhà trường.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Đề tài tập trung vào ví iOS cho sinh viên và cổng quản trị cho nhà trường."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Đề tài tập trung vào ví iOS cho sinh viên và cổng quản trị cho nhà trường.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đề tài tập trung vào ví iOS cho sinh viên và cổng quản trị cho nhà trường.",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ahoza1gv",
+      "id": "8",
+      "bbox": [
+        80,
+        170,
+        320,
+        70
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/32lszqtc",
+      "id": "9",
+      "bbox": [
+        98,
+        192,
+        280,
+        24
+      ],
+      "geometry": "rect",
+      "text": "MỤC ĐÍCH",
+      "textPreview": "MỤC ĐÍCH",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MỤC ĐÍCH"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MỤC ĐÍCH",
+          "runs": [
+            {
+              "index": 1,
+              "text": "MỤC ĐÍCH",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rqd4vmtw",
+      "id": "10",
+      "bbox": [
+        80,
+        260,
+        320,
+        230
+      ],
+      "geometry": "rect",
+      "text": "- Nghiên cứu kiến trúc hệ thống ví điện tử.\n- Ứng dụng UIKit và Express để xây dựng sản phẩm.\n- Hỗ trợ thanh toán không tiền mặt trong trường học.",
+      "textPreview": "- Nghiên cứu kiến trúc hệ thống ví điện tử. | - Ứng dụng UIKit và Express để xây dựng sản phẩm. | - Hỗ trợ thanh toán không tiền mặt tron...",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Nghiên cứu kiến trúc hệ thống ví"
+          },
+          {
+            "index": 2,
+            "text": "điện tử."
+          },
+          {
+            "index": 3,
+            "text": "- Ứng dụng UIKit và Express để xây"
+          },
+          {
+            "index": 4,
+            "text": "dựng sản phẩm."
+          },
+          {
+            "index": 5,
+            "text": "- Hỗ trợ thanh toán không tiền mặt"
+          },
+          {
+            "index": 6,
+            "text": "trong trường học."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Nghiên cứu kiến trúc hệ thống ví điện tử.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Nghiên cứu kiến trúc hệ thống ví điện tử.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "- Ứng dụng UIKit và Express để xây dựng sản phẩm.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Ứng dụng UIKit và Express để xây dựng sản phẩm.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "- Hỗ trợ thanh toán không tiền mặt trong trường học.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Hỗ trợ thanh toán không tiền mặt trong trường học.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/25kb6xkf",
+      "id": "11",
+      "bbox": [
+        470,
+        170,
+        320,
+        70
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9w3m94fu",
+      "id": "12",
+      "bbox": [
+        488,
+        192,
+        280,
+        24
+      ],
+      "geometry": "rect",
+      "text": "ĐỐI TƯỢNG",
+      "textPreview": "ĐỐI TƯỢNG",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ĐỐI TƯỢNG"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ĐỐI TƯỢNG",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ĐỐI TƯỢNG",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kb6xkf6d",
+      "id": "13",
+      "bbox": [
+        470,
+        260,
+        320,
+        230
+      ],
+      "geometry": "rect",
+      "text": "- Học sinh, sinh viên cần chuyển tiền và thanh toán dịch vụ.\n- Trường học cần quản lý phí, dịch vụ và thông báo.\n- Quản trị viên theo dõi vận hành hệ thống.",
+      "textPreview": "- Học sinh, sinh viên cần chuyển tiền và thanh toán dịch vụ. | - Trường học cần quản lý phí, dịch vụ và thông báo. | - Quản trị viên theo...",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Học sinh, sinh viên cần chuyển tiền"
+          },
+          {
+            "index": 2,
+            "text": "và thanh toán dịch vụ."
+          },
+          {
+            "index": 3,
+            "text": "- Trường học cần quản lý phí, dịch vụ"
+          },
+          {
+            "index": 4,
+            "text": "và thông báo."
+          },
+          {
+            "index": 5,
+            "text": "- Quản trị viên theo dõi vận hành hệ"
+          },
+          {
+            "index": 6,
+            "text": "thống."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Học sinh, sinh viên cần chuyển tiền và thanh toán dịch vụ.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Học sinh, sinh viên cần chuyển tiền và thanh toán dịch vụ.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "- Trường học cần quản lý phí, dịch vụ và thông báo.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Trường học cần quản lý phí, dịch vụ và thông báo.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "- Quản trị viên theo dõi vận hành hệ thống.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Quản trị viên theo dõi vận hành hệ thống.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/re1w7mp0",
+      "id": "14",
+      "bbox": [
+        860,
+        170,
+        320,
+        70
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2t83itgf",
+      "id": "15",
+      "bbox": [
+        878,
+        192,
+        280,
+        24
+      ],
+      "geometry": "rect",
+      "text": "PHẠM VI",
+      "textPreview": "PHẠM VI",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PHẠM VI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PHẠM VI",
+          "runs": [
+            {
+              "index": 1,
+              "text": "PHẠM VI",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9knih4by",
+      "id": "16",
+      "bbox": [
+        860,
+        260,
+        320,
+        230
+      ],
+      "geometry": "rect",
+      "text": "- Phân tích yêu cầu và thiết kế giao diện.\n- Phát triển iOS app, backend và admin web.\n- Kiểm thử các chức năng người dùng chính.",
+      "textPreview": "- Phân tích yêu cầu và thiết kế giao diện. | - Phát triển iOS app, backend và admin web. | - Kiểm thử các chức năng người dùng chính.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Phân tích yêu cầu và thiết kế giao"
+          },
+          {
+            "index": 2,
+            "text": "diện."
+          },
+          {
+            "index": 3,
+            "text": "- Phát triển iOS app, backend và"
+          },
+          {
+            "index": 4,
+            "text": "admin web."
+          },
+          {
+            "index": 5,
+            "text": "- Kiểm thử các chức năng người"
+          },
+          {
+            "index": 6,
+            "text": "dùng chính."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Phân tích yêu cầu và thiết kế giao diện.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Phân tích yêu cầu và thiết kế giao diện.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "- Phát triển iOS app, backend và admin web.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Phát triển iOS app, backend và admin web.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "- Kiểm thử các chức năng người dùng chính.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Kiểm thử các chức năng người dùng chính.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E5E7EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzupwb2h",
+      "id": "17",
+      "bbox": [
+        160,
+        545,
+        960,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Kết quả kỳ vọng: hoàn thành các chức năng cơ bản của hệ thống trong thời gian triển khai khóa luận.",
+      "textPreview": "Kết quả kỳ vọng: hoàn thành các chức năng cơ bản của hệ thống trong thời gian triển khai khóa luận.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Kết quả kỳ vọng: hoàn thành các chức năng cơ bản của hệ thống trong thời gian triển khai khóa"
+          },
+          {
+            "index": 2,
+            "text": "luận."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Kết quả kỳ vọng: hoàn thành các chức năng cơ bản của hệ thống trong thời gian triển khai khóa luận.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Kết quả kỳ vọng: hoàn thành các chức năng cơ bản của hệ thống trong thời gian triển khai khóa luận.",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#202631",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

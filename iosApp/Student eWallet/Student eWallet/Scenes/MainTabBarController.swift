@@ -1,7 +1,10 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+    private let historyTabIndex = 1
     private let notificationTabIndex = 2
+    private var isStudentVerified = TokenStore.shared.currentUser?.isVerified ?? false
+    private var hasShownVerificationPrompt = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
             object: nil
         )
         refreshNotificationBadge()
+        refreshStudentVerificationStatus(showPromptIfNeeded: false)
     }
 
     deinit {
@@ -111,6 +115,42 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         }
 
         navigationController.popToRootViewController(animated: false)
+    }
+
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let verifiedNow = isStudentVerified || TokenStore.shared.currentUser?.isVerified == true
+        guard
+            let index = viewControllers?.firstIndex(of: viewController),
+            index == historyTabIndex,
+            !verifiedNow
+        else {
+            return true
+        }
+
+        showStudentVerificationRequired()
+        refreshStudentVerificationStatus(showPromptIfNeeded: false)
+        return false
+    }
+
+    private func refreshStudentVerificationStatus(showPromptIfNeeded: Bool) {
+        Task { [weak self] in
+            guard let self else { return }
+
+            do {
+                let user = try await AuthService.shared.getMe()
+                await MainActor.run {
+                    self.isStudentVerified = user.isVerified
+                    if showPromptIfNeeded, !user.isVerified, !self.hasShownVerificationPrompt {
+                        self.hasShownVerificationPrompt = true
+                        self.showStudentVerificationRequired()
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    self.isStudentVerified = TokenStore.shared.currentUser?.isVerified ?? false
+                }
+            }
+        }
     }
 
     @objc private func refreshNotificationBadge() {

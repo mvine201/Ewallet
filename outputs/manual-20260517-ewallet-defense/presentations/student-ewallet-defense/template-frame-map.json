@@ -1,0 +1,33 @@
+{
+  "outputSlides": [
+    {"outputSlide": 1, "sourceSlide": 1, "narrativeRole": "opening thesis", "reuseMode": "duplicate-slide", "editTargets": ["title", "project metadata", "logo"]},
+    {"outputSlide": 2, "sourceSlide": 4, "narrativeRole": "agenda", "reuseMode": "duplicate-slide", "editTargets": ["contents rail"]},
+    {"outputSlide": 3, "sourceSlide": 6, "narrativeRole": "problem framing", "reuseMode": "duplicate-slide", "editTargets": ["pain-point blocks"]},
+    {"outputSlide": 4, "sourceSlide": 12, "narrativeRole": "objectives and scope", "reuseMode": "duplicate-slide", "editTargets": ["matrix"]},
+    {"outputSlide": 5, "sourceSlide": 13, "narrativeRole": "actors and solution overview", "reuseMode": "duplicate-slide", "editTargets": ["actor map"]},
+    {"outputSlide": 6, "sourceSlide": 16, "narrativeRole": "system architecture", "reuseMode": "duplicate-slide", "editTargets": ["architecture flow"]},
+    {"outputSlide": 7, "sourceSlide": 20, "narrativeRole": "database design", "reuseMode": "duplicate-slide", "editTargets": ["collection map"]},
+    {"outputSlide": 8, "sourceSlide": 8, "narrativeRole": "student app implementation", "reuseMode": "duplicate-slide", "editTargets": ["screenshot gallery"]},
+    {"outputSlide": 9, "sourceSlide": 17, "narrativeRole": "transaction security", "reuseMode": "duplicate-slide", "editTargets": ["process flow"]},
+    {"outputSlide": 10, "sourceSlide": 23, "narrativeRole": "analytics and AI", "reuseMode": "duplicate-slide", "editTargets": ["donut and screenshots"]},
+    {"outputSlide": 11, "sourceSlide": 14, "narrativeRole": "admin console", "reuseMode": "duplicate-slide", "editTargets": ["admin screenshots"]},
+    {"outputSlide": 12, "sourceSlide": 25, "narrativeRole": "results and roadmap", "reuseMode": "duplicate-slide", "editTargets": ["results, limitations, future work"]},
+    {"outputSlide": 13, "sourceSlide": 27, "narrativeRole": "closing", "reuseMode": "duplicate-slide", "editTargets": ["thanks and Q&A"]}
+  ],
+  "omittedSourceSlides": [
+    {"sourceSlide": 2, "reason": "alternate presenter cover not needed"},
+    {"sourceSlide": 3, "reason": "simple contents cover replaced by stronger agenda rail"},
+    {"sourceSlide": 5, "reason": "generic service layout not specific enough"},
+    {"sourceSlide": 7, "reason": "decorative circular chart replaced by project screenshots"},
+    {"sourceSlide": 9, "reason": "section divider pattern reused elsewhere"},
+    {"sourceSlide": 10, "reason": "icon list not required"},
+    {"sourceSlide": 11, "reason": "generic circular graphic not required"},
+    {"sourceSlide": 15, "reason": "generic text-heavy layout not required"},
+    {"sourceSlide": 18, "reason": "banner layout not required"},
+    {"sourceSlide": 19, "reason": "generic business timeline not required"},
+    {"sourceSlide": 21, "reason": "text list pattern not required"},
+    {"sourceSlide": 22, "reason": "generic chart pattern not required"},
+    {"sourceSlide": 24, "reason": "numeric donut layout not required"},
+    {"sourceSlide": 26, "reason": "bubble chart pattern not required"}
+  ]
+}

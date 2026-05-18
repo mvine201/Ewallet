@@ -1,0 +1,1051 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/q5v47w",
+    "id": "q5v47w",
+    "slide": 3,
+    "layoutId": "4656cb10-d13b-4039-af58-cce23079c1c7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4656cb10-d13b-4039-af58-cce23079c1c7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wfyxobm5",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7u54zido",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8bat47",
+      "id": "3",
+      "bbox": [
+        0,
+        650,
+        1280,
+        10
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc7u54zi",
+      "id": "4",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 03",
+      "textPreview": "Slide 03",
+      "resolvedFontSize": 8,
+      "resolvedTextStyle": {
+        "fontSize": 8,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 03",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 03",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wra5gbq1",
+      "id": "5",
+      "bbox": [
+        72,
+        47,
+        16,
+        16
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/36hcrmhk",
+      "id": "6",
+      "bbox": [
+        98,
+        42,
+        330,
+        28
+      ],
+      "geometry": "rect",
+      "text": "BỐI CẢNH",
+      "textPreview": "BỐI CẢNH",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BỐI CẢNH"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BỐI CẢNH",
+          "runs": [
+            {
+              "index": 1,
+              "text": "BỐI CẢNH",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/eloj2t83",
+      "id": "7",
+      "bbox": [
+        72,
+        72,
+        980,
+        76
+      ],
+      "geometry": "rect",
+      "text": "Thanh toán nội bộ trường học cần một ví sinh viên chuyên biệt.",
+      "textPreview": "Thanh toán nội bộ trường học cần một ví sinh viên chuyên biệt.",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thanh toán nội bộ trường học cần một ví sinh viên chuyên"
+          },
+          {
+            "index": 2,
+            "text": "biệt."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thanh toán nội bộ trường học cần một ví sinh viên chuyên biệt.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thanh toán nội bộ trường học cần một ví sinh viên chuyên biệt.",
+              "fontSize": 34,
+              "typeface": "Aptos Display",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pg3ex0nu",
+      "id": "8",
+      "bbox": [
+        72,
+        156,
+        1130,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#EEF1F5",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wval87ed",
+      "id": "9",
+      "bbox": [
+        72,
+        208,
+        335,
+        176
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#EEF1F5",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6hcrmhk3",
+      "id": "10",
+      "bbox": [
+        90,
+        222,
+        299,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Vấn đề 01",
+      "textPreview": "Vấn đề 01",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vấn đề 01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vấn đề 01",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vấn đề 01",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z25kb6xk",
+      "id": "11",
+      "bbox": [
+        90,
+        254,
+        299,
+        118
+      ],
+      "geometry": "rect",
+      "text": "Sinh viên khó theo dõi số dư và dễ phát sinh tình huống không đủ tiền khi cần thanh toán dịch vụ.",
+      "textPreview": "Sinh viên khó theo dõi số dư và dễ phát sinh tình huống không đủ tiền khi cần thanh toán dịch vụ.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sinh viên khó theo dõi số dư và dễ phát"
+          },
+          {
+            "index": 2,
+            "text": "sinh tình huống không đủ tiền khi cần"
+          },
+          {
+            "index": 3,
+            "text": "thanh toán dịch vụ."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sinh viên khó theo dõi số dư và dễ phát sinh tình huống không đủ tiền khi cần thanh toán dịch vụ.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sinh viên khó theo dõi số dư và dễ phát sinh tình huống không đủ tiền khi cần thanh toán dịch vụ.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/onyd0z61",
+      "id": "12",
+      "bbox": [
+        472,
+        208,
+        335,
+        176
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "#18202C",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8v6psfi",
+      "id": "13",
+      "bbox": [
+        490,
+        222,
+        299,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Vấn đề 02",
+      "textPreview": "Vấn đề 02",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vấn đề 02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vấn đề 02",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vấn đề 02",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6tovahoz",
+      "id": "14",
+      "bbox": [
+        490,
+        254,
+        299,
+        118
+      ],
+      "geometry": "rect",
+      "text": "Thông báo học phí, dịch vụ và nhắc hạn còn phân tán; sinh viên có thể bỏ lỡ mốc quan trọng.",
+      "textPreview": "Thông báo học phí, dịch vụ và nhắc hạn còn phân tán; sinh viên có thể bỏ lỡ mốc quan trọng.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thông báo học phí, dịch vụ và nhắc hạn"
+          },
+          {
+            "index": 2,
+            "text": "còn phân tán; sinh viên có thể bỏ lỡ mốc"
+          },
+          {
+            "index": 3,
+            "text": "quan trọng."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thông báo học phí, dịch vụ và nhắc hạn còn phân tán; sinh viên có thể bỏ lỡ mốc quan trọng.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thông báo học phí, dịch vụ và nhắc hạn còn phân tán; sinh viên có thể bỏ lỡ mốc quan trọng.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vahoza1g",
+      "id": "15",
+      "bbox": [
+        872,
+        208,
+        335,
+        176
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#EEF1F5",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ovahoza1",
+      "id": "16",
+      "bbox": [
+        890,
+        222,
+        299,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Vấn đề 03",
+      "textPreview": "Vấn đề 03",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vấn đề 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vấn đề 03",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vấn đề 03",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dg7adsji",
+      "id": "17",
+      "bbox": [
+        890,
+        254,
+        299,
+        118
+      ],
+      "geometry": "rect",
+      "text": "Ví điện tử phổ biến chưa được thiết kế riêng cho nghiệp vụ và dữ liệu trong môi trường giáo dục.",
+      "textPreview": "Ví điện tử phổ biến chưa được thiết kế riêng cho nghiệp vụ và dữ liệu trong môi trường giáo dục.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ví điện tử phổ biến chưa được thiết kế"
+          },
+          {
+            "index": 2,
+            "text": "riêng cho nghiệp vụ và dữ liệu trong môi"
+          },
+          {
+            "index": 3,
+            "text": "trường giáo dục."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ví điện tử phổ biến chưa được thiết kế riêng cho nghiệp vụ và dữ liệu trong môi trường giáo dục.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ví điện tử phổ biến chưa được thiết kế riêng cho nghiệp vụ và dữ liệu trong môi trường giáo dục.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61032lsz",
+      "id": "18",
+      "bbox": [
+        115,
+        454,
+        260,
+        126
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmtwra5g",
+      "id": "19",
+      "bbox": [
+        131,
+        466,
+        228,
+        38
+      ],
+      "geometry": "rect",
+      "text": "85%",
+      "textPreview": "85%",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "85%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "85%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "85%",
+              "fontSize": 30,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nqxs72x4",
+      "id": "20",
+      "bbox": [
+        131,
+        510,
+        228,
+        62
+      ],
+      "geometry": "rect",
+      "text": "người dùng Internet tại Việt Nam sở hữu ít nhất một ví điện tử theo báo cáo trích dẫn trong luận văn.",
+      "textPreview": "người dùng Internet tại Việt Nam sở hữu ít nhất một ví điện tử theo báo cáo trích dẫn trong luận văn.",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "người dùng Internet tại Việt Nam sở"
+          },
+          {
+            "index": 2,
+            "text": "hữu ít nhất một ví điện tử theo báo"
+          },
+          {
+            "index": 3,
+            "text": "cáo trích dẫn trong luận văn."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "người dùng Internet tại Việt Nam sở hữu ít nhất một ví điện tử theo báo cáo trích dẫn trong luận văn.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "người dùng Internet tại Việt Nam sở hữu ít nhất một ví điện tử theo báo cáo trích dẫn trong luận văn.",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#DBE1EA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u54zidon",
+      "id": "21",
+      "bbox": [
+        510,
+        454,
+        260,
+        126
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sneloj2",
+      "id": "22",
+      "bbox": [
+        526,
+        466,
+        228,
+        38
+      ],
+      "geometry": "rect",
+      "text": "71%",
+      "textPreview": "71%",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "71%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "71%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "71%",
+              "fontSize": 30,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "23",
+      "bbox": [
+        526,
+        510,
+        228,
+        62
+      ],
+      "geometry": "rect",
+      "text": "sử dụng ví điện tử hàng tuần, cho thấy hành vi thanh toán số đã đủ quen thuộc.",
+      "textPreview": "sử dụng ví điện tử hàng tuần, cho thấy hành vi thanh toán số đã đủ quen thuộc.",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "sử dụng ví điện tử hàng tuần, cho thấy"
+          },
+          {
+            "index": 2,
+            "text": "hành vi thanh toán số đã đủ quen"
+          },
+          {
+            "index": 3,
+            "text": "thuộc."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "sử dụng ví điện tử hàng tuần, cho thấy hành vi thanh toán số đã đủ quen thuộc.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "sử dụng ví điện tử hàng tuần, cho thấy hành vi thanh toán số đã đủ quen thuộc.",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#DBE1EA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/neloj2t8",
+      "id": "24",
+      "bbox": [
+        905,
+        454,
+        260,
+        126
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsvu9kn",
+      "id": "25",
+      "bbox": [
+        921,
+        466,
+        228,
+        38
+      ],
+      "geometry": "rect",
+      "text": "1 hệ sinh thái",
+      "textPreview": "1 hệ sinh thái",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1 hệ sinh thái"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1 hệ sinh thái",
+          "runs": [
+            {
+              "index": 1,
+              "text": "1 hệ sinh thái",
+              "fontSize": 30,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5kb6xkf6",
+      "id": "26",
+      "bbox": [
+        921,
+        510,
+        228,
+        62
+      ],
+      "geometry": "rect",
+      "text": "đề tài hướng đến ví + dịch vụ trường + phân tích chi tiêu + quản trị.",
+      "textPreview": "đề tài hướng đến ví + dịch vụ trường + phân tích chi tiêu + quản trị.",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "đề tài hướng đến ví + dịch vụ trường +"
+          },
+          {
+            "index": 2,
+            "text": "phân tích chi tiêu + quản trị."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "đề tài hướng đến ví + dịch vụ trường + phân tích chi tiêu + quản trị.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "đề tài hướng đến ví + dịch vụ trường + phân tích chi tiêu + quản trị.",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#DBE1EA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

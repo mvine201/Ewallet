@@ -1,0 +1,567 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/agonkk",
+    "id": "agonkk",
+    "slide": 1,
+    "layoutId": "4656cb10-d13b-4039-af58-cce23079c1c7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4656cb10-d13b-4039-af58-cce23079c1c7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "b0bf4fd6-c6b2-4911-8c34-3f0b4643094c",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3q5o7qpg",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FBFBFA",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wb2hwfyx",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        7
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwval87e",
+      "id": "3",
+      "bbox": [
+        18,
+        675,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Slide 01",
+      "textPreview": "Slide 01",
+      "resolvedFontSize": 8,
+      "resolvedTextStyle": {
+        "fontSize": 8,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide 01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide 01",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide 01",
+              "fontSize": 8,
+              "typeface": "Aptos",
+              "color": "#9AA1AA"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ex0nuxc3",
+      "id": "4",
+      "bbox": [
+        0,
+        0,
+        24,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3itgfmlk",
+      "id": "5",
+      "bbox": [
+        38,
+        54,
+        645,
+        372
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3m94fu1",
+      "id": "6",
+      "bbox": [
+        86,
+        34,
+        645,
+        372
+      ],
+      "geometry": "rect",
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "#18202C",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj2t83i",
+      "id": "7",
+      "bbox": [
+        1068,
+        42,
+        92,
+        32
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/at47y1kr",
+      "id": "8",
+      "bbox": [
+        1078,
+        49,
+        72,
+        18
+      ],
+      "geometry": "rect",
+      "text": "UNI EWALLET",
+      "textPreview": "UNI EWALLET",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "center"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "UNI"
+          },
+          {
+            "index": 2,
+            "text": "EWALLET"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "UNI EWALLET",
+          "runs": [
+            {
+              "index": 1,
+              "text": "UNI EWALLET",
+              "fontSize": 11,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/qxs72x4n",
+      "id": "9",
+      "bbox": [
+        200,
+        122,
+        320,
+        220
+      ],
+      "alt": "Uni Ewallet logo",
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "c7440213-9d89-41a5-b22f-7a515e1dedce",
+        "contentType": "image/png",
+        "byteLength": 154324
+      }
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3itgfmlk",
+      "id": "10",
+      "bbox": [
+        760,
+        138,
+        360,
+        24
+      ],
+      "geometry": "rect",
+      "text": "KHÓA LUẬN TỐT NGHIỆP",
+      "textPreview": "KHÓA LUẬN TỐT NGHIỆP",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "KHÓA LUẬN TỐT NGHIỆP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "KHÓA LUẬN TỐT NGHIỆP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "KHÓA LUẬN TỐT NGHIỆP",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#F45B63",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ex0nuxc3",
+      "id": "11",
+      "bbox": [
+        760,
+        176,
+        410,
+        92
+      ],
+      "geometry": "rect",
+      "text": "Xây dựng ứng dụng ví điện tử sinh viên",
+      "textPreview": "Xây dựng ứng dụng ví điện tử sinh viên",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Xây dựng ứng dụng ví"
+          },
+          {
+            "index": 2,
+            "text": "điện tử sinh viên"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Xây dựng ứng dụng ví điện tử sinh viên",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Xây dựng ứng dụng ví điện tử sinh viên",
+              "fontSize": 34,
+              "typeface": "Aptos Display",
+              "color": "#202631",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj2t83i",
+      "id": "12",
+      "bbox": [
+        760,
+        286,
+        410,
+        72
+      ],
+      "geometry": "rect",
+      "text": "Hỗ trợ thanh toán phí nội bộ trường học và tích hợp AI quản lý chi tiêu",
+      "textPreview": "Hỗ trợ thanh toán phí nội bộ trường học và tích hợp AI quản lý chi tiêu",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Hỗ trợ thanh toán phí nội bộ trường học và tích"
+          },
+          {
+            "index": 2,
+            "text": "hợp AI quản lý chi tiêu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Hỗ trợ thanh toán phí nội bộ trường học và tích hợp AI quản lý chi tiêu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Hỗ trợ thanh toán phí nội bộ trường học và tích hợp AI quản lý chi tiêu",
+              "fontSize": 19,
+              "typeface": "Aptos",
+              "color": "#6B7280"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3m94fu1",
+      "id": "13",
+      "bbox": [
+        760,
+        395,
+        322,
+        4
+      ],
+      "geometry": "rect",
+      "fillColor": "#18202C",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3q5o7qpg",
+      "id": "14",
+      "bbox": [
+        760,
+        420,
+        420,
+        86
+      ],
+      "geometry": "rect",
+      "text": "SVTH: Mạc Văn Vinh - 28211152394\nGVHD: Th.S Nguyễn Mạnh Đức\nĐà Nẵng, 06/2026",
+      "textPreview": "SVTH: Mạc Văn Vinh - 28211152394 | GVHD: Th.S Nguyễn Mạnh Đức | Đà Nẵng, 06/2026",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SVTH: Mạc Văn Vinh - 28211152394"
+          },
+          {
+            "index": 2,
+            "text": "GVHD: Th.S Nguyễn Mạnh Đức"
+          },
+          {
+            "index": 3,
+            "text": "Đà Nẵng, 06/2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SVTH: Mạc Văn Vinh - 28211152394",
+          "runs": [
+            {
+              "index": 1,
+              "text": "SVTH: Mạc Văn Vinh - 28211152394",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "GVHD: Th.S Nguyễn Mạnh Đức",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GVHD: Th.S Nguyễn Mạnh Đức",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "Đà Nẵng, 06/2026",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đà Nẵng, 06/2026",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#202631"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9cvixcz",
+      "id": "15",
+      "bbox": [
+        940,
+        612,
+        270,
+        14
+      ],
+      "geometry": "rect",
+      "fillColor": "#F45B63",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}
