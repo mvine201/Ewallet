@@ -1,2 +1,0 @@
-Deviation
-- The final deck is rebuilt with artifact-tool editable shapes instead of directly editing duplicated template slides. Reason: the supplied template is a placeholder slide library, and the project-specific defense story needs clean, editable proof objects, screenshots and diagrams. The rebuild preserves the template's visible grammar: coral/navy/white palette, title bands, bars, geometric blocks and closing rhythm.
