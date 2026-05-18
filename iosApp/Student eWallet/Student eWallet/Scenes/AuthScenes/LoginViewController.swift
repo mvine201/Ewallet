@@ -10,6 +10,8 @@ import UIKit
 final class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - UI
+    private lazy var brandHeaderView: UIView = makeBrandHeaderView()
+
     private let titleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Đăng nhập"
@@ -65,6 +67,20 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         return bt
     }()
 
+    private let forgotPasswordButton: UIButton = {
+        let bt = UIButton(type: .system)
+        bt.setTitle("Quên mật khẩu?", for: .normal)
+        bt.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        bt.setTitleColor(UIColor(red: 0.8, green: 0, blue: 0, alpha: 1), for: .normal)
+        bt.backgroundColor = UIColor.systemBackground
+        bt.layer.cornerRadius = 10
+        bt.layer.borderWidth = 1
+        bt.layer.borderColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1).cgColor
+        bt.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        bt.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        return bt
+    }()
+
     private let activity = UIActivityIndicatorView(style: .medium)
 
     // Callback để SceneDelegate chuyển root khi login thành công
@@ -94,12 +110,23 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordField.rightView = rightContainer
         passwordField.rightViewMode = .always
 
-        let stack = UIStackView(arrangedSubviews: [titleLabel, phoneField, passwordField, loginButton, goRegisterButton])
+        let stack = UIStackView(arrangedSubviews: [
+            brandHeaderView,
+            titleLabel,
+            phoneField,
+            passwordField,
+            loginButton,
+            goRegisterButton,
+            forgotPasswordButton
+        ])
         stack.axis = .vertical
-        stack.spacing = 16
+        stack.spacing = 14
         stack.alignment = .fill
         stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.setCustomSpacing(18, after: brandHeaderView)
+        stack.setCustomSpacing(16, after: titleLabel)
+        stack.setCustomSpacing(6, after: goRegisterButton)
 
         activity.hidesWhenStopped = true
 
@@ -120,6 +147,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     private func setupActions() {
         loginButton.addTarget(self, action: #selector(tapLogin), for: .touchUpInside)
         goRegisterButton.addTarget(self, action: #selector(tapGoRegister), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(tapForgotPassword), for: .touchUpInside)
     }
 
     private func setupBehaviors() {
@@ -147,6 +175,16 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
             let nav = UINavigationController(rootViewController: vc)
             present(nav, animated: true)
         }
+    }
+
+    @objc private func tapForgotPassword() {
+        let alert = UIAlertController(
+            title: "Quên mật khẩu",
+            message: "liên hệ 0878016294 để được hỗ trợ",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 
     @objc private func tapLogin() {
@@ -209,6 +247,59 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: "Lỗi", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+
+    private func makeBrandHeaderView() -> UIView {
+        let logoContainer = UIView()
+        logoContainer.translatesAutoresizingMaskIntoConstraints = false
+        logoContainer.backgroundColor = UIColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 0.08)
+        logoContainer.layer.cornerRadius = 34
+        logoContainer.layer.cornerCurve = .continuous
+
+        let logoView = UIImageView(image: UIImage(named: "LogoUniEwallet_xoanen"))
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        logoView.contentMode = .scaleAspectFit
+
+        let appNameLabel = UILabel()
+        appNameLabel.text = "Uni Ewallet"
+        appNameLabel.font = .systemFont(ofSize: 30, weight: .heavy)
+        appNameLabel.textColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
+        appNameLabel.textAlignment = .center
+
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = "Ví sinh viên cho thanh toán dịch vụ trường học"
+        subtitleLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        subtitleLabel.textColor = .secondaryLabel
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 2
+
+        logoContainer.addSubview(logoView)
+
+        let stack = UIStackView(arrangedSubviews: [logoContainer, appNameLabel, subtitleLabel])
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+
+        let container = UIView()
+        container.addSubview(stack)
+
+        NSLayoutConstraint.activate([
+            logoContainer.widthAnchor.constraint(equalToConstant: 92),
+            logoContainer.heightAnchor.constraint(equalToConstant: 92),
+
+            logoView.centerXAnchor.constraint(equalTo: logoContainer.centerXAnchor),
+            logoView.centerYAnchor.constraint(equalTo: logoContainer.centerYAnchor),
+            logoView.widthAnchor.constraint(equalToConstant: 70),
+            logoView.heightAnchor.constraint(equalToConstant: 70),
+
+            stack.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            stack.topAnchor.constraint(equalTo: container.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        ])
+
+        return container
     }
 
     // MARK: - UITextFieldDelegate

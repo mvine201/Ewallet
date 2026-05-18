@@ -31,6 +31,24 @@ const normalizeList = (value) => {
   return [];
 };
 
+const buildExcelDownloadFilename = (prefix, name, fallbackId) => {
+  const rawName = String(name || fallbackId || "export").trim();
+  const asciiName = rawName
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\x20-\x7E]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+  const fallbackName = `${prefix}-${asciiName || fallbackId || "export"}.xlsx`;
+  const utf8Name = `${prefix}-${rawName.replace(/[\\/:*?"<>|]+/g, "-")}.xlsx`;
+
+  return {
+    fallbackName,
+    encodedName: encodeURIComponent(utf8Name),
+  };
+};
+
 const VN_UTC_OFFSET_MINUTES = 7 * 60;
 
 const parseDateOrNull = (value) => {
@@ -1113,11 +1131,35 @@ export const exportServicePayments = async (req, res) => {
       "Mã giao dịch": payment.transactionId?._id?.toString() || "",
     }));
 
-    const worksheet = xlsx.utils.json_to_sheet(rows);
+    const headers = [
+      "STT",
+      "Mã sinh viên",
+      "Họ tên",
+      "Số điện thoại",
+      "Email",
+      "Khoá",
+      "Khoa",
+      "Dịch vụ",
+      "Loại dịch vụ",
+      "Học kỳ",
+      "Năm học",
+      "Nội dung thanh toán",
+      "Số tiền",
+      "Hình thức",
+      "Thời gian thanh toán",
+      "Mã giao dịch",
+    ];
+    const worksheet = rows.length
+      ? xlsx.utils.json_to_sheet(rows, { header: headers })
+      : xlsx.utils.aoa_to_sheet([headers]);
     const workbook = xlsx.utils.book_new();
     xlsx.utils.book_append_sheet(workbook, worksheet, "Thanh toan");
     const buffer = xlsx.write(workbook, { type: "buffer", bookType: "xlsx" });
-    const safeName = service.name.replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+    const { fallbackName, encodedName } = buildExcelDownloadFilename(
+      "payments",
+      service.name,
+      service._id.toString()
+    );
 
     res.setHeader(
       "Content-Type",
@@ -1125,7 +1167,7 @@ export const exportServicePayments = async (req, res) => {
     );
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename="payments-${safeName || service._id}.xlsx"`
+      `attachment; filename="${fallbackName}"; filename*=UTF-8''${encodedName}`
     );
     return res.send(buffer);
   } catch (error) {
