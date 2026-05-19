@@ -1,7 +1,7 @@
 import Transaction from "../models/Transaction.js";
 import VnpayTransaction from "../models/VNPayTransaction.js";
 
-export const DAILY_TRANSACTION_LIMIT = 100000000;
+export const DAILY_TRANSACTION_LIMIT = 50000000;
 
 const VN_UTC_OFFSET_HOURS = 7;
 
